@@ -23,6 +23,7 @@ def get(url, js=True):
             err = e; time.sleep(2)
     return None, str(err)
 out = []
+cited = [k for k in cited if not k.startswith('IEEEexample:')]  # BibTeX style-control entry, not a reference
 for k in cited:
     b = entries.get(k, ''); title = field(b, 'title'); doi = field(b, 'doi')
     blob = ' '.join(filter(None, [field(b, 'note'), field(b, 'howpublished'), field(b, 'eprint')]))  # eprint: identifier kept unprinted
