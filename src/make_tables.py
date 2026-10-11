@@ -173,7 +173,7 @@ if AGS.exists():
     ag = json.loads(AGS.read_text())
     ORDER = ['gpt-5.4-mini-2026-03-17', 'gpt-6.1-sol', 'claude-haiku-4-5-20251001', 'claude-opus-5-5']
     LAB = {'gpt-5.4-mini-2026-03-17': 'GPT-5.4 mini', 'gpt-6.1-sol': 'GPT-6.1 sol', 'claude-haiku-4-5-20251001': 'Claude Haiku 4.5', 'claude-opus-5-5': 'Claude Opus 5.5'}
-    L = [r"\begin{table}[t]\centering\caption{Agent-in-the-loop triage on identical claims (scenario A: 274 valid queries; B: 259 post-launch queries, where the unprotected tool silently returns a no-cutoff prediction and the contract-aware tool refuses). U: agent sees only \texttt{p\_replicate}; C: full contract output. Wrong auto = accepted non-replicating plus rejected replicating claims, as a share of all claims; $\Delta$ = C$-$U with paper-clustered 95\% CI. $^{\dagger}$Exploratory revised wording (\S\ref{sec:agent}).}\label{tab:agent}",
+    L = [r"\begin{table}[t]\centering\caption{Agent-in-the-loop triage on identical claims (scenario A: 274 valid queries; B: 259 post-launch queries, where the unprotected tool silently returns a no-cutoff prediction and the contract-aware tool refuses). U: agent sees only \textnormal{\texttt{p\_replicate}}; C: full contract output. Wrong auto = accepted non-replicating plus rejected replicating claims, as a share of all claims; $\Delta$ = C$-$U with paper-clustered 95\% CI. $^{\dagger}$Exploratory revised wording (\S\ref{sec:agent}).}\label{tab:agent}",
          r'\scriptsize\setlength{\tabcolsep}{2pt}\begin{tabular}{@{}llccccc@{}}\toprule',
          r'& Agent & Esc.\ U & Esc.\ C & Wrong U & Wrong C & $\Delta$ wrong (pp) ' + BS + r'\midrule']
     for sc in 'AB':
@@ -196,7 +196,7 @@ if AGS.exists():
 if AGS.exists():
     ag = json.loads(AGS.read_text())
     if all('no_tool' in ag[m]['A'] and 'placebo' in ag[m]['A'] for m in ORDER if m in ag):
-        L = [r"\begin{table}[t]\centering\caption{Control arms for scenario~A (274 claims): share escalated / share of wrong automatic decisions. \emph{No tool}: the agent sees only the claim. \emph{Placebo}: \texttt{p\_replicate} plus a generic ``this estimate is uncertain'' note. \emph{Contract}: full \texttt{verify\_claim} output. \emph{Always escalate} needs no model.}\label{tab:controls}",
+        L = [r"\begin{table}[t]\centering\caption{Control arms for scenario~A (274 claims): share escalated / share of wrong automatic decisions. \emph{No tool}: the agent sees only the claim. \emph{Placebo}: \textnormal{\texttt{p\_replicate}} plus a generic ``this estimate is uncertain'' note. \emph{Contract}: full \textnormal{\texttt{verify\_claim}} output. \emph{Always escalate} needs no model.}\label{tab:controls}",
              r'\scriptsize\setlength{\tabcolsep}{3pt}\begin{tabular}{@{}lcccc@{}}\toprule',
              r'Agent & No tool & Placebo & Unprotected & Contract ' + BS + r'\midrule']
         f = lambda x: f"{100 * x['escalate']:.0f}\\% / {100 * x['auto_error']:.1f}\\%"

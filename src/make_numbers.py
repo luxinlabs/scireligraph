@@ -201,7 +201,7 @@ if AS.exists():
                     put(f'ag{tag}{sc}{wt}Rej', pct(S[w]['reject']))
     scen = [json.loads(l) for l in (R / 'agent' / 'scenarios.jsonl').read_text().splitlines() if l.strip()]
     pa = [r['unprotected']['p_replicate'] for r in scen if r['scenario'] == 'A']
-    put('agPmin', f2(min(pa))); put('agPmax', f2(max(pa))); put('agCalls', f"{2 * len(scen) * len(ag):,}".replace(',', '{,}')); put('agCallsVtwo', str(sum(v['n_calls'] for v in ag.values()) - 2 * len(scen) * len(ag)))
+    put('agPmin', f2(min(pa))); put('agPmax', f2(max(pa))); put('agCalls', f"{2 * len(scen) * len(ag):,}".replace(',', '{,}')); put('agCallsVtwo', f"{sum(v['n_calls'] for v in ag.values()) - 2 * len(scen) * len(ag):,}".replace(',', '{,}'))
     put('agCost', f"{sum(v['cost_usd'] for v in ag.values()):.2f}")
 
 (OUT / 'numbers.tex').write_text('\n'.join(f'\\newcommand{{\\{k}}}{{{v}}}' for k, v in N.items()) + '\n')
