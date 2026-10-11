@@ -1,0 +1,43 @@
+{
+  "original": {
+    "killed": null,
+    "failing_tests": [],
+    "summary": "9 passed in 14.12s"
+  },
+  "leaky_cutoff": {
+    "killed": true,
+    "failing_tests": [
+      "test_r1_future_evidence_is_invisible"
+    ],
+    "summary": "1 failed, 8 passed in 18.84s"
+  },
+  "no_leave_paper_out": {
+    "killed": true,
+    "failing_tests": [
+      "test_r3_own_paper_labels_never_used",
+      "test_r4_output_is_decision_relevant"
+    ],
+    "summary": "2 failed, 7 passed in 13.71s"
+  },
+  "no_stage_gating": {
+    "killed": true,
+    "failing_tests": [
+      "test_stage_gating_publication_ignores_launch_tier"
+    ],
+    "summary": "1 failed, 8 passed in 13.91s"
+  },
+  "no_refusal": {
+    "killed": true,
+    "failing_tests": [
+      "test_r1_refuses_on_or_after_launch"
+    ],
+    "summary": "1 failed, 8 passed in 15.43s"
+  },
+  "no_audit": {
+    "killed": true,
+    "failing_tests": [
+      "test_r5_every_call_is_audited"
+    ],
+    "summary": "1 failed, 8 passed in 14.11s"
+  }
+}

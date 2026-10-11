@@ -1,0 +1,14 @@
+.env
+**/.env
+.venv/
+__pycache__/
+*.pyc
+.mutmut-cache
+data/raw/
+data/openalex/
+results/llm_pilot/
+paper/*.aux
+paper/*.log
+paper/*.out
+paper/*.blg
+.DS_Store

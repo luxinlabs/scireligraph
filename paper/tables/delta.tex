@@ -1,0 +1,15 @@
+\begin{table*}[t]\centering\caption{Paired differences on identical paper-clustered bootstrap resamples (2000; seed-averaged predictions). $p_{\mathrm{Holm}}$: two-sided bootstrap $p$ for $\Delta$AUROC, Holm-adjusted over the 11 comparisons. $\Delta$Brier $<0$ favours the first model.}\label{tab:delta}
+\footnotesize\setlength{\tabcolsep}{6pt}\begin{tabular}{@{}lccccc@{}}\toprule
+Comparison (question) & $\Delta$AUROC & 95\% CI & $p_{\mathrm{Holm}}$ & $\Delta$Brier & 95\% CI \\\midrule
+B1 vs.\ B0 (metadata signal) & +0.156 & [+0.025, +0.305] & 0.19 & -0.0087 & [-0.0215, +0.0036] \\
+B4 vs.\ B1 (flat evidence) & -0.013 & [-0.027, -0.001] & 0.34 & +0.0023 & [+0.0004, +0.0044] \\
+M1 vs.\ B4 (H1: graph vs.\ flat) & +0.013 & [-0.028, +0.046] & 1.00 & -0.0026 & [-0.0073, +0.0026] \\
+M2 vs.\ M1 (H2: dependency correction) & +0.000 & [-0.017, +0.017] & 1.00 & -0.0002 & [-0.0027, +0.0025] \\
+M2 vs.\ B1 (evidence overall) & +0.000 & [-0.041, +0.033] & 1.00 & -0.0006 & [-0.0060, +0.0056] \\
+M2 vs.\ NC (graph vs.\ permuted) & +0.015 & [-0.018, +0.045] & 1.00 & -0.0021 & [-0.0068, +0.0030] \\
+M2$_\infty$ vs.\ M2 (H3: no cutoff (M2)) & -0.010 & [-0.059, +0.035] & 1.00 & +0.0002 & [-0.0077, +0.0089] \\
+G$_\infty$ vs.\ G (H3: no cutoff (graph)) & -0.030 & [-0.107, +0.050] & 1.00 & -0.0020 & [-0.0115, +0.0075] \\
+D vs.\ B1 (planned design) & -0.003 & [-0.037, +0.034] & 1.00 & -0.0003 & [-0.0079, +0.0077] \\
+D$^{*}$ vs.\ D (achieved size (leak)) & +0.024 & [-0.005, +0.053] & 1.00 & -0.0028 & [-0.0086, +0.0026] \\
+B2 vs.\ B0 (text signal) & -0.017 & [-0.154, +0.146] & 1.00 & +0.0010 & [-0.0009, +0.0028] \\
+\bottomrule\end{tabular}\end{table*}

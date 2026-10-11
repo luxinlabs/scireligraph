@@ -1,0 +1,106 @@
+{
+  "source": "OSF g5sny \"analysis data and code package 15 Dec 2025 1708.zip\" (https://osf.io/download/5xfdy/)",
+  "source_sha256": "80a221f0deb78f49668c23e08b23b5f089f47d56f68feec0ecb405a55a437af2",
+  "openalex_access": "2026-10-08T23:29:35-0700",
+  "label": "repli_score_criteria_met (SCORE primary criterion), version-of-record, non-COVID",
+  "validation": {
+    "n_claims": {
+      "observed": 274,
+      "published": 274
+    },
+    "n_papers": {
+      "observed": 164,
+      "published": 164
+    },
+    "n_replicated": {
+      "observed": 151,
+      "published": 151
+    },
+    "rows": {
+      "observed": 274,
+      "published": 274
+    }
+  },
+  "n_journals": 54,
+  "earliest_replication_start": "2019-08-06",
+  "strict_cutoff": "2018-12-31",
+  "launch_cutoff_available": 259,
+  "openalex_coverage": {
+    "papers_found": 164,
+    "citing_works": 23666,
+    "papers_total": 164
+  },
+  "strict_citing_works": 8268,
+  "feature_tiers": {
+    "A": [
+      "a_log10_n",
+      "a_neglog10_p",
+      "a_p_marginal",
+      "a_p_exact",
+      "a_abs_r",
+      "a_power50",
+      "a_interaction",
+      "a_stat_type",
+      "a_analysis",
+      "a_pub_year",
+      "a_field"
+    ],
+    "T": [
+      "text"
+    ],
+    "G_flat": [
+      "g_log_cites",
+      "g_log_cites_per_year",
+      "g_log_refs"
+    ],
+    "G_graph": [
+      "g_venue_entropy",
+      "g_field_count",
+      "g_cross_field_frac",
+      "g_internal_density",
+      "g_coupling_mean",
+      "g_has_evidence"
+    ],
+    "G_dependency": [
+      "g_selfcite_frac",
+      "g_log_indep_groups",
+      "g_indep_ratio",
+      "g_log_citing_authors"
+    ],
+    "D": [
+      "d_new_data",
+      "d_log10_planned_n"
+    ],
+    "D_cat": [
+      "d_power_target"
+    ],
+    "D_achieved": [
+      "dx_log10_rep_n",
+      "dx_power50"
+    ]
+  },
+  "missingness": {
+    "a_log10_n": 9,
+    "a_neglog10_p": 4,
+    "a_p_marginal": 4,
+    "a_p_exact": 0,
+    "a_abs_r": 22,
+    "a_power50": 26,
+    "a_interaction": 149,
+    "a_stat_type": 0,
+    "a_analysis": 0,
+    "a_pub_year": 0,
+    "a_field": 0,
+    "d_new_data": 0,
+    "d_log10_planned_n": 55,
+    "d_power_target": 0,
+    "dx_log10_rep_n": 8,
+    "dx_power50": 67
+  },
+  "planned_vs_achieved_n_median_ratio": 1.330238726790451,
+  "alt_label_rates": {
+    "alt_analyst": 0.546875,
+    "alt_rep_wthn": 0.41365461847389556,
+    "alt_bayes_rep": 0.5422222222222223
+  }
+}

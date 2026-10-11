@@ -1,0 +1,619 @@
+\newcommand{\aucBone}{0.627}
+\newcommand{\sdBone}{0.017}
+\newcommand{\ciBone}{[0.55, 0.71]}
+\newcommand{\brierBone}{0.2409}
+\newcommand{\bssBone}{2.6\%}
+\newcommand{\aucMtwo}{0.620}
+\newcommand{\sdMtwo}{0.020}
+\newcommand{\ciMtwo}{[0.55, 0.70]}
+\newcommand{\brierMtwo}{0.2406}
+\newcommand{\bssMtwo}{2.8\%}
+\newcommand{\aucDplan}{0.625}
+\newcommand{\sdDplan}{0.019}
+\newcommand{\ciDplan}{[0.54, 0.71]}
+\newcommand{\brierDplan}{0.2429}
+\newcommand{\bssDplan}{1.8\%}
+\newcommand{\aucDach}{0.638}
+\newcommand{\sdDach}{0.024}
+\newcommand{\ciDach}{[0.58, 0.72]}
+\newcommand{\brierDach}{0.2403}
+\newcommand{\bssDach}{2.9\%}
+\newcommand{\aucGonly}{0.591}
+\newcommand{\sdGonly}{0.027}
+\newcommand{\ciGonly}{[0.53, 0.69]}
+\newcommand{\brierGonly}{0.2485}
+\newcommand{\bssGonly}{-0.4\%}
+\newcommand{\aucBtwo}{0.481}
+\newcommand{\sdBtwo}{0.022}
+\newcommand{\ciBtwo}{[0.37, 0.55]}
+\newcommand{\brierBtwo}{0.2487}
+\newcommand{\bssBtwo}{-0.5\%}
+\newcommand{\aucMtwolaunch}{0.620}
+\newcommand{\sdMtwolaunch}{0.020}
+\newcommand{\ciMtwolaunch}{[0.55, 0.70]}
+\newcommand{\brierMtwolaunch}{0.2405}
+\newcommand{\bssMtwolaunch}{2.8\%}
+\newcommand{\aucBzero}{0.492}
+\newcommand{\sdBzero}{0.001}
+\newcommand{\ciBzero}{[0.37, 0.56]}
+\newcommand{\brierBzero}{0.2474}
+\newcommand{\bssBzero}{0.0\%}
+\newcommand{\dBoneBzero}{\mbox{$+$0.156}}
+\newcommand{\dciBoneBzero}{[\mbox{$+$0.025}, \mbox{$+$0.305}]}
+\newcommand{\holmBoneBzero}{0.19}
+\newcommand{\dbrierBoneBzero}{\mbox{$-$0.0087}}
+\newcommand{\dbrierciBoneBzero}{[\mbox{$-$0.0215}, \mbox{$+$0.0036}]}
+\newcommand{\dBfourBone}{\mbox{$-$0.013}}
+\newcommand{\dciBfourBone}{[\mbox{$-$0.027}, \mbox{$-$0.001}]}
+\newcommand{\holmBfourBone}{0.34}
+\newcommand{\dbrierBfourBone}{\mbox{$+$0.0023}}
+\newcommand{\dbrierciBfourBone}{[\mbox{$+$0.0004}, \mbox{$+$0.0044}]}
+\newcommand{\dMoneBfour}{\mbox{$+$0.013}}
+\newcommand{\dciMoneBfour}{[\mbox{$-$0.028}, \mbox{$+$0.046}]}
+\newcommand{\holmMoneBfour}{1.00}
+\newcommand{\dbrierMoneBfour}{\mbox{$-$0.0026}}
+\newcommand{\dbrierciMoneBfour}{[\mbox{$-$0.0073}, \mbox{$+$0.0026}]}
+\newcommand{\dMtwoMone}{\mbox{$+$0.000}}
+\newcommand{\dciMtwoMone}{[\mbox{$-$0.017}, \mbox{$+$0.017}]}
+\newcommand{\holmMtwoMone}{1.00}
+\newcommand{\dbrierMtwoMone}{\mbox{$-$0.0002}}
+\newcommand{\dbrierciMtwoMone}{[\mbox{$-$0.0027}, \mbox{$+$0.0025}]}
+\newcommand{\dMtwoBone}{\mbox{$+$0.000}}
+\newcommand{\dciMtwoBone}{[\mbox{$-$0.041}, \mbox{$+$0.033}]}
+\newcommand{\holmMtwoBone}{1.00}
+\newcommand{\dbrierMtwoBone}{\mbox{$-$0.0006}}
+\newcommand{\dbrierciMtwoBone}{[\mbox{$-$0.0060}, \mbox{$+$0.0056}]}
+\newcommand{\dMtwoNC}{\mbox{$+$0.015}}
+\newcommand{\dciMtwoNC}{[\mbox{$-$0.018}, \mbox{$+$0.045}]}
+\newcommand{\holmMtwoNC}{1.00}
+\newcommand{\dbrierMtwoNC}{\mbox{$-$0.0021}}
+\newcommand{\dbrierciMtwoNC}{[\mbox{$-$0.0068}, \mbox{$+$0.0030}]}
+\newcommand{\dLeakMtwo}{\mbox{$-$0.010}}
+\newcommand{\dciLeakMtwo}{[\mbox{$-$0.059}, \mbox{$+$0.035}]}
+\newcommand{\holmLeakMtwo}{1.00}
+\newcommand{\dbrierLeakMtwo}{\mbox{$+$0.0002}}
+\newcommand{\dbrierciLeakMtwo}{[\mbox{$-$0.0077}, \mbox{$+$0.0089}]}
+\newcommand{\dLeakG}{\mbox{$-$0.030}}
+\newcommand{\dciLeakG}{[\mbox{$-$0.107}, \mbox{$+$0.050}]}
+\newcommand{\holmLeakG}{1.00}
+\newcommand{\dbrierLeakG}{\mbox{$-$0.0020}}
+\newcommand{\dbrierciLeakG}{[\mbox{$-$0.0115}, \mbox{$+$0.0075}]}
+\newcommand{\dDplanBone}{\mbox{$-$0.003}}
+\newcommand{\dciDplanBone}{[\mbox{$-$0.037}, \mbox{$+$0.034}]}
+\newcommand{\holmDplanBone}{1.00}
+\newcommand{\dbrierDplanBone}{\mbox{$-$0.0003}}
+\newcommand{\dbrierciDplanBone}{[\mbox{$-$0.0079}, \mbox{$+$0.0077}]}
+\newcommand{\dDachDplan}{\mbox{$+$0.024}}
+\newcommand{\dciDachDplan}{[\mbox{$-$0.005}, \mbox{$+$0.053}]}
+\newcommand{\holmDachDplan}{1.00}
+\newcommand{\dbrierDachDplan}{\mbox{$-$0.0028}}
+\newcommand{\dbrierciDachDplan}{[\mbox{$-$0.0086}, \mbox{$+$0.0026}]}
+\newcommand{\punBoneBzero}{0.02}
+\newcommand{\selTopBone}{0.44}
+\newcommand{\selTopCIBone}{[0.26, 0.68]}
+\newcommand{\selHalfBone}{0.66}
+\newcommand{\selAllBone}{0.63}
+\newcommand{\selPosBone}{96\%}
+\newcommand{\selTopMtwo}{0.67}
+\newcommand{\selTopCIMtwo}{[0.38, 0.82]}
+\newcommand{\selHalfMtwo}{0.66}
+\newcommand{\selAllMtwo}{0.59}
+\newcommand{\selPosMtwo}{89\%}
+\newcommand{\selTopDplan}{0.48}
+\newcommand{\selTopCIDplan}{[0.33, 0.70]}
+\newcommand{\selHalfDplan}{0.65}
+\newcommand{\selAllDplan}{0.64}
+\newcommand{\selPosDplan}{89\%}
+\newcommand{\selPosMin}{89\%}
+\newcommand{\selPosMax}{96\%}
+\newcommand{\permK}{30}
+\newcommand{\permSeeds}{5}
+\newcommand{\permReal}{0.632}
+\newcommand{\permNullMean}{0.605}
+\newcommand{\permNullLo}{0.580}
+\newcommand{\permNullHi}{0.640}
+\newcommand{\permP}{0.10}
+\newcommand{\permBone}{0.639}
+\newcommand{\permPbrier}{0.10}
+\newcommand{\nCiting}{23{,}666}
+\newcommand{\nCitingStrict}{8{,}268}
+\newcommand{\earliestStart}{2019-08-06}
+\newcommand{\nLaunch}{259}
+\newcommand{\nPlanned}{219}
+\newcommand{\plannedRatio}{1.33}
+\newcommand{\logCitesStrict}{3.30}
+\newcommand{\logCitesLeaky}{4.50}
+\newcommand{\hasEvStrict}{97.8\%}
+\newcommand{\hasEvLeaky}{100\%}
+\newcommand{\fpRep}{8.9}
+\newcommand{\fpNon}{4.7}
+\newcommand{\fpAuc}{0.61}
+\newcommand{\fpowRep}{0.55}
+\newcommand{\fpowNon}{0.44}
+\newcommand{\fpowAuc}{0.60}
+\newcommand{\fmargRep}{16\%}
+\newcommand{\fmargNon}{27\%}
+\newcommand{\fexactRep}{67\%}
+\newcommand{\fexactNon}{85\%}
+\newcommand{\fxfRep}{0.32}
+\newcommand{\fxfNon}{0.42}
+\newcommand{\fxfAuc}{0.62}
+\newcommand{\fcitesAuc}{0.52}
+\newcommand{\subPsych}{0.53}
+\newcommand{\subPsychN}{94}
+\newcommand{\subEcon}{0.78}
+\newcommand{\subEconN}{38}
+\newcommand{\subPol}{0.74}
+\newcommand{\subPolN}{45}
+\newcommand{\starterAuc}{0.523}
+\newcommand{\starterBrier}{0.267}
+\newcommand{\starterPrevBrier}{0.247}
+\newcommand{\sensLo}{0.60}
+\newcommand{\sensHi}{0.64}
+\newcommand{\nTests}{9}
+\newcommand{\nMutants}{5}
+\newcommand{\nKilled}{5}
+\newcommand{\locPython}{2188}
+\newcommand{\pwBone}{0.632}
+\newcommand{\pwMtwo}{0.602}
+\newcommand{\pwDplan}{0.660}
+\newcommand{\pwBase}{49.3\%}
+\newcommand{\pwBssBone}{4.1\%}
+\newcommand{\maxClaimsPaper}{18}
+\newcommand{\llmMiniIdAuc}{0.600}
+\newcommand{\llmMiniIdCi}{[0.52, 0.68]}
+\newcommand{\llmMiniIdBrier}{0.2753}
+\newcommand{\llmMiniIdVsBone}{\mbox{$-$0.028}}
+\newcommand{\llmMiniIdVsBoneCi}{[\mbox{$-$0.106}, \mbox{$+$0.050}]}
+\newcommand{\llmMiniIdTop}{0.70}
+\newcommand{\llmMiniIdAll}{0.57}
+\newcommand{\llmMiniIdSd}{0.19}
+\newcommand{\llmMiniIdTopCi}{[0.48, 0.92]}
+\newcommand{\llmMiniIdGainCi}{[\mbox{$-$0.08}, \mbox{$+$0.34}]}
+\newcommand{\llmMiniIdTopPos}{93\%}
+\newcommand{\llmMiniDeidAuc}{0.570}
+\newcommand{\llmMiniDeidCi}{[0.48, 0.66]}
+\newcommand{\llmMiniDeidBrier}{0.2758}
+\newcommand{\llmMiniDeidVsBone}{\mbox{$-$0.058}}
+\newcommand{\llmMiniDeidVsBoneCi}{[\mbox{$-$0.160}, \mbox{$+$0.038}]}
+\newcommand{\llmMiniDeidTop}{0.56}
+\newcommand{\llmMiniDeidAll}{0.57}
+\newcommand{\llmMiniDeidSd}{0.19}
+\newcommand{\llmMiniDeidTopCi}{[0.32, 0.81]}
+\newcommand{\llmMiniDeidGainCi}{[\mbox{$-$0.23}, \mbox{$+$0.22}]}
+\newcommand{\llmMiniDeidTopPos}{89\%}
+\newcommand{\llmMiniIdDeid}{\mbox{$+$0.030}}
+\newcommand{\llmMiniIdDeidCi}{[\mbox{$-$0.028}, \mbox{$+$0.098}]}
+\newcommand{\llmMiniAwareReal}{42.7\%}
+\newcommand{\llmMiniAwareDecoy}{24.0\%}
+\newcommand{\llmMiniNamed}{77}
+\newcommand{\llmMiniAwareRealCi}{[37, 49]\%}
+\newcommand{\llmMiniAwareDecoyCi}{[17, 33]\%}
+\newcommand{\llmMiniNamedDecoy}{12}
+\newcommand{\llmMiniNamedAcc}{0.64}
+\newcommand{\llmMiniNamedMaj}{0.56}
+\newcommand{\llmMiniCost}{0.38}
+\newcommand{\llmMiniFail}{0}
+\newcommand{\llmMiniEffort}{none}
+\newcommand{\llmSolIdAuc}{0.663}
+\newcommand{\llmSolIdCi}{[0.58, 0.74]}
+\newcommand{\llmSolIdBrier}{0.2594}
+\newcommand{\llmSolIdVsBone}{\mbox{$+$0.036}}
+\newcommand{\llmSolIdVsBoneCi}{[\mbox{$-$0.031}, \mbox{$+$0.105}]}
+\newcommand{\llmSolIdTop}{0.78}
+\newcommand{\llmSolIdAll}{0.61}
+\newcommand{\llmSolIdSd}{0.18}
+\newcommand{\llmSolIdTopCi}{[0.58, 0.97]}
+\newcommand{\llmSolIdGainCi}{[\mbox{$-$0.00}, \mbox{$+$0.36}]}
+\newcommand{\llmSolIdTopPos}{100\%}
+\newcommand{\llmSolDeidAuc}{0.612}
+\newcommand{\llmSolDeidCi}{[0.53, 0.70]}
+\newcommand{\llmSolDeidBrier}{0.2627}
+\newcommand{\llmSolDeidVsBone}{\mbox{$-$0.016}}
+\newcommand{\llmSolDeidVsBoneCi}{[\mbox{$-$0.107}, \mbox{$+$0.073}]}
+\newcommand{\llmSolDeidTop}{0.74}
+\newcommand{\llmSolDeidAll}{0.58}
+\newcommand{\llmSolDeidSd}{0.18}
+\newcommand{\llmSolDeidTopCi}{[0.52, 0.93]}
+\newcommand{\llmSolDeidGainCi}{[\mbox{$-$0.04}, \mbox{$+$0.35}]}
+\newcommand{\llmSolDeidTopPos}{96\%}
+\newcommand{\llmSolIdDeid}{\mbox{$+$0.051}}
+\newcommand{\llmSolIdDeidCi}{[\mbox{$+$0.008}, \mbox{$+$0.101}]}
+\newcommand{\llmSolAwareReal}{2.2\%}
+\newcommand{\llmSolAwareDecoy}{2.0\%}
+\newcommand{\llmSolNamed}{6}
+\newcommand{\llmSolAwareRealCi}{[1, 5]\%}
+\newcommand{\llmSolAwareDecoyCi}{[1, 7]\%}
+\newcommand{\llmSolNamedDecoy}{2}
+\newcommand{\llmSolNamedAcc}{1.00}
+\newcommand{\llmSolNamedMaj}{0.83}
+\newcommand{\llmSolCost}{1.33}
+\newcommand{\llmSolFail}{0}
+\newcommand{\llmSolEffort}{low}
+\newcommand{\llmHaikuIdAuc}{0.566}
+\newcommand{\llmHaikuIdCi}{[0.48, 0.65]}
+\newcommand{\llmHaikuIdBrier}{0.2541}
+\newcommand{\llmHaikuIdVsBone}{\mbox{$-$0.061}}
+\newcommand{\llmHaikuIdVsBoneCi}{[\mbox{$-$0.154}, \mbox{$+$0.026}]}
+\newcommand{\llmHaikuIdTop}{0.52}
+\newcommand{\llmHaikuIdAll}{0.56}
+\newcommand{\llmHaikuIdSd}{0.15}
+\newcommand{\llmHaikuIdTopCi}{[0.39, 0.81]}
+\newcommand{\llmHaikuIdGainCi}{[\mbox{$-$0.15}, \mbox{$+$0.22}]}
+\newcommand{\llmHaikuIdTopPos}{63\%}
+\newcommand{\llmHaikuDeidAuc}{0.592}
+\newcommand{\llmHaikuDeidCi}{[0.51, 0.68]}
+\newcommand{\llmHaikuDeidBrier}{0.2561}
+\newcommand{\llmHaikuDeidVsBone}{\mbox{$-$0.036}}
+\newcommand{\llmHaikuDeidVsBoneCi}{[\mbox{$-$0.132}, \mbox{$+$0.057}]}
+\newcommand{\llmHaikuDeidTop}{0.70}
+\newcommand{\llmHaikuDeidAll}{0.53}
+\newcommand{\llmHaikuDeidSd}{0.15}
+\newcommand{\llmHaikuDeidTopCi}{[0.36, 0.88]}
+\newcommand{\llmHaikuDeidGainCi}{[\mbox{$-$0.15}, \mbox{$+$0.34}]}
+\newcommand{\llmHaikuDeidTopPos}{81\%}
+\newcommand{\llmHaikuIdDeid}{\mbox{$-$0.026}}
+\newcommand{\llmHaikuIdDeidCi}{[\mbox{$-$0.093}, \mbox{$+$0.047}]}
+\newcommand{\llmHaikuAwareReal}{0.0\%}
+\newcommand{\llmHaikuAwareDecoy}{0.0\%}
+\newcommand{\llmHaikuNamed}{0}
+\newcommand{\llmHaikuAwareRealCi}{[0, 1]\%}
+\newcommand{\llmHaikuAwareDecoyCi}{[0, 4]\%}
+\newcommand{\llmHaikuNamedDecoy}{0}
+\newcommand{\llmHaikuNamedAcc}{--}
+\newcommand{\llmHaikuNamedMaj}{--}
+\newcommand{\llmHaikuCost}{0.65}
+\newcommand{\llmHaikuFail}{0}
+\newcommand{\llmHaikuEffort}{default}
+\newcommand{\llmOpusIdAuc}{0.655}
+\newcommand{\llmOpusIdCi}{[0.57, 0.74]}
+\newcommand{\llmOpusIdBrier}{0.2392}
+\newcommand{\llmOpusIdVsBone}{\mbox{$+$0.027}}
+\newcommand{\llmOpusIdVsBoneCi}{[\mbox{$-$0.044}, \mbox{$+$0.103}]}
+\newcommand{\llmOpusIdTop}{0.89}
+\newcommand{\llmOpusIdAll}{0.62}
+\newcommand{\llmOpusIdSd}{0.23}
+\newcommand{\llmOpusIdTopCi}{[0.67, 1.00]}
+\newcommand{\llmOpusIdGainCi}{[\mbox{$+$0.07}, \mbox{$+$0.38}]}
+\newcommand{\llmOpusIdTopPos}{89\%}
+\newcommand{\llmOpusDeidAuc}{0.620}
+\newcommand{\llmOpusDeidCi}{[0.53, 0.70]}
+\newcommand{\llmOpusDeidBrier}{0.2478}
+\newcommand{\llmOpusDeidVsBone}{\mbox{$-$0.007}}
+\newcommand{\llmOpusDeidVsBoneCi}{[\mbox{$-$0.097}, \mbox{$+$0.077}]}
+\newcommand{\llmOpusDeidTop}{0.70}
+\newcommand{\llmOpusDeidAll}{0.60}
+\newcommand{\llmOpusDeidSd}{0.20}
+\newcommand{\llmOpusDeidTopCi}{[0.41, 0.93]}
+\newcommand{\llmOpusDeidGainCi}{[\mbox{$-$0.16}, \mbox{$+$0.32}]}
+\newcommand{\llmOpusDeidTopPos}{93\%}
+\newcommand{\llmOpusIdDeid}{\mbox{$+$0.035}}
+\newcommand{\llmOpusIdDeidCi}{[\mbox{$-$0.024}, \mbox{$+$0.092}]}
+\newcommand{\llmOpusAwareReal}{0.0\%}
+\newcommand{\llmOpusAwareDecoy}{0.0\%}
+\newcommand{\llmOpusNamed}{3}
+\newcommand{\llmOpusAwareRealCi}{[0, 1]\%}
+\newcommand{\llmOpusAwareDecoyCi}{[0, 4]\%}
+\newcommand{\llmOpusNamedDecoy}{0}
+\newcommand{\llmOpusNamedAcc}{0.67}
+\newcommand{\llmOpusNamedMaj}{0.67}
+\newcommand{\llmOpusCost}{3.33}
+\newcommand{\llmOpusFail}{0}
+\newcommand{\llmOpusEffort}{default}
+\newcommand{\llmBoneAuc}{0.628}
+\newcommand{\llmN}{274}
+\newcommand{\llmBoneBrier}{0.2387}
+\newcommand{\llmBzeroBrier}{0.2474}
+\newcommand{\llmBoneTop}{0.44}
+\newcommand{\llmCalls}{3688}
+\newcommand{\llmCostTotal}{5.68}
+\newcommand{\rcMiniPlattBrier}{0.2438}
+\newcommand{\rcMiniPlattAuc}{0.593}
+\newcommand{\rcMiniPlattBss}{+1.5\%}
+\newcommand{\rcMiniPlattVsBone}{\mbox{$+$0.0051}}
+\newcommand{\rcMiniPlattVsBoneCi}{[\mbox{$-$0.0062}, \mbox{$+$0.0161}]}
+\newcommand{\rcMiniPlattVsBzeroCi}{[\mbox{$-$0.0148}, \mbox{$+$0.0072}]}
+\newcommand{\rcMiniIsoBrier}{0.2514}
+\newcommand{\rcMiniIsoAuc}{0.545}
+\newcommand{\rcMiniIsoBss}{-1.6\%}
+\newcommand{\rcMiniIsoVsBone}{\mbox{$+$0.0127}}
+\newcommand{\rcMiniIsoVsBoneCi}{[\mbox{$-$0.0019}, \mbox{$+$0.0275}]}
+\newcommand{\rcMiniIsoVsBzeroCi}{[\mbox{$-$0.0126}, \mbox{$+$0.0210}]}
+\newcommand{\rcSolPlattBrier}{0.2313}
+\newcommand{\rcSolPlattAuc}{0.655}
+\newcommand{\rcSolPlattBss}{+6.5\%}
+\newcommand{\rcSolPlattVsBone}{\mbox{$-$0.0074}}
+\newcommand{\rcSolPlattVsBoneCi}{[\mbox{$-$0.0229}, \mbox{$+$0.0074}]}
+\newcommand{\rcSolPlattVsBzeroCi}{[\mbox{$-$0.0369}, \mbox{$+$0.0057}]}
+\newcommand{\rcSolIsoBrier}{0.2398}
+\newcommand{\rcSolIsoAuc}{0.623}
+\newcommand{\rcSolIsoBss}{+3.1\%}
+\newcommand{\rcSolIsoVsBone}{\mbox{$+$0.0011}}
+\newcommand{\rcSolIsoVsBoneCi}{[\mbox{$-$0.0193}, \mbox{$+$0.0205}]}
+\newcommand{\rcSolIsoVsBzeroCi}{[\mbox{$-$0.0335}, \mbox{$+$0.0186}]}
+\newcommand{\rcHaikuPlattBrier}{0.2466}
+\newcommand{\rcHaikuPlattAuc}{0.531}
+\newcommand{\rcHaikuPlattBss}{+0.3\%}
+\newcommand{\rcHaikuPlattVsBone}{\mbox{$+$0.0079}}
+\newcommand{\rcHaikuPlattVsBoneCi}{[\mbox{$-$0.0047}, \mbox{$+$0.0195}]}
+\newcommand{\rcHaikuPlattVsBzeroCi}{[\mbox{$-$0.0102}, \mbox{$+$0.0090}]}
+\newcommand{\rcHaikuIsoBrier}{0.2515}
+\newcommand{\rcHaikuIsoAuc}{0.473}
+\newcommand{\rcHaikuIsoBss}{-1.7\%}
+\newcommand{\rcHaikuIsoVsBone}{\mbox{$+$0.0129}}
+\newcommand{\rcHaikuIsoVsBoneCi}{[\mbox{$-$0.0005}, \mbox{$+$0.0253}]}
+\newcommand{\rcHaikuIsoVsBzeroCi}{[\mbox{$-$0.0074}, \mbox{$+$0.0155}]}
+\newcommand{\rcOpusPlattBrier}{0.2323}
+\newcommand{\rcOpusPlattAuc}{0.639}
+\newcommand{\rcOpusPlattBss}{+6.1\%}
+\newcommand{\rcOpusPlattVsBone}{\mbox{$-$0.0063}}
+\newcommand{\rcOpusPlattVsBoneCi}{[\mbox{$-$0.0258}, \mbox{$+$0.0132}]}
+\newcommand{\rcOpusPlattVsBzeroCi}{[\mbox{$-$0.0399}, \mbox{$+$0.0104}]}
+\newcommand{\rcOpusIsoBrier}{0.2354}
+\newcommand{\rcOpusIsoAuc}{0.593}
+\newcommand{\rcOpusIsoBss}{+4.8\%}
+\newcommand{\rcOpusIsoVsBone}{\mbox{$-$0.0032}}
+\newcommand{\rcOpusIsoVsBoneCi}{[\mbox{$-$0.0225}, \mbox{$+$0.0166}]}
+\newcommand{\rcOpusIsoVsBzeroCi}{[\mbox{$-$0.0368}, \mbox{$+$0.0145}]}
+\newcommand{\mutTotal}{251}
+\newcommand{\mutToolKilled}{134}
+\newcommand{\mutToolScore}{53\%}
+\newcommand{\mutVoneKilled}{153}
+\newcommand{\mutVoneScore}{61\%}
+\newcommand{\mutMissed}{19}
+\newcommand{\mutVtwoKilled}{204}
+\newcommand{\mutVtwoScore}{81\%}
+\newcommand{\mutVtwoTimeout}{0}
+\newcommand{\mutScore}{81\%}
+\newcommand{\mutSurv}{42}
+\newcommand{\mutVthreeKilled}{209}
+\newcommand{\mutVthreeScore}{83\%}
+\newcommand{\mutVthreeExEq}{86\%}
+\newcommand{\mutScoreExEq}{84\%}
+\newcommand{\mutClsEquivalent}{7}
+\newcommand{\mutClsExplanationDrivers}{8}
+\newcommand{\mutClsCliEntryPoint}{9}
+\newcommand{\mutClsModelHyperparameters}{13}
+\newcommand{\mutClsMessageOrRounding}{5}
+\newcommand{\agMiniAUEscalate}{66\%}
+\newcommand{\agMiniAUAuto}{34\%}
+\newcommand{\agMiniAUUnsafeaccept}{1\%}
+\newcommand{\agMiniAUWrongreject}{14\%}
+\newcommand{\agMiniAUAutoerror}{15\%}
+\newcommand{\agMiniAUAutoacc}{0.57}
+\newcommand{\agMiniACEscalate}{93\%}
+\newcommand{\agMiniACAuto}{7\%}
+\newcommand{\agMiniACUnsafeaccept}{0\%}
+\newcommand{\agMiniACWrongreject}{3\%}
+\newcommand{\agMiniACAutoerror}{4\%}
+\newcommand{\agMiniACAutoacc}{0.50}
+\newcommand{\agMiniADEscalate}{\mbox{$+$26.3}}
+\newcommand{\agMiniADEscalateCi}{[\mbox{$+$18}, \mbox{$+$34}]}
+\newcommand{\agMiniADUnsafeaccept}{\mbox{$-$0.4}}
+\newcommand{\agMiniADUnsafeacceptCi}{[\mbox{$-$2}, \mbox{$+$1}]}
+\newcommand{\agMiniADAutoerror}{\mbox{$-$10.9}}
+\newcommand{\agMiniADAutoerrorCi}{[\mbox{$-$16}, \mbox{$-$6}]}
+\newcommand{\agMiniAN}{274}
+\newcommand{\agMiniABreakeven}{0.42}
+\newcommand{\agMiniACRej}{6\%}
+\newcommand{\agMiniAConVsPla}{\mbox{$-$5.1}}
+\newcommand{\agMiniAConVsPlaCi}{[\mbox{$-$9.2}, \mbox{$-$1.7}]}
+\newcommand{\agMiniAUnpVsNo}{\mbox{$+$14.6}}
+\newcommand{\agMiniAUnpVsNoCi}{[\mbox{$+$9.8}, \mbox{$+$19.8}]}
+\newcommand{\agMiniAConVsNo}{\mbox{$+$3.6}}
+\newcommand{\agMiniAConVsNoCi}{[\mbox{$+$1.5}, \mbox{$+$5.8}]}
+\newcommand{\agMiniAUPtwoErr}{17.5\%}
+\newcommand{\agMiniAUPtwoRej}{33\%}
+\newcommand{\agMiniAPlaPtwoErr}{9.1\%}
+\newcommand{\agMiniAPlaPtwoRej}{17\%}
+\newcommand{\agMiniACPtwoErr}{1.5\%}
+\newcommand{\agMiniACPtwoRej}{3\%}
+\newcommand{\agMiniANotoolEsc}{100\%}
+\newcommand{\agMiniANotoolErr}{0.0\%}
+\newcommand{\agMiniANotoolRej}{0\%}
+\newcommand{\agMiniAPlaceboEsc}{82\%}
+\newcommand{\agMiniAPlaceboErr}{8.8\%}
+\newcommand{\agMiniAPlaceboRej}{15\%}
+\newcommand{\agMiniBUEscalate}{54\%}
+\newcommand{\agMiniBUAuto}{46\%}
+\newcommand{\agMiniBUUnsafeaccept}{1\%}
+\newcommand{\agMiniBUWrongreject}{19\%}
+\newcommand{\agMiniBUAutoerror}{20\%}
+\newcommand{\agMiniBUAutoacc}{0.56}
+\newcommand{\agMiniBCEscalate}{100\%}
+\newcommand{\agMiniBCAuto}{0\%}
+\newcommand{\agMiniBCUnsafeaccept}{0\%}
+\newcommand{\agMiniBCWrongreject}{0\%}
+\newcommand{\agMiniBCAutoerror}{0\%}
+\newcommand{\agMiniBCAutoacc}{--}
+\newcommand{\agMiniBDEscalate}{\mbox{$+$45.6}}
+\newcommand{\agMiniBDEscalateCi}{[\mbox{$+$34}, \mbox{$+$57}]}
+\newcommand{\agMiniBDUnsafeaccept}{\mbox{$-$1.2}}
+\newcommand{\agMiniBDUnsafeacceptCi}{[\mbox{$-$3}, \mbox{$+$0}]}
+\newcommand{\agMiniBDAutoerror}{\mbox{$-$20.1}}
+\newcommand{\agMiniBDAutoerrorCi}{[\mbox{$-$29}, \mbox{$-$12}]}
+\newcommand{\agMiniBN}{259}
+\newcommand{\agMiniBBreakeven}{0.44}
+\newcommand{\agMiniBCRej}{0\%}
+\newcommand{\agSolAUEscalate}{81\%}
+\newcommand{\agSolAUAuto}{19\%}
+\newcommand{\agSolAUUnsafeaccept}{0\%}
+\newcommand{\agSolAUWrongreject}{9\%}
+\newcommand{\agSolAUAutoerror}{9\%}
+\newcommand{\agSolAUAutoacc}{0.53}
+\newcommand{\agSolACEscalate}{100\%}
+\newcommand{\agSolACAuto}{0\%}
+\newcommand{\agSolACUnsafeaccept}{0\%}
+\newcommand{\agSolACWrongreject}{0\%}
+\newcommand{\agSolACAutoerror}{0\%}
+\newcommand{\agSolACAutoacc}{--}
+\newcommand{\agSolADEscalate}{\mbox{$+$19.3}}
+\newcommand{\agSolADEscalateCi}{[\mbox{$+$13}, \mbox{$+$26}]}
+\newcommand{\agSolADUnsafeaccept}{\mbox{$+$0.0}}
+\newcommand{\agSolADUnsafeacceptCi}{[\mbox{$+$0}, \mbox{$+$0}]}
+\newcommand{\agSolADAutoerror}{\mbox{$-$9.1}}
+\newcommand{\agSolADAutoerrorCi}{[\mbox{$-$14}, \mbox{$-$5}]}
+\newcommand{\agSolAN}{274}
+\newcommand{\agSolABreakeven}{0.47}
+\newcommand{\agSolACRej}{0\%}
+\newcommand{\agSolAConVsPla}{\mbox{$-$2.9}}
+\newcommand{\agSolAConVsPlaCi}{[\mbox{$-$5.2}, \mbox{$-$1.1}]}
+\newcommand{\agSolAUnpVsNo}{\mbox{$+$9.1}}
+\newcommand{\agSolAUnpVsNoCi}{[\mbox{$+$5.2}, \mbox{$+$13.5}]}
+\newcommand{\agSolAConVsNo}{\mbox{$+$0.0}}
+\newcommand{\agSolAConVsNoCi}{[\mbox{$+$0.0}, \mbox{$+$0.0}]}
+\newcommand{\agSolAUPtwoErr}{1.8\%}
+\newcommand{\agSolAUPtwoRej}{4\%}
+\newcommand{\agSolAPlaPtwoErr}{0.4\%}
+\newcommand{\agSolAPlaPtwoRej}{0\%}
+\newcommand{\agSolACPtwoErr}{0.0\%}
+\newcommand{\agSolACPtwoRej}{0\%}
+\newcommand{\agSolANotoolEsc}{100\%}
+\newcommand{\agSolANotoolErr}{0.0\%}
+\newcommand{\agSolANotoolRej}{0\%}
+\newcommand{\agSolAPlaceboEsc}{95\%}
+\newcommand{\agSolAPlaceboErr}{2.9\%}
+\newcommand{\agSolAPlaceboRej}{5\%}
+\newcommand{\agSolBUEscalate}{75\%}
+\newcommand{\agSolBUAuto}{25\%}
+\newcommand{\agSolBUUnsafeaccept}{1\%}
+\newcommand{\agSolBUWrongreject}{11\%}
+\newcommand{\agSolBUAutoerror}{12\%}
+\newcommand{\agSolBUAutoacc}{0.52}
+\newcommand{\agSolBCEscalate}{100\%}
+\newcommand{\agSolBCAuto}{0\%}
+\newcommand{\agSolBCUnsafeaccept}{0\%}
+\newcommand{\agSolBCWrongreject}{0\%}
+\newcommand{\agSolBCAutoerror}{0\%}
+\newcommand{\agSolBCAutoacc}{--}
+\newcommand{\agSolBDEscalate}{\mbox{$+$24.7}}
+\newcommand{\agSolBDEscalateCi}{[\mbox{$+$15}, \mbox{$+$35}]}
+\newcommand{\agSolBDUnsafeaccept}{\mbox{$-$0.8}}
+\newcommand{\agSolBDUnsafeacceptCi}{[\mbox{$-$2}, \mbox{$+$0}]}
+\newcommand{\agSolBDAutoerror}{\mbox{$-$12.0}}
+\newcommand{\agSolBDAutoerrorCi}{[\mbox{$-$20}, \mbox{$-$6}]}
+\newcommand{\agSolBN}{259}
+\newcommand{\agSolBBreakeven}{0.48}
+\newcommand{\agSolBCRej}{0\%}
+\newcommand{\agHaikuAUEscalate}{59\%}
+\newcommand{\agHaikuAUAuto}{41\%}
+\newcommand{\agHaikuAUUnsafeaccept}{1\%}
+\newcommand{\agHaikuAUWrongreject}{16\%}
+\newcommand{\agHaikuAUAutoerror}{18\%}
+\newcommand{\agHaikuAUAutoacc}{0.56}
+\newcommand{\agHaikuACEscalate}{1\%}
+\newcommand{\agHaikuACAuto}{99\%}
+\newcommand{\agHaikuACUnsafeaccept}{1\%}
+\newcommand{\agHaikuACWrongreject}{53\%}
+\newcommand{\agHaikuACAutoerror}{54\%}
+\newcommand{\agHaikuACAutoacc}{0.45}
+\newcommand{\agHaikuADEscalate}{\mbox{$-$58.0}}
+\newcommand{\agHaikuADEscalateCi}{[\mbox{$-$66}, \mbox{$-$50}]}
+\newcommand{\agHaikuADUnsafeaccept}{\mbox{$-$0.4}}
+\newcommand{\agHaikuADUnsafeacceptCi}{[\mbox{$-$2}, \mbox{$+$1}]}
+\newcommand{\agHaikuADAutoerror}{\mbox{$+$36.1}}
+\newcommand{\agHaikuADAutoerrorCi}{[\mbox{$+$27}, \mbox{$+$44}]}
+\newcommand{\agHaikuAN}{274}
+\newcommand{\agHaikuAVtwoEsc}{100\%}
+\newcommand{\agHaikuAVtwoErr}{0\%}
+\newcommand{\agHaikuACRej}{96\%}
+\newcommand{\agHaikuAConVsPla}{\mbox{$+$38.3}}
+\newcommand{\agHaikuAConVsPlaCi}{[\mbox{$+$30.2}, \mbox{$+$46.7}]}
+\newcommand{\agHaikuAUnpVsNo}{\mbox{$+$17.5}}
+\newcommand{\agHaikuAUnpVsNoCi}{[\mbox{$+$11.9}, \mbox{$+$23.4}]}
+\newcommand{\agHaikuAConVsNo}{\mbox{$+$53.6}}
+\newcommand{\agHaikuAConVsNoCi}{[\mbox{$+$45.7}, \mbox{$+$60.9}]}
+\newcommand{\agHaikuAUPtwoErr}{31.0\%}
+\newcommand{\agHaikuAUPtwoRej}{50\%}
+\newcommand{\agHaikuAPlaPtwoErr}{33.2\%}
+\newcommand{\agHaikuAPlaPtwoRej}{50\%}
+\newcommand{\agHaikuACPtwoErr}{50.4\%}
+\newcommand{\agHaikuACPtwoRej}{91\%}
+\newcommand{\agHaikuANotoolEsc}{98\%}
+\newcommand{\agHaikuANotoolErr}{0.4\%}
+\newcommand{\agHaikuANotoolRej}{2\%}
+\newcommand{\agHaikuAPlaceboEsc}{63\%}
+\newcommand{\agHaikuAPlaceboErr}{15.7\%}
+\newcommand{\agHaikuAPlaceboRej}{32\%}
+\newcommand{\agHaikuBUEscalate}{49\%}
+\newcommand{\agHaikuBUAuto}{51\%}
+\newcommand{\agHaikuBUUnsafeaccept}{2\%}
+\newcommand{\agHaikuBUWrongreject}{20\%}
+\newcommand{\agHaikuBUAutoerror}{22\%}
+\newcommand{\agHaikuBUAutoacc}{0.57}
+\newcommand{\agHaikuBCEscalate}{85\%}
+\newcommand{\agHaikuBCAuto}{15\%}
+\newcommand{\agHaikuBCUnsafeaccept}{0\%}
+\newcommand{\agHaikuBCWrongreject}{7\%}
+\newcommand{\agHaikuBCAutoerror}{7\%}
+\newcommand{\agHaikuBCAutoacc}{0.53}
+\newcommand{\agHaikuBDEscalate}{\mbox{$+$35.9}}
+\newcommand{\agHaikuBDEscalateCi}{[\mbox{$+$24}, \mbox{$+$47}]}
+\newcommand{\agHaikuBDUnsafeaccept}{\mbox{$-$1.9}}
+\newcommand{\agHaikuBDUnsafeacceptCi}{[\mbox{$-$4}, \mbox{$-$0}]}
+\newcommand{\agHaikuBDAutoerror}{\mbox{$-$14.7}}
+\newcommand{\agHaikuBDAutoerrorCi}{[\mbox{$-$22}, \mbox{$-$7}]}
+\newcommand{\agHaikuBN}{259}
+\newcommand{\agHaikuBBreakeven}{0.41}
+\newcommand{\agHaikuBVtwoEsc}{100\%}
+\newcommand{\agHaikuBVtwoErr}{0\%}
+\newcommand{\agHaikuBCRej}{15\%}
+\newcommand{\agOpusAUEscalate}{94\%}
+\newcommand{\agOpusAUAuto}{6\%}
+\newcommand{\agOpusAUUnsafeaccept}{1\%}
+\newcommand{\agOpusAUWrongreject}{2\%}
+\newcommand{\agOpusAUAutoerror}{3\%}
+\newcommand{\agOpusAUAutoacc}{0.53}
+\newcommand{\agOpusACEscalate}{100\%}
+\newcommand{\agOpusACAuto}{0\%}
+\newcommand{\agOpusACUnsafeaccept}{0\%}
+\newcommand{\agOpusACWrongreject}{0\%}
+\newcommand{\agOpusACAutoerror}{0\%}
+\newcommand{\agOpusACAutoacc}{--}
+\newcommand{\agOpusADEscalate}{\mbox{$+$6.2}}
+\newcommand{\agOpusADEscalateCi}{[\mbox{$+$4}, \mbox{$+$9}]}
+\newcommand{\agOpusADUnsafeaccept}{\mbox{$-$0.7}}
+\newcommand{\agOpusADUnsafeacceptCi}{[\mbox{$-$2}, \mbox{$+$0}]}
+\newcommand{\agOpusADAutoerror}{\mbox{$-$2.9}}
+\newcommand{\agOpusADAutoerrorCi}{[\mbox{$-$5}, \mbox{$-$1}]}
+\newcommand{\agOpusAN}{274}
+\newcommand{\agOpusABreakeven}{0.47}
+\newcommand{\agOpusACRej}{0\%}
+\newcommand{\agOpusAConVsPla}{\mbox{$-$1.8}}
+\newcommand{\agOpusAConVsPlaCi}{[\mbox{$-$3.6}, \mbox{$-$0.4}]}
+\newcommand{\agOpusAUnpVsNo}{\mbox{$-$1.1}}
+\newcommand{\agOpusAUnpVsNoCi}{[\mbox{$-$5.8}, \mbox{$+$3.1}]}
+\newcommand{\agOpusAConVsNo}{\mbox{$-$4.0}}
+\newcommand{\agOpusAConVsNoCi}{[\mbox{$-$8.2}, \mbox{$-$0.8}]}
+\newcommand{\agOpusANotoolEsc}{86\%}
+\newcommand{\agOpusANotoolErr}{4.0\%}
+\newcommand{\agOpusANotoolRej}{1\%}
+\newcommand{\agOpusAPlaceboEsc}{96\%}
+\newcommand{\agOpusAPlaceboErr}{1.8\%}
+\newcommand{\agOpusAPlaceboRej}{2\%}
+\newcommand{\agOpusBUEscalate}{91\%}
+\newcommand{\agOpusBUAuto}{9\%}
+\newcommand{\agOpusBUUnsafeaccept}{0\%}
+\newcommand{\agOpusBUWrongreject}{3\%}
+\newcommand{\agOpusBUAutoerror}{4\%}
+\newcommand{\agOpusBUAutoacc}{0.58}
+\newcommand{\agOpusBCEscalate}{100\%}
+\newcommand{\agOpusBCAuto}{0\%}
+\newcommand{\agOpusBCUnsafeaccept}{0\%}
+\newcommand{\agOpusBCWrongreject}{0\%}
+\newcommand{\agOpusBCAutoerror}{0\%}
+\newcommand{\agOpusBCAutoacc}{--}
+\newcommand{\agOpusBDEscalate}{\mbox{$+$9.3}}
+\newcommand{\agOpusBDEscalateCi}{[\mbox{$+$3}, \mbox{$+$16}]}
+\newcommand{\agOpusBDUnsafeaccept}{\mbox{$-$0.4}}
+\newcommand{\agOpusBDUnsafeacceptCi}{[\mbox{$-$1}, \mbox{$+$0}]}
+\newcommand{\agOpusBDAutoerror}{\mbox{$-$3.9}}
+\newcommand{\agOpusBDAutoerrorCi}{[\mbox{$-$8}, \mbox{$-$1}]}
+\newcommand{\agOpusBN}{259}
+\newcommand{\agOpusBBreakeven}{0.42}
+\newcommand{\agOpusBCRej}{0\%}
+\newcommand{\agPmin}{0.30}
+\newcommand{\agPmax}{0.76}
+\newcommand{\agCalls}{4{,}264}
+\newcommand{\agCallsVtwo}{5191}
+\newcommand{\agCost}{11.10}

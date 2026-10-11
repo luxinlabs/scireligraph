@@ -1,0 +1,28 @@
+{
+  "n_claims": 274,
+  "n_papers": 164,
+  "features": [
+    "original_n",
+    "original_p",
+    "original_effect_size",
+    "publication_year",
+    "discipline",
+    "journal"
+  ],
+  "models": {
+    "metadata_logistic": {
+      "n": 274,
+      "auroc": 0.522586550368815,
+      "brier": 0.267174565026096,
+      "log_loss": 0.7765919306534572,
+      "average_precision": 0.5571168927484937
+    },
+    "prevalence": {
+      "n": 274,
+      "auroc": 0.4931351962526248,
+      "brier": 0.24741343382852934,
+      "log_loss": 0.687965420539403,
+      "average_precision": 0.5473395891064222
+    }
+  }
+}

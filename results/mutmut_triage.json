@@ -1,0 +1,190 @@
+{
+ "3": {
+  "class": "equivalent",
+  "reason": "sys.path insertion order; module also on path via test setup"
+ },
+ "46": {
+  "class": "model_hyperparameters",
+  "reason": "model_hyperparameters"
+ },
+ "50": {
+  "class": "model_hyperparameters",
+  "reason": "model_hyperparameters"
+ },
+ "72": {
+  "class": "residual_gap",
+  "reason": "default audit-log path untested (tests always pass a path)"
+ },
+ "94": {
+  "class": "residual_gap",
+  "reason": "evidence dated exactly on the cutoff day (< vs <=) untested"
+ },
+ "103": {
+  "class": "model_hyperparameters",
+  "reason": "model_hyperparameters"
+ },
+ "112": {
+  "class": "model_hyperparameters",
+  "reason": "model_hyperparameters"
+ },
+ "128": {
+  "class": "residual_gap",
+  "reason": "fallback for claims without a launch date untested"
+ },
+ "153": {
+  "class": "explanation_drivers",
+  "reason": "explanation_drivers"
+ },
+ "158": {
+  "class": "explanation_drivers",
+  "reason": "explanation_drivers"
+ },
+ "162": {
+  "class": "explanation_drivers",
+  "reason": "explanation_drivers"
+ },
+ "172": {
+  "class": "equivalent",
+  "reason": "default for a key that is always present"
+ },
+ "246": {
+  "class": "cli_entry_point",
+  "reason": "cli_entry_point"
+ },
+ "250": {
+  "class": "cli_entry_point",
+  "reason": "cli_entry_point"
+ },
+ "5": {
+  "class": "equivalent",
+  "reason": "path already added by test setup"
+ },
+ "47": {
+  "class": "model_hyperparameters",
+  "reason": "model_hyperparameters"
+ },
+ "73": {
+  "class": "residual_gap",
+  "reason": "default audit-log path untested"
+ },
+ "96": {
+  "class": "message_or_rounding",
+  "reason": "error-message wording"
+ },
+ "105": {
+  "class": "model_hyperparameters",
+  "reason": "model_hyperparameters"
+ },
+ "117": {
+  "class": "message_or_rounding",
+  "reason": "error-message wording"
+ },
+ "131": {
+  "class": "equivalent",
+  "reason": "disables per-as_of cache; same outputs, slower"
+ },
+ "159": {
+  "class": "explanation_drivers",
+  "reason": "explanation_drivers"
+ },
+ "181": {
+  "class": "message_or_rounding",
+  "reason": "rounding of p_replicate"
+ },
+ "243": {
+  "class": "cli_entry_point",
+  "reason": "cli_entry_point"
+ },
+ "247": {
+  "class": "cli_entry_point",
+  "reason": "cli_entry_point"
+ },
+ "251": {
+  "class": "cli_entry_point",
+  "reason": "cli_entry_point"
+ },
+ "48": {
+  "class": "model_hyperparameters",
+  "reason": "model_hyperparameters"
+ },
+ "81": {
+  "class": "residual_gap",
+  "reason": "evidence file path: tests use loaded evidence as oracle"
+ },
+ "100": {
+  "class": "model_hyperparameters",
+  "reason": "model_hyperparameters"
+ },
+ "109": {
+  "class": "model_hyperparameters",
+  "reason": "model_hyperparameters"
+ },
+ "119": {
+  "class": "message_or_rounding",
+  "reason": "error-message wording"
+ },
+ "146": {
+  "class": "explanation_drivers",
+  "reason": "explanation_drivers"
+ },
+ "160": {
+  "class": "explanation_drivers",
+  "reason": "explanation_drivers"
+ },
+ "206": {
+  "class": "equivalent",
+  "reason": ">= vs >: equality never occurs for these values"
+ },
+ "244": {
+  "class": "cli_entry_point",
+  "reason": "cli_entry_point"
+ },
+ "248": {
+  "class": "cli_entry_point",
+  "reason": "cli_entry_point"
+ },
+ "45": {
+  "class": "model_hyperparameters",
+  "reason": "model_hyperparameters"
+ },
+ "49": {
+  "class": "model_hyperparameters",
+  "reason": "model_hyperparameters"
+ },
+ "58": {
+  "class": "equivalent",
+  "reason": "claims CSV already has a default index"
+ },
+ "92": {
+  "class": "equivalent",
+  "reason": "placeholder for undated works still sorts after every cutoff"
+ },
+ "102": {
+  "class": "model_hyperparameters",
+  "reason": "model_hyperparameters"
+ },
+ "111": {
+  "class": "model_hyperparameters",
+  "reason": "model_hyperparameters"
+ },
+ "124": {
+  "class": "message_or_rounding",
+  "reason": "error-message wording"
+ },
+ "149": {
+  "class": "explanation_drivers",
+  "reason": "explanation_drivers"
+ },
+ "157": {
+  "class": "explanation_drivers",
+  "reason": "explanation_drivers"
+ },
+ "245": {
+  "class": "cli_entry_point",
+  "reason": "cli_entry_point"
+ },
+ "249": {
+  "class": "cli_entry_point",
+  "reason": "cli_entry_point"
+ }
+}

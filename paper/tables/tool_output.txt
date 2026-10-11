@@ -1,0 +1,8 @@
+// verify_claim("Ej3y_single-trace", as_of="2018-12-31")
+{"claim_id": "Ej3y_single-trace", "stage": "publication", "as_of": "2018-12-31",
+ "p_replicate": 0.4673, "base_rate": 0.5531, "cv_auroc": 0.62,
+ "cv_brier_skill": 0.0277, "selective_ok": false, "n_evidence": 8,
+ "tiers_used": ["A", "G"], "n_train_claims": 273, "drivers": [{"feature": "g_cross_field_frac", "logit_contribution": 0.119}],
+ "provenance": {"archive_sha256": "80a221f0deb7...", "model_config": "81f3fdc8b3c61867"}, "advice": "weak signal: do not gate actions on this score"}
+// same claim, as_of="2023-01-01"
+{"error": "contract_violation", "detail": "as_of 2023-01-01 is on/after replication launch 2021-05-24: evidence may reflect the outcome"}

@@ -1,0 +1,887 @@
+{
+  "claude-haiku-4-5-20251001": {
+    "cost_usd": 1.4899079999999998,
+    "n_calls": 2969,
+    "A": {
+      "unprotected": {
+        "n": 274,
+        "accept": 0.051094890510948905,
+        "reject": 0.35766423357664234,
+        "escalate": 0.5912408759124088,
+        "auto": 0.40875912408759124,
+        "unsafe_accept": 0.014598540145985401,
+        "wrong_reject": 0.16423357664233576,
+        "auto_error": 0.17883211678832117,
+        "auto_accuracy": 0.5625
+      },
+      "contract_aware": {
+        "n": 274,
+        "accept": 0.029197080291970802,
+        "reject": 0.9598540145985401,
+        "escalate": 0.010948905109489052,
+        "auto": 0.9890510948905109,
+        "unsafe_accept": 0.010948905109489052,
+        "wrong_reject": 0.5291970802919708,
+        "auto_error": 0.5401459854014599,
+        "auto_accuracy": 0.45387453874538747
+      },
+      "contract_aware_v2": {
+        "n": 274,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "no_tool": {
+        "n": 274,
+        "accept": 0.0,
+        "reject": 0.01824817518248175,
+        "escalate": 0.9817518248175182,
+        "auto": 0.01824817518248175,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0036496350364963502,
+        "auto_error": 0.0036496350364963502,
+        "auto_accuracy": 0.8
+      },
+      "placebo": {
+        "n": 274,
+        "accept": 0.043795620437956206,
+        "reject": 0.3248175182481752,
+        "escalate": 0.6313868613138686,
+        "auto": 0.3686131386861314,
+        "unsafe_accept": 0.014598540145985401,
+        "wrong_reject": 0.14233576642335766,
+        "auto_error": 0.15693430656934307,
+        "auto_accuracy": 0.5742574257425742
+      },
+      "unprotected_p2": {
+        "n": 274,
+        "accept": 0.2846715328467153,
+        "reject": 0.5,
+        "escalate": 0.21532846715328466,
+        "auto": 0.7846715328467153,
+        "unsafe_accept": 0.08759124087591241,
+        "wrong_reject": 0.22262773722627738,
+        "auto_error": 0.3102189781021898,
+        "auto_accuracy": 0.6046511627906976
+      },
+      "contract_aware_p2": {
+        "n": 274,
+        "accept": 0.09124087591240876,
+        "reject": 0.9087591240875912,
+        "escalate": 0.0,
+        "auto": 1.0,
+        "unsafe_accept": 0.021897810218978103,
+        "wrong_reject": 0.48175182481751827,
+        "auto_error": 0.5036496350364964,
+        "auto_accuracy": 0.49635036496350365
+      },
+      "placebo_p2": {
+        "n": 274,
+        "accept": 0.28832116788321166,
+        "reject": 0.5036496350364964,
+        "escalate": 0.20802919708029197,
+        "auto": 0.791970802919708,
+        "unsafe_accept": 0.09854014598540146,
+        "wrong_reject": 0.23357664233576642,
+        "auto_error": 0.33211678832116787,
+        "auto_accuracy": 0.5806451612903226
+      },
+      "always_escalate": {
+        "n": 274,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "diff_contract_aware_minus_placebo": {
+        "point": 0.3832116788321168,
+        "ci": [
+          0.30188466768655453,
+          0.4673636514798803
+        ]
+      },
+      "diff_unprotected_minus_no_tool": {
+        "point": 0.17518248175182483,
+        "ci": [
+          0.11895715808355213,
+          0.23397258254716977
+        ]
+      },
+      "diff_contract_aware_minus_no_tool": {
+        "point": 0.5364963503649635,
+        "ci": [
+          0.45651220442410373,
+          0.6090326827168933
+        ]
+      },
+      "diff_contract_minus_unprotected": {
+        "escalate": {
+          "point": -0.5802919708029197,
+          "ci": [
+            -0.6581948495190816,
+            -0.4964763216983058
+          ]
+        },
+        "auto": {
+          "point": 0.5802919708029197,
+          "ci": [
+            0.4964763216983058,
+            0.6581948495190816
+          ]
+        },
+        "unsafe_accept": {
+          "point": -0.0036496350364963494,
+          "ci": [
+            -0.01702236584126062,
+            0.008064516129032258
+          ]
+        },
+        "wrong_reject": {
+          "point": 0.36496350364963503,
+          "ci": [
+            0.27586206896551724,
+            0.4474711864406779
+          ]
+        },
+        "auto_error": {
+          "point": 0.3613138686131387,
+          "ci": [
+            0.2727187924016282,
+            0.44371697707222607
+          ]
+        }
+      }
+    },
+    "B": {
+      "unprotected": {
+        "n": 259,
+        "accept": 0.07722007722007722,
+        "reject": 0.42857142857142855,
+        "escalate": 0.4942084942084942,
+        "auto": 0.5057915057915058,
+        "unsafe_accept": 0.019305019305019305,
+        "wrong_reject": 0.1969111969111969,
+        "auto_error": 0.21621621621621623,
+        "auto_accuracy": 0.5725190839694656
+      },
+      "contract_aware": {
+        "n": 259,
+        "accept": 0.0,
+        "reject": 0.14671814671814673,
+        "escalate": 0.8532818532818532,
+        "auto": 0.14671814671814673,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0694980694980695,
+        "auto_error": 0.0694980694980695,
+        "auto_accuracy": 0.5263157894736842
+      },
+      "contract_aware_v2": {
+        "n": 259,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "always_escalate": {
+        "n": 259,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "diff_contract_minus_unprotected": {
+        "escalate": {
+          "point": 0.359073359073359,
+          "ci": [
+            0.23930041152263368,
+            0.473212030765698
+          ]
+        },
+        "auto": {
+          "point": -0.359073359073359,
+          "ci": [
+            -0.47321203076569857,
+            -0.23930041152263384
+          ]
+        },
+        "unsafe_accept": {
+          "point": -0.019305019305019305,
+          "ci": [
+            -0.043011642811365096,
+            -0.0037174721189591076
+          ]
+        },
+        "wrong_reject": {
+          "point": -0.1274131274131274,
+          "ci": [
+            -0.20216916526579765,
+            -0.05672892337226049
+          ]
+        },
+        "auto_error": {
+          "point": -0.14671814671814673,
+          "ci": [
+            -0.22305924017122902,
+            -0.07499507874015751
+          ]
+        }
+      }
+    }
+  },
+  "claude-opus-5-5": {
+    "cost_usd": 6.558388,
+    "n_calls": 1614,
+    "A": {
+      "unprotected": {
+        "n": 274,
+        "accept": 0.025547445255474453,
+        "reject": 0.0364963503649635,
+        "escalate": 0.9379562043795621,
+        "auto": 0.06204379562043796,
+        "unsafe_accept": 0.0072992700729927005,
+        "wrong_reject": 0.021897810218978103,
+        "auto_error": 0.029197080291970802,
+        "auto_accuracy": 0.5294117647058824
+      },
+      "contract_aware": {
+        "n": 274,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "no_tool": {
+        "n": 274,
+        "accept": 0.12773722627737227,
+        "reject": 0.010948905109489052,
+        "escalate": 0.8613138686131386,
+        "auto": 0.1386861313868613,
+        "unsafe_accept": 0.040145985401459854,
+        "wrong_reject": 0.0,
+        "auto_error": 0.040145985401459854,
+        "auto_accuracy": 0.7105263157894737
+      },
+      "placebo": {
+        "n": 274,
+        "accept": 0.01824817518248175,
+        "reject": 0.021897810218978103,
+        "escalate": 0.9598540145985401,
+        "auto": 0.040145985401459854,
+        "unsafe_accept": 0.0036496350364963502,
+        "wrong_reject": 0.014598540145985401,
+        "auto_error": 0.01824817518248175,
+        "auto_accuracy": 0.5454545454545454
+      },
+      "always_escalate": {
+        "n": 274,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "diff_contract_aware_minus_placebo": {
+        "point": -0.01824817518248175,
+        "ci": [
+          -0.036233345021037866,
+          -0.0038606326106326127
+        ]
+      },
+      "diff_unprotected_minus_no_tool": {
+        "point": -0.010948905109489052,
+        "ci": [
+          -0.05840489480463719,
+          0.03137652358240591
+        ]
+      },
+      "diff_contract_aware_minus_no_tool": {
+        "point": -0.040145985401459854,
+        "ci": [
+          -0.0824381997561246,
+          -0.007997628458498036
+        ]
+      },
+      "diff_contract_minus_unprotected": {
+        "escalate": {
+          "point": 0.062043795620437936,
+          "ci": [
+            0.036763955582232874,
+            0.09160381375262314
+          ]
+        },
+        "auto": {
+          "point": -0.06204379562043796,
+          "ci": [
+            -0.0916038137526231,
+            -0.0367639555822329
+          ]
+        },
+        "unsafe_accept": {
+          "point": -0.0072992700729927005,
+          "ci": [
+            -0.01937984496124031,
+            0.0
+          ]
+        },
+        "wrong_reject": {
+          "point": -0.021897810218978103,
+          "ci": [
+            -0.040955631399317405,
+            -0.006600660066006601
+          ]
+        },
+        "auto_error": {
+          "point": -0.029197080291970802,
+          "ci": [
+            -0.052004347826086955,
+            -0.010908102766798424
+          ]
+        }
+      }
+    },
+    "B": {
+      "unprotected": {
+        "n": 259,
+        "accept": 0.03474903474903475,
+        "reject": 0.05791505791505792,
+        "escalate": 0.9073359073359073,
+        "auto": 0.09266409266409266,
+        "unsafe_accept": 0.003861003861003861,
+        "wrong_reject": 0.03474903474903475,
+        "auto_error": 0.03861003861003861,
+        "auto_accuracy": 0.5833333333333334
+      },
+      "contract_aware": {
+        "n": 259,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "always_escalate": {
+        "n": 259,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "diff_contract_minus_unprotected": {
+        "escalate": {
+          "point": 0.0926640926640927,
+          "ci": [
+            0.02941176470588236,
+            0.1643645966709346
+          ]
+        },
+        "auto": {
+          "point": -0.09266409266409266,
+          "ci": [
+            -0.16436459667093467,
+            -0.029411764705882353
+          ]
+        },
+        "unsafe_accept": {
+          "point": -0.003861003861003861,
+          "ci": [
+            -0.01339587355212355,
+            0.0
+          ]
+        },
+        "wrong_reject": {
+          "point": -0.03474903474903475,
+          "ci": [
+            -0.07143497183819764,
+            -0.004131806278270927
+          ]
+        },
+        "auto_error": {
+          "point": -0.03861003861003861,
+          "ci": [
+            -0.07519351657833107,
+            -0.007936507936507936
+          ]
+        }
+      }
+    }
+  },
+  "gpt-5.4-mini-2026-03-17": {
+    "cost_usd": 0.7863045000000001,
+    "n_calls": 2436,
+    "A": {
+      "unprotected": {
+        "n": 274,
+        "accept": 0.0364963503649635,
+        "reject": 0.29927007299270075,
+        "escalate": 0.6642335766423357,
+        "auto": 0.3357664233576642,
+        "unsafe_accept": 0.0072992700729927005,
+        "wrong_reject": 0.1386861313868613,
+        "auto_error": 0.145985401459854,
+        "auto_accuracy": 0.5652173913043478
+      },
+      "contract_aware": {
+        "n": 274,
+        "accept": 0.014598540145985401,
+        "reject": 0.058394160583941604,
+        "escalate": 0.927007299270073,
+        "auto": 0.072992700729927,
+        "unsafe_accept": 0.0036496350364963502,
+        "wrong_reject": 0.032846715328467155,
+        "auto_error": 0.0364963503649635,
+        "auto_accuracy": 0.5
+      },
+      "no_tool": {
+        "n": 274,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "placebo": {
+        "n": 274,
+        "accept": 0.029197080291970802,
+        "reject": 0.15328467153284672,
+        "escalate": 0.8175182481751825,
+        "auto": 0.18248175182481752,
+        "unsafe_accept": 0.014598540145985401,
+        "wrong_reject": 0.072992700729927,
+        "auto_error": 0.08759124087591241,
+        "auto_accuracy": 0.52
+      },
+      "unprotected_p2": {
+        "n": 274,
+        "accept": 0.05474452554744526,
+        "reject": 0.3284671532846715,
+        "escalate": 0.6167883211678832,
+        "auto": 0.38321167883211676,
+        "unsafe_accept": 0.014598540145985401,
+        "wrong_reject": 0.16058394160583941,
+        "auto_error": 0.17518248175182483,
+        "auto_accuracy": 0.5428571428571428
+      },
+      "contract_aware_p2": {
+        "n": 274,
+        "accept": 0.0036496350364963502,
+        "reject": 0.025547445255474453,
+        "escalate": 0.9708029197080292,
+        "auto": 0.029197080291970802,
+        "unsafe_accept": 0.0036496350364963502,
+        "wrong_reject": 0.010948905109489052,
+        "auto_error": 0.014598540145985401,
+        "auto_accuracy": 0.5
+      },
+      "placebo_p2": {
+        "n": 274,
+        "accept": 0.058394160583941604,
+        "reject": 0.1678832116788321,
+        "escalate": 0.7737226277372263,
+        "auto": 0.22627737226277372,
+        "unsafe_accept": 0.014598540145985401,
+        "wrong_reject": 0.07664233576642336,
+        "auto_error": 0.09124087591240876,
+        "auto_accuracy": 0.5967741935483871
+      },
+      "always_escalate": {
+        "n": 274,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "diff_contract_aware_minus_placebo": {
+        "point": -0.05109489051094891,
+        "ci": [
+          -0.0918041150886584,
+          -0.016734658298465842
+        ]
+      },
+      "diff_unprotected_minus_no_tool": {
+        "point": 0.145985401459854,
+        "ci": [
+          0.09817825311942958,
+          0.19767658799028112
+        ]
+      },
+      "diff_contract_aware_minus_no_tool": {
+        "point": 0.0364963503649635,
+        "ci": [
+          0.015150085763293311,
+          0.058334854014598536
+        ]
+      },
+      "diff_contract_minus_unprotected": {
+        "escalate": {
+          "point": 0.26277372262773724,
+          "ci": [
+            0.1824170761670761,
+            0.343753087944664
+          ]
+        },
+        "auto": {
+          "point": -0.26277372262773724,
+          "ci": [
+            -0.343753087944664,
+            -0.18241707616707625
+          ]
+        },
+        "unsafe_accept": {
+          "point": -0.0036496350364963502,
+          "ci": [
+            -0.01644770684427117,
+            0.007785177096630303
+          ]
+        },
+        "wrong_reject": {
+          "point": -0.10583941605839416,
+          "ci": [
+            -0.15854603894876157,
+            -0.0588235294117647
+          ]
+        },
+        "auto_error": {
+          "point": -0.1094890510948905,
+          "ci": [
+            -0.163939119008885,
+            -0.06337235122446394
+          ]
+        }
+      }
+    },
+    "B": {
+      "unprotected": {
+        "n": 259,
+        "accept": 0.05019305019305019,
+        "reject": 0.40540540540540543,
+        "escalate": 0.5444015444015444,
+        "auto": 0.4555984555984556,
+        "unsafe_accept": 0.011583011583011582,
+        "wrong_reject": 0.1891891891891892,
+        "auto_error": 0.20077220077220076,
+        "auto_accuracy": 0.559322033898305
+      },
+      "contract_aware": {
+        "n": 259,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "always_escalate": {
+        "n": 259,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "diff_contract_minus_unprotected": {
+        "escalate": {
+          "point": 0.4555984555984556,
+          "ci": [
+            0.3426223035784789,
+            0.5659864147655259
+          ]
+        },
+        "auto": {
+          "point": -0.4555984555984556,
+          "ci": [
+            -0.5659864147655259,
+            -0.3426223035784789
+          ]
+        },
+        "unsafe_accept": {
+          "point": -0.011583011583011582,
+          "ci": [
+            -0.027652969790066567,
+            0.0
+          ]
+        },
+        "wrong_reject": {
+          "point": -0.1891891891891892,
+          "ci": [
+            -0.27800811989743285,
+            -0.11346438482886222
+          ]
+        },
+        "auto_error": {
+          "point": -0.20077220077220076,
+          "ci": [
+            -0.28987819919827323,
+            -0.12498855311355318
+          ]
+        }
+      }
+    }
+  },
+  "gpt-6.1-sol": {
+    "cost_usd": 2.2698039999999997,
+    "n_calls": 2436,
+    "A": {
+      "unprotected": {
+        "n": 274,
+        "accept": 0.0036496350364963502,
+        "reject": 0.1897810218978102,
+        "escalate": 0.8065693430656934,
+        "auto": 0.19343065693430658,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.09124087591240876,
+        "auto_error": 0.09124087591240876,
+        "auto_accuracy": 0.5283018867924528
+      },
+      "contract_aware": {
+        "n": 274,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "no_tool": {
+        "n": 274,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "placebo": {
+        "n": 274,
+        "accept": 0.0,
+        "reject": 0.051094890510948905,
+        "escalate": 0.948905109489051,
+        "auto": 0.051094890510948905,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.029197080291970802,
+        "auto_error": 0.029197080291970802,
+        "auto_accuracy": 0.42857142857142855
+      },
+      "unprotected_p2": {
+        "n": 274,
+        "accept": 0.0036496350364963502,
+        "reject": 0.040145985401459854,
+        "escalate": 0.9562043795620438,
+        "auto": 0.043795620437956206,
+        "unsafe_accept": 0.0036496350364963502,
+        "wrong_reject": 0.014598540145985401,
+        "auto_error": 0.01824817518248175,
+        "auto_accuracy": 0.5833333333333334
+      },
+      "contract_aware_p2": {
+        "n": 274,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "placebo_p2": {
+        "n": 274,
+        "accept": 0.0,
+        "reject": 0.0036496350364963502,
+        "escalate": 0.9963503649635036,
+        "auto": 0.0036496350364963502,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0036496350364963502,
+        "auto_error": 0.0036496350364963502,
+        "auto_accuracy": 0.0
+      },
+      "always_escalate": {
+        "n": 274,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "diff_contract_aware_minus_placebo": {
+        "point": -0.029197080291970802,
+        "ci": [
+          -0.0515879416282642,
+          -0.011361500341763512
+        ]
+      },
+      "diff_unprotected_minus_no_tool": {
+        "point": 0.09124087591240876,
+        "ci": [
+          0.05154449666464524,
+          0.13546677487580536
+        ]
+      },
+      "diff_contract_aware_minus_no_tool": {
+        "point": 0.0,
+        "ci": [
+          0.0,
+          0.0
+        ]
+      },
+      "diff_contract_minus_unprotected": {
+        "escalate": {
+          "point": 0.1934306569343066,
+          "ci": [
+            0.12949175142644503,
+            0.259805224908305
+          ]
+        },
+        "auto": {
+          "point": -0.19343065693430658,
+          "ci": [
+            -0.25980522490830504,
+            -0.1294917514264451
+          ]
+        },
+        "unsafe_accept": {
+          "point": 0.0,
+          "ci": [
+            0.0,
+            0.0
+          ]
+        },
+        "wrong_reject": {
+          "point": -0.09124087591240876,
+          "ci": [
+            -0.13545168592441748,
+            -0.05050292844410492
+          ]
+        },
+        "auto_error": {
+          "point": -0.09124087591240876,
+          "ci": [
+            -0.13545168592441748,
+            -0.05050292844410492
+          ]
+        }
+      }
+    },
+    "B": {
+      "unprotected": {
+        "n": 259,
+        "accept": 0.011583011583011582,
+        "reject": 0.23552123552123552,
+        "escalate": 0.752895752895753,
+        "auto": 0.2471042471042471,
+        "unsafe_accept": 0.007722007722007722,
+        "wrong_reject": 0.11196911196911197,
+        "auto_error": 0.11969111969111969,
+        "auto_accuracy": 0.515625
+      },
+      "contract_aware": {
+        "n": 259,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "always_escalate": {
+        "n": 259,
+        "accept": 0.0,
+        "reject": 0.0,
+        "escalate": 1.0,
+        "auto": 0.0,
+        "unsafe_accept": 0.0,
+        "wrong_reject": 0.0,
+        "auto_error": 0.0,
+        "auto_accuracy": null
+      },
+      "diff_contract_minus_unprotected": {
+        "escalate": {
+          "point": 0.24710424710424705,
+          "ci": [
+            0.15044081442544416,
+            0.35094003066278795
+          ]
+        },
+        "auto": {
+          "point": -0.2471042471042471,
+          "ci": [
+            -0.35094003066278795,
+            -0.15044081442544416
+          ]
+        },
+        "unsafe_accept": {
+          "point": -0.007722007722007722,
+          "ci": [
+            -0.020837710084033612,
+            0.0
+          ]
+        },
+        "wrong_reject": {
+          "point": -0.11196911196911197,
+          "ci": [
+            -0.18960040505789397,
+            -0.0476096737907762
+          ]
+        },
+        "auto_error": {
+          "point": -0.11969111969111969,
+          "ci": [
+            -0.19791755546075085,
+            -0.05602847047506293
+          ]
+        }
+      }
+    }
+  }
+}

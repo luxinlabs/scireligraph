@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/epistemic-contract/verify_claim.schema.json",
+  "title": "Epistemic-contract response of a claim-verifier tool",
+  "description": "A response either answers within the contract (R1-R5) or refuses with a contract violation. Field names map to requirements: evidence_cutoff/as_of (R1), n_train_claims (R3), base_rate, cv_auroc, cv_brier_skill, selective_ok, advice (R4), provenance (R5).",
+  "oneOf": [
+    {
+      "title": "answer",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["claim_id", "stage", "as_of", "p_replicate", "base_rate", "cv_auroc", "cv_brier_skill",
+                   "selective_ok", "evidence_cutoff", "n_evidence", "tiers_used", "n_train_claims", "drivers",
+                   "provenance", "advice"],
+      "properties": {
+        "claim_id": {"type": "string", "minLength": 1},
+        "stage": {"enum": ["publication", "launch"], "description": "Decides which feature tiers are admissible (R1)."},
+        "as_of": {"type": "string", "format": "date"},
+        "evidence_cutoff": {"type": "string", "format": "date", "description": "R1: no evidence dated after this is used; must equal as_of."},
+        "p_replicate": {"type": "number", "minimum": 0, "maximum": 1},
+        "base_rate": {"type": "number", "minimum": 0, "maximum": 1, "description": "R4: exposes the base rate the score must beat."},
+        "cv_auroc": {"type": "number", "minimum": 0, "maximum": 1},
+        "cv_brier_skill": {"type": "number", "maximum": 1, "description": "R4: skill over the base rate; may be <= 0 (acceptance criterion failed)."},
+        "selective_ok": {"type": "boolean", "description": "R4 gating verdict: true only if the lower 95% bound of top-decile accuracy exceeds overall accuracy."},
+        "advice": {"type": "string", "minLength": 1, "description": "R4/R6: decision guidance. R6 recommends stating the licensed action (e.g. 'escalate')."},
+        "n_evidence": {"type": "integer", "minimum": 0},
+        "tiers_used": {"type": "array", "items": {"enum": ["A", "T", "G", "D"]}, "minItems": 1, "uniqueItems": true},
+        "n_train_claims": {"type": "integer", "minimum": 1, "description": "R3: training set excludes the queried paper."},
+        "drivers": {"type": "array", "items": {"type": "object", "additionalProperties": false,
+                    "required": ["feature", "logit_contribution"],
+                    "properties": {"feature": {"type": "string"}, "logit_contribution": {"type": "number"}}}},
+        "provenance": {"type": "object", "additionalProperties": false,
+                       "required": ["archive_sha256", "openalex_access", "model_config", "chosen_C"],
+                       "properties": {"archive_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+                                      "openalex_access": {"type": ["string", "null"]},
+                                      "model_config": {"type": "string", "pattern": "^[0-9a-f]{16}$"},
+                                      "chosen_C": {"type": "number", "exclusiveMinimum": 0}}}
+      }
+    },
+    {
+      "title": "refusal",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["error", "detail"],
+      "properties": {"error": {"const": "contract_violation"}, "detail": {"type": "string", "minLength": 1}}
+    }
+  ]
+}

@@ -1,0 +1,594 @@
+{
+ "3": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "21": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "35": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "39": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "46": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "50": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "72": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "94": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "103": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "112": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "128": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "153": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "158": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "162": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "172": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "177": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "188": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "197": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_cv_fields_match_harness"
+  ]
+ },
+ "202": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_selective_rule_true_branch"
+  ]
+ },
+ "212": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "221": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "225": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_audit_record_integrity"
+  ]
+ },
+ "235": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_audit_record_integrity"
+  ]
+ },
+ "246": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "250": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "5": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "27": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "36": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "40": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "47": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "52": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_sha_is_order_independent"
+  ]
+ },
+ "73": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "96": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "105": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "117": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "131": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "154": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "159": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "163": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "173": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_selective_rule_true_branch"
+  ]
+ },
+ "181": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "189": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_cv_fields_match_harness"
+  ]
+ },
+ "199": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_selective_rule_true_branch"
+  ]
+ },
+ "205": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_selective_rule"
+  ]
+ },
+ "214": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "222": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_audit_record_integrity"
+  ]
+ },
+ "226": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "243": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "247": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "251": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "19": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "28": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "37": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "42": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "48": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "53": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_audit_record_integrity"
+  ]
+ },
+ "81": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "100": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "109": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "119": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "146": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "156": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "160": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "169": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_selective_rule_true_branch"
+  ]
+ },
+ "174": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_selective_rule_true_branch"
+  ]
+ },
+ "184": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "190": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_cv_fields_match_harness"
+  ]
+ },
+ "200": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_selective_rule_true_branch"
+  ]
+ },
+ "206": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "215": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "223": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_audit_record_integrity"
+  ]
+ },
+ "229": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_selective_rule"
+  ]
+ },
+ "244": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "248": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "20": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "34": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "38": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "45": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "49": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "58": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "92": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "102": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "111": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "124": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "149": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "157": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "161": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "171": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_selective_rule_true_branch"
+  ]
+ },
+ "175": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_selective_rule_true_branch"
+  ]
+ },
+ "187": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_cv_fields_match_harness"
+  ]
+ },
+ "193": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_cv_fields_match_harness"
+  ]
+ },
+ "201": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_selective_rule_true_branch"
+  ]
+ },
+ "209": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_selective_rule"
+  ]
+ },
+ "219": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_schema_exact"
+  ]
+ },
+ "224": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_audit_record_integrity"
+  ]
+ },
+ "232": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_selective_rule_true_branch"
+  ]
+ },
+ "245": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "249": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ }
+}

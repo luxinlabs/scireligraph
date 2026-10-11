@@ -1,0 +1,244 @@
+[
+  {
+    "a":"B1 Original-study metadata (LR)",
+    "b":"B0 Prevalence",
+    "d_auroc":0.1561944759,
+    "d_brier":-0.0087449438,
+    "d_log_loss":-0.0168268339,
+    "d_auroc_ci":[
+      0.0252417672,
+      0.3045407154
+    ],
+    "d_brier_ci":[
+      -0.0215115104,
+      0.0036077374
+    ],
+    "d_log_loss_ci":[
+      -0.0431994724,
+      0.0084860458
+    ],
+    "p_auroc_le0":0.0085,
+    "p_two_sided":0.017,
+    "p_holm":0.187
+  },
+  {
+    "a":"B4 Metadata + flat citation evidence",
+    "b":"B1 Original-study metadata (LR)",
+    "d_auroc":-0.0131911915,
+    "d_brier":0.0022668836,
+    "d_log_loss":0.0044074922,
+    "d_auroc_ci":[
+      -0.0266161718,
+      -0.0010708038
+    ],
+    "d_brier_ci":[
+      0.0003670156,
+      0.0044147076
+    ],
+    "d_log_loss_ci":[
+      0.0003348863,
+      0.0089284066
+    ],
+    "p_auroc_le0":0.983,
+    "p_two_sided":0.034,
+    "p_holm":0.34
+  },
+  {
+    "a":"M1 Metadata + evidence graph",
+    "b":"B4 Metadata + flat citation evidence",
+    "d_auroc":0.0132988747,
+    "d_brier":-0.0026352472,
+    "d_log_loss":-0.0057082582,
+    "d_auroc_ci":[
+      -0.0276815973,
+      0.0455988524
+    ],
+    "d_brier_ci":[
+      -0.0072680933,
+      0.0026365959
+    ],
+    "d_log_loss_ci":[
+      -0.0152966714,
+      0.0053257761
+    ],
+    "p_auroc_le0":0.255,
+    "p_two_sided":0.51,
+    "p_holm":1.0
+  },
+  {
+    "a":"M2 Metadata + graph + dependency correction",
+    "b":"M1 Metadata + evidence graph",
+    "d_auroc":0.0001076832,
+    "d_brier":-0.0002036761,
+    "d_log_loss":-0.0004891807,
+    "d_auroc_ci":[
+      -0.0174817622,
+      0.017087461
+    ],
+    "d_brier_ci":[
+      -0.0027297868,
+      0.0025214042
+    ],
+    "d_log_loss_ci":[
+      -0.0057606898,
+      0.0051306523
+    ],
+    "p_auroc_le0":0.499,
+    "p_two_sided":0.998,
+    "p_holm":1.0
+  },
+  {
+    "a":"M2 Metadata + graph + dependency correction",
+    "b":"B1 Original-study metadata (LR)",
+    "d_auroc":0.0002153664,
+    "d_brier":-0.0005720397,
+    "d_log_loss":-0.0017899468,
+    "d_auroc_ci":[
+      -0.0409410263,
+      0.03288828
+    ],
+    "d_brier_ci":[
+      -0.0059900614,
+      0.0056488767
+    ],
+    "d_log_loss_ci":[
+      -0.0130685397,
+      0.0110796655
+    ],
+    "p_auroc_le0":0.5075,
+    "p_two_sided":0.987,
+    "p_holm":1.0
+  },
+  {
+    "a":"M2 Metadata + graph + dependency correction",
+    "b":"NC M2 with permuted graph (negative control)",
+    "d_auroc":0.0145910731,
+    "d_brier":-0.0021097404,
+    "d_log_loss":-0.0043113683,
+    "d_auroc_ci":[
+      -0.0176000417,
+      0.0453165182
+    ],
+    "d_brier_ci":[
+      -0.0068412187,
+      0.0029884481
+    ],
+    "d_log_loss_ci":[
+      -0.0142212501,
+      0.0061528589
+    ],
+    "p_auroc_le0":0.1825,
+    "p_two_sided":0.365,
+    "p_holm":1.0
+  },
+  {
+    "a":"L-M2 Graph + dependency, NO cutoff (leaky)",
+    "b":"M2 Metadata + graph + dependency correction",
+    "d_auroc":-0.0100683788,
+    "d_brier":0.0002475389,
+    "d_log_loss":0.0000701847,
+    "d_auroc_ci":[
+      -0.0589926966,
+      0.0350072286
+    ],
+    "d_brier_ci":[
+      -0.0076683306,
+      0.0088866277
+    ],
+    "d_log_loss_ci":[
+      -0.0161823767,
+      0.0179275885
+    ],
+    "p_auroc_le0":0.64,
+    "p_two_sided":0.721,
+    "p_holm":1.0
+  },
+  {
+    "a":"LG-only Graph, NO cutoff (leaky)",
+    "b":"G-only Graph + dependency (no metadata)",
+    "d_auroc":-0.0297744037,
+    "d_brier":-0.0020233253,
+    "d_log_loss":-0.0049364801,
+    "d_auroc_ci":[
+      -0.1070034004,
+      0.0501917958
+    ],
+    "d_brier_ci":[
+      -0.0115188996,
+      0.0075389047
+    ],
+    "d_log_loss_ci":[
+      -0.0245192325,
+      0.0147669303
+    ],
+    "p_auroc_le0":0.754,
+    "p_two_sided":0.492,
+    "p_holm":1.0
+  },
+  {
+    "a":"D Metadata + replication design (launch-time)",
+    "b":"B1 Original-study metadata (LR)",
+    "d_auroc":-0.0033920207,
+    "d_brier":-0.0003255702,
+    "d_log_loss":-0.0002059331,
+    "d_auroc_ci":[
+      -0.0368423948,
+      0.0339009144
+    ],
+    "d_brier_ci":[
+      -0.0078730246,
+      0.0077354608
+    ],
+    "d_log_loss_ci":[
+      -0.0159096034,
+      0.0165758789
+    ],
+    "p_auroc_le0":0.523,
+    "p_two_sided":0.956,
+    "p_holm":1.0
+  },
+  {
+    "a":"Dx Metadata + achieved replication size (post-launch)",
+    "b":"D Metadata + replication design (launch-time)",
+    "d_auroc":0.0239056695,
+    "d_brier":-0.0028325249,
+    "d_log_loss":-0.0049549818,
+    "d_auroc_ci":[
+      -0.0048601059,
+      0.0530666568
+    ],
+    "d_brier_ci":[
+      -0.0085510857,
+      0.0026203596
+    ],
+    "d_log_loss_ci":[
+      -0.0170533046,
+      0.0064818212
+    ],
+    "p_auroc_le0":0.0565,
+    "p_two_sided":0.113,
+    "p_holm":1.0
+  },
+  {
+    "a":"B2 Title\/abstract TF-IDF (LR)",
+    "b":"B0 Prevalence",
+    "d_auroc":-0.0166370538,
+    "d_brier":0.0009711285,
+    "d_log_loss":0.0019548794,
+    "d_auroc_ci":[
+      -0.1539827298,
+      0.145631506
+    ],
+    "d_brier_ci":[
+      -0.0008831715,
+      0.0027817702
+    ],
+    "d_log_loss_ci":[
+      -0.0017818042,
+      0.0056001793
+    ],
+    "p_auroc_le0":0.5705,
+    "p_two_sided":0.859,
+    "p_holm":1.0
+  }
+]

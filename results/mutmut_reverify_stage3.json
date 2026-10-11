@@ -1,0 +1,247 @@
+{
+ "3": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "94": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_evidence_dated_exactly_on_cutoff_is_admitted"
+  ]
+ },
+ "153": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "246": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "73": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_default_audit_log_path_value"
+  ]
+ },
+ "131": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "247": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "100": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "160": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "45": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "102": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "157": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "46": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "103": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "158": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "250": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "96": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "159": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "251": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "109": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "206": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "49": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "111": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "245": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "50": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "112": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "162": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "5": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "105": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "181": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "48": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "119": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "244": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "58": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "124": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "249": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "72": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_default_audit_log_path_value"
+  ]
+ },
+ "128": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_missing_launch_date_falls_back_to_earliest_replication_start"
+  ]
+ },
+ "172": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "47": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "117": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "243": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "81": {
+  "killed": true,
+  "exit_code": 1,
+  "failing": [
+   "test_evidence_loading_matches_raw_cache"
+  ]
+ },
+ "146": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "248": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "92": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ },
+ "149": {
+  "killed": false,
+  "exit_code": 0,
+  "failing": []
+ }
+}

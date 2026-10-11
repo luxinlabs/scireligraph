@@ -1,0 +1,14 @@
+\begin{table*}[t]\centering\caption{Contract tests for the verifier tool and mutation analysis. Each mutant removes one guarantee from the implementation; $\times$ marks the tests that fail (kill the mutant). The unmodified verifier passes all 9 tests.}\label{tab:contract}
+\footnotesize\setlength{\tabcolsep}{4pt}\begin{tabular}{@{}lp{0.52\textwidth}ccccc@{}}\toprule
+Req. & Contract test & leaky & no-LPO & no-gate & no-refuse & no-audit \\\midrule
+R1 & Metamorphic: citing works dated after \texttt{as\_of} added to every paper leave output unchanged & $\times$ &  &  &  &  \\
+R1 & Positive control: works dated before \texttt{as\_of} are counted &  &  &  &  &  \\
+R1 & Call on/after the replication launch is refused &  &  &  & $\times$ &  \\
+-- & Malformed date or unknown stage is refused (2 cases) &  &  &  &  &  \\
+R3 & Flipping all labels of the queried claim's paper leaves its prediction unchanged &  & $\times$ &  &  &  \\
+R1 & Publication stage: Tier-D values have no influence &  &  & $\times$ &  &  \\
+R4 & Base rate equals training prevalence; weak-signal advice when selective test fails &  & $\times$ &  &  &  \\
+R5 & Each call appends an audit record with provenance hashes &  &  &  &  & $\times$ \\
+\midrule
+\multicolumn{2}{@{}l}{Mutant killed?} & yes & yes & yes & yes & yes \\
+\bottomrule\end{tabular}\end{table*}

@@ -1,0 +1,81 @@
+{
+  "tool": "mutmut 2.5.1",
+  "target": "src/verifier.py",
+  "total": 251,
+  "tool_raw": {
+    "killed": 134,
+    "score": 0.5338645418326693
+  },
+  "verified_v1": {
+    "tests": 9,
+    "killed": 153,
+    "score": 0.6095617529880478,
+    "tool_missed_kills": 19
+  },
+  "verified_v2": {
+    "tests": 19,
+    "killed": 204,
+    "timeout": 0,
+    "score": 0.8127490039840638,
+    "score_counting_timeouts_as_killed": 0.8127490039840638,
+    "score_excluding_equivalent": 0.8360655737704918
+  },
+  "verified_v3": {
+    "tests": 23,
+    "killed": 209,
+    "score": 0.8326693227091634,
+    "score_excluding_equivalent": 0.8565573770491803
+  },
+  "remaining_survivors": 42,
+  "survivor_classes": {
+    "equivalent": 7,
+    "explanation_drivers": 8,
+    "cli_entry_point": 9,
+    "model_hyperparameters": 13,
+    "message_or_rounding": 5
+  },
+  "survivor_detail": {
+    "3": "other",
+    "153": "explanation_drivers",
+    "246": "cli_entry_point",
+    "131": "caching",
+    "247": "cli_entry_point",
+    "100": "model_hyperparameters",
+    "160": "explanation_drivers",
+    "45": "model_hyperparameters",
+    "102": "model_hyperparameters",
+    "157": "explanation_drivers",
+    "46": "model_hyperparameters",
+    "103": "model_hyperparameters",
+    "158": "explanation_drivers",
+    "250": "cli_entry_point",
+    "96": "other",
+    "159": "explanation_drivers",
+    "251": "cli_entry_point",
+    "109": "model_hyperparameters",
+    "206": "other",
+    "49": "model_hyperparameters",
+    "111": "model_hyperparameters",
+    "245": "cli_entry_point",
+    "50": "model_hyperparameters",
+    "112": "model_hyperparameters",
+    "162": "explanation_drivers",
+    "5": "other",
+    "105": "model_hyperparameters",
+    "181": "other",
+    "48": "model_hyperparameters",
+    "119": "other",
+    "244": "cli_entry_point",
+    "58": "other",
+    "124": "other",
+    "249": "cli_entry_point",
+    "172": "other",
+    "47": "model_hyperparameters",
+    "117": "other",
+    "243": "cli_entry_point",
+    "146": "explanation_drivers",
+    "248": "cli_entry_point",
+    "92": "other",
+    "149": "explanation_drivers"
+  }
+}

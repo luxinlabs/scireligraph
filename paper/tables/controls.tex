@@ -1,0 +1,10 @@
+\begin{table}[t]\centering\caption{Control arms for scenario~A (274 claims): share escalated / share of wrong automatic decisions. \emph{No tool}: the agent sees only the claim. \emph{Placebo}: \texttt{p\_replicate} plus a generic ``this estimate is uncertain'' note. \emph{Contract}: full \texttt{verify\_claim} output. \emph{Always escalate} needs no model.}\label{tab:controls}
+\scriptsize\setlength{\tabcolsep}{3pt}\begin{tabular}{@{}lcccc@{}}\toprule
+Agent & No tool & Placebo & Unprotected & Contract \\\midrule
+GPT-5.4 mini & 100\% / 0.0\% & 82\% / 8.8\% & 66\% / 14.6\% & 93\% / 3.6\% \\
+GPT-6.1 sol & 100\% / 0.0\% & 95\% / 2.9\% & 81\% / 9.1\% & 100\% / 0.0\% \\
+Claude Haiku 4.5 & 98\% / 0.4\% & 63\% / 15.7\% & 59\% / 17.9\% & 1\% / 54.0\% \\
+Claude Opus 5.5 & 86\% / 4.0\% & 96\% / 1.8\% & 94\% / 2.9\% & 100\% / 0.0\% \\
+\midrule
+Always escalate & \multicolumn{4}{c}{100\% / 0.0\%} \\
+\bottomrule\end{tabular}\end{table}

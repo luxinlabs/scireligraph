@@ -1,0 +1,1622 @@
+### mutant 2 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -24,7 +24,7 @@
+ from sklearn.pipeline import Pipeline, make_pipeline
+ from sklearn.preprocessing import OneHotEncoder, StandardScaler
+ 
+-ROOT = Path(__file__).resolve().parents[1]
++ROOT = None
+ sys.path.insert(0, str(ROOT / 'src'))
+ from build_dataset import graph_features, oa_stem, FLAT_G, GRAPH_G, DEP_G  # noqa: E402
+ 
+
+
+### mutant 3 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -25,7 +25,7 @@
+ from sklearn.preprocessing import OneHotEncoder, StandardScaler
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+-sys.path.insert(0, str(ROOT / 'src'))
++sys.path.insert(1, str(ROOT / 'src'))
+ from build_dataset import graph_features, oa_stem, FLAT_G, GRAPH_G, DEP_G  # noqa: E402
+ 
+ A_NUM = ['a_log10_n', 'a_neglog10_p', 'a_p_marginal', 'a_p_exact', 'a_abs_r', 'a_power50', 'a_interaction', 'a_pub_year']
+
+
+### mutant 4 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -25,7 +25,7 @@
+ from sklearn.preprocessing import OneHotEncoder, StandardScaler
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+-sys.path.insert(0, str(ROOT / 'src'))
++sys.path.insert(0, str(ROOT * 'src'))
+ from build_dataset import graph_features, oa_stem, FLAT_G, GRAPH_G, DEP_G  # noqa: E402
+ 
+ A_NUM = ['a_log10_n', 'a_neglog10_p', 'a_p_marginal', 'a_p_exact', 'a_abs_r', 'a_power50', 'a_interaction', 'a_pub_year']
+
+
+### mutant 5 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -25,7 +25,7 @@
+ from sklearn.preprocessing import OneHotEncoder, StandardScaler
+ 
+ ROOT = Path(__file__).resolve().parents[1]
+-sys.path.insert(0, str(ROOT / 'src'))
++sys.path.insert(0, str(ROOT / 'XXsrcXX'))
+ from build_dataset import graph_features, oa_stem, FLAT_G, GRAPH_G, DEP_G  # noqa: E402
+ 
+ A_NUM = ['a_log10_n', 'a_neglog10_p', 'a_p_marginal', 'a_p_exact', 'a_abs_r', 'a_power50', 'a_interaction', 'a_pub_year']
+
+
+### mutant 14 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -28,7 +28,7 @@
+ sys.path.insert(0, str(ROOT / 'src'))
+ from build_dataset import graph_features, oa_stem, FLAT_G, GRAPH_G, DEP_G  # noqa: E402
+ 
+-A_NUM = ['a_log10_n', 'a_neglog10_p', 'a_p_marginal', 'a_p_exact', 'a_abs_r', 'a_power50', 'a_interaction', 'a_pub_year']
++A_NUM = None
+ A_CAT = ['a_stat_type', 'a_analysis', 'a_field']
+ D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+
+
+### mutant 18 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -29,7 +29,7 @@
+ from build_dataset import graph_features, oa_stem, FLAT_G, GRAPH_G, DEP_G  # noqa: E402
+ 
+ A_NUM = ['a_log10_n', 'a_neglog10_p', 'a_p_marginal', 'a_p_exact', 'a_abs_r', 'a_power50', 'a_interaction', 'a_pub_year']
+-A_CAT = ['a_stat_type', 'a_analysis', 'a_field']
++A_CAT = None
+ D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+
+
+### mutant 19 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -30,7 +30,7 @@
+ 
+ A_NUM = ['a_log10_n', 'a_neglog10_p', 'a_p_marginal', 'a_p_exact', 'a_abs_r', 'a_power50', 'a_interaction', 'a_pub_year']
+ A_CAT = ['a_stat_type', 'a_analysis', 'a_field']
+-D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
++D_NUM, D_CAT = ['XXd_new_dataXX', 'd_log10_planned_n'], ['d_power_target']
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+
+
+### mutant 20 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -30,7 +30,7 @@
+ 
+ A_NUM = ['a_log10_n', 'a_neglog10_p', 'a_p_marginal', 'a_p_exact', 'a_abs_r', 'a_power50', 'a_interaction', 'a_pub_year']
+ A_CAT = ['a_stat_type', 'a_analysis', 'a_field']
+-D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
++D_NUM, D_CAT = ['d_new_data', 'XXd_log10_planned_nXX'], ['d_power_target']
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+
+
+### mutant 21 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -30,7 +30,7 @@
+ 
+ A_NUM = ['a_log10_n', 'a_neglog10_p', 'a_p_marginal', 'a_p_exact', 'a_abs_r', 'a_power50', 'a_interaction', 'a_pub_year']
+ A_CAT = ['a_stat_type', 'a_analysis', 'a_field']
+-D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
++D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['XXd_power_targetXX']
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+
+
+### mutant 22 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -30,7 +30,7 @@
+ 
+ A_NUM = ['a_log10_n', 'a_neglog10_p', 'a_p_marginal', 'a_p_exact', 'a_abs_r', 'a_power50', 'a_interaction', 'a_pub_year']
+ A_CAT = ['a_stat_type', 'a_analysis', 'a_field']
+-D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
++D_NUM, D_CAT = None
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+
+
+### mutant 27 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -31,7 +31,7 @@
+ A_NUM = ['a_log10_n', 'a_neglog10_p', 'a_p_marginal', 'a_p_exact', 'a_abs_r', 'a_power50', 'a_interaction', 'a_pub_year']
+ A_CAT = ['a_stat_type', 'a_analysis', 'a_field']
+ D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
+-CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
++CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['XXAXX', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+
+
+### mutant 28 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -31,7 +31,7 @@
+ A_NUM = ['a_log10_n', 'a_neglog10_p', 'a_p_marginal', 'a_p_exact', 'a_abs_r', 'a_power50', 'a_interaction', 'a_pub_year']
+ A_CAT = ['a_stat_type', 'a_analysis', 'a_field']
+ D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
+-CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
++CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'XXGXX'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+
+
+### mutant 30 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -32,7 +32,7 @@
+ A_CAT = ['a_stat_type', 'a_analysis', 'a_field']
+ D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+-                          'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
++                          'num': A_NUM - FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+ CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
+
+
+### mutant 31 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -32,7 +32,7 @@
+ A_CAT = ['a_stat_type', 'a_analysis', 'a_field']
+ D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+-                          'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
++                          'num': A_NUM + FLAT_G - GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+ CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
+
+
+### mutant 32 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -32,7 +32,7 @@
+ A_CAT = ['a_stat_type', 'a_analysis', 'a_field']
+ D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+-                          'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
++                          'num': A_NUM + FLAT_G + GRAPH_G - DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+ CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
+
+
+### mutant 34 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -33,7 +33,7 @@
+ D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+-          'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
++          'XXlaunchXX': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+ CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
+ 
+
+
+### mutant 35 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -33,7 +33,7 @@
+ D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+-          'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
++          'launch': {'XXnameXX': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+ CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
+ 
+
+
+### mutant 36 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -33,7 +33,7 @@
+ D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+-          'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
++          'launch': {'name': 'XXD Metadata + replication design (launch-time)XX', 'tiers': ['A', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+ CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
+ 
+
+
+### mutant 37 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -33,7 +33,7 @@
+ D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+-          'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
++          'launch': {'name': 'D Metadata + replication design (launch-time)', 'XXtiersXX': ['A', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+ CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
+ 
+
+
+### mutant 38 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -33,7 +33,7 @@
+ D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+-          'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
++          'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['XXAXX', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+ CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
+ 
+
+
+### mutant 39 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -33,7 +33,7 @@
+ D_NUM, D_CAT = ['d_new_data', 'd_log10_planned_n'], ['d_power_target']
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+-          'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
++          'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'XXDXX'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+ CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
+ 
+
+
+### mutant 40 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -34,7 +34,7 @@
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+-                     'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
++                     'XXnumXX': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+ CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
+ 
+ 
+
+
+### mutant 41 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -34,7 +34,7 @@
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+-                     'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
++                     'num': A_NUM - D_NUM, 'cat': A_CAT + D_CAT}}
+ CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
+ 
+ 
+
+
+### mutant 42 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -34,7 +34,7 @@
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+-                     'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
++                     'num': A_NUM + D_NUM, 'XXcatXX': A_CAT + D_CAT}}
+ CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
+ 
+ 
+
+
+### mutant 43 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -34,7 +34,7 @@
+ CONFIG = {'publication': {'name': 'M2 Metadata + graph + dependency correction', 'tiers': ['A', 'G'],
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+-                     'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
++                     'num': A_NUM + D_NUM, 'cat': A_CAT - D_CAT}}
+ CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
+ 
+ 
+
+
+### mutant 45 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -35,7 +35,7 @@
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+-CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
++CS = [1.003, 0.01, 0.03, 0.1, 0.3, 1.0]
+ 
+ 
+ class ContractViolation(ValueError):
+
+
+### mutant 46 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -35,7 +35,7 @@
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+-CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
++CS = [0.003, 1.01, 0.03, 0.1, 0.3, 1.0]
+ 
+ 
+ class ContractViolation(ValueError):
+
+
+### mutant 47 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -35,7 +35,7 @@
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+-CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
++CS = [0.003, 0.01, 1.03, 0.1, 0.3, 1.0]
+ 
+ 
+ class ContractViolation(ValueError):
+
+
+### mutant 48 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -35,7 +35,7 @@
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+-CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
++CS = [0.003, 0.01, 0.03, 1.1, 0.3, 1.0]
+ 
+ 
+ class ContractViolation(ValueError):
+
+
+### mutant 49 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -35,7 +35,7 @@
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+-CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
++CS = [0.003, 0.01, 0.03, 0.1, 1.3, 1.0]
+ 
+ 
+ class ContractViolation(ValueError):
+
+
+### mutant 50 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -35,7 +35,7 @@
+                           'num': A_NUM + FLAT_G + GRAPH_G + DEP_G, 'cat': A_CAT},
+           'launch': {'name': 'D Metadata + replication design (launch-time)', 'tiers': ['A', 'D'],
+                      'num': A_NUM + D_NUM, 'cat': A_CAT + D_CAT}}
+-CS = [0.003, 0.01, 0.03, 0.1, 0.3, 1.0]
++CS = [0.003, 0.01, 0.03, 0.1, 0.3, 2.0]
+ 
+ 
+ class ContractViolation(ValueError):
+
+
+### mutant 52 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -43,7 +43,7 @@
+ 
+ 
+ def _sha(obj):
+-    return hashlib.sha256(json.dumps(obj, sort_keys=True, default=str).encode()).hexdigest()[:16]
++    return hashlib.sha256(json.dumps(obj, sort_keys=False, default=str).encode()).hexdigest()[:16]
+ 
+ 
+ class ReliabilityVerifier:
+
+
+### mutant 53 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -43,7 +43,7 @@
+ 
+ 
+ def _sha(obj):
+-    return hashlib.sha256(json.dumps(obj, sort_keys=True, default=str).encode()).hexdigest()[:16]
++    return hashlib.sha256(json.dumps(obj, sort_keys=True, default=str).encode()).hexdigest()[:17]
+ 
+ 
+ class ReliabilityVerifier:
+
+
+### mutant 58 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -49,7 +49,7 @@
+ class ReliabilityVerifier:
+     def __init__(self, root=ROOT, audit_log=None, evidence=None, claims=None):
+         self.root = Path(root)
+-        self.claims = (claims if claims is not None else pd.read_csv(self.root / 'data/processed/claims.csv')).reset_index(drop=True)
++        self.claims = (claims if claims is not None else pd.read_csv(self.root / 'data/processed/claims.csv')).reset_index(drop=False)
+         self.manifest = json.loads((self.root / 'data/processed/manifest.json').read_text())
+         self.summary = json.loads((self.root / 'results/summary.json').read_text())['models']
+         self.selective = json.loads((self.root / 'results/selective.json').read_text())
+
+
+### mutant 72 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -54,7 +54,7 @@
+         self.summary = json.loads((self.root / 'results/summary.json').read_text())['models']
+         self.selective = json.loads((self.root / 'results/selective.json').read_text())
+         self.evidence = evidence if evidence is not None else self._load_evidence()
+-        self.audit_log = Path(audit_log) if audit_log else self.root / 'results/audit_log.jsonl'
++        self.audit_log = Path(audit_log) if audit_log else self.root * 'results/audit_log.jsonl'
+         self._cache = {}
+ 
+     # ---------- evidence ----------
+
+
+### mutant 73 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -54,7 +54,7 @@
+         self.summary = json.loads((self.root / 'results/summary.json').read_text())['models']
+         self.selective = json.loads((self.root / 'results/selective.json').read_text())
+         self.evidence = evidence if evidence is not None else self._load_evidence()
+-        self.audit_log = Path(audit_log) if audit_log else self.root / 'results/audit_log.jsonl'
++        self.audit_log = Path(audit_log) if audit_log else self.root / 'XXresults/audit_log.jsonlXX'
+         self._cache = {}
+ 
+     # ---------- evidence ----------
+
+
+### mutant 81 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -62,7 +62,7 @@
+         ev = {}
+         for pid in self.claims.paper_id.unique():
+             w = json.loads((self.root / f'data/openalex/works/{oa_stem(pid)}.json').read_text())
+-            cf = self.root / f'data/openalex/citing/{oa_stem(pid)}.jsonl'
++            cf = self.root / f'XXdata/openalex/citing/{oa_stem(pid)}.jsonlXX'
+             citing = [json.loads(l) for l in cf.read_text().splitlines() if l.strip()] if cf.exists() else []
+             ev[pid] = (w, citing)
+         return ev
+
+
+### mutant 89 (ok_suspicious)
+--- src/verifier.py
++++ src/verifier.py
+@@ -80,7 +80,7 @@
+ 
+     def _n_evidence(self, paper_id, as_of):
+         cut = self._evidence_cutoff(as_of)
+-        return sum(1 for x in self.evidence[paper_id][1] if (x.get('publication_date') or '9999') <= cut)
++        return sum(2 for x in self.evidence[paper_id][1] if (x.get('publication_date') or '9999') <= cut)
+ 
+     def _check_before_launch(self, as_of, launch):
+         if as_of >= launch:  # mutation hook: refusal guard
+
+
+### mutant 90 (ok_suspicious)
+--- src/verifier.py
++++ src/verifier.py
+@@ -80,7 +80,7 @@
+ 
+     def _n_evidence(self, paper_id, as_of):
+         cut = self._evidence_cutoff(as_of)
+-        return sum(1 for x in self.evidence[paper_id][1] if (x.get('publication_date') or '9999') <= cut)
++        return sum(1 for x in self.evidence[paper_id][2] if (x.get('publication_date') or '9999') <= cut)
+ 
+     def _check_before_launch(self, as_of, launch):
+         if as_of >= launch:  # mutation hook: refusal guard
+
+
+### mutant 91 (ok_suspicious)
+--- src/verifier.py
++++ src/verifier.py
+@@ -80,7 +80,7 @@
+ 
+     def _n_evidence(self, paper_id, as_of):
+         cut = self._evidence_cutoff(as_of)
+-        return sum(1 for x in self.evidence[paper_id][1] if (x.get('publication_date') or '9999') <= cut)
++        return sum(1 for x in self.evidence[paper_id][1] if (x.get('XXpublication_dateXX') or '9999') <= cut)
+ 
+     def _check_before_launch(self, as_of, launch):
+         if as_of >= launch:  # mutation hook: refusal guard
+
+
+### mutant 92 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -80,7 +80,7 @@
+ 
+     def _n_evidence(self, paper_id, as_of):
+         cut = self._evidence_cutoff(as_of)
+-        return sum(1 for x in self.evidence[paper_id][1] if (x.get('publication_date') or '9999') <= cut)
++        return sum(1 for x in self.evidence[paper_id][1] if (x.get('publication_date') or 'XX9999XX') <= cut)
+ 
+     def _check_before_launch(self, as_of, launch):
+         if as_of >= launch:  # mutation hook: refusal guard
+
+
+### mutant 93 (ok_suspicious)
+--- src/verifier.py
++++ src/verifier.py
+@@ -80,7 +80,7 @@
+ 
+     def _n_evidence(self, paper_id, as_of):
+         cut = self._evidence_cutoff(as_of)
+-        return sum(1 for x in self.evidence[paper_id][1] if (x.get('publication_date') or '9999') <= cut)
++        return sum(1 for x in self.evidence[paper_id][1] if (x.get('publication_date') and '9999') <= cut)
+ 
+     def _check_before_launch(self, as_of, launch):
+         if as_of >= launch:  # mutation hook: refusal guard
+
+
+### mutant 94 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -80,7 +80,7 @@
+ 
+     def _n_evidence(self, paper_id, as_of):
+         cut = self._evidence_cutoff(as_of)
+-        return sum(1 for x in self.evidence[paper_id][1] if (x.get('publication_date') or '9999') <= cut)
++        return sum(1 for x in self.evidence[paper_id][1] if (x.get('publication_date') or '9999') < cut)
+ 
+     def _check_before_launch(self, as_of, launch):
+         if as_of >= launch:  # mutation hook: refusal guard
+
+
+### mutant 95 (ok_suspicious)
+--- src/verifier.py
++++ src/verifier.py
+@@ -83,7 +83,7 @@
+         return sum(1 for x in self.evidence[paper_id][1] if (x.get('publication_date') or '9999') <= cut)
+ 
+     def _check_before_launch(self, as_of, launch):
+-        if as_of >= launch:  # mutation hook: refusal guard
++        if as_of > launch:  # mutation hook: refusal guard
+             raise ContractViolation(f'as_of {as_of} is on/after replication launch {launch}: evidence may reflect the outcome')
+ 
+     # ---------- model ----------
+
+
+### mutant 96 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -84,7 +84,7 @@
+ 
+     def _check_before_launch(self, as_of, launch):
+         if as_of >= launch:  # mutation hook: refusal guard
+-            raise ContractViolation(f'as_of {as_of} is on/after replication launch {launch}: evidence may reflect the outcome')
++            raise ContractViolation(f'XXas_of {as_of} is on/after replication launch {launch}: evidence may reflect the outcomeXX')
+ 
+     # ---------- model ----------
+     def _training_mask(self, paper_id):
+
+
+### mutant 97 (ok_suspicious)
+--- src/verifier.py
++++ src/verifier.py
+@@ -88,7 +88,7 @@
+ 
+     # ---------- model ----------
+     def _training_mask(self, paper_id):
+-        return (self.claims.paper_id != paper_id).to_numpy()  # mutation hook: leave-paper-out
++        return (self.claims.paper_id == paper_id).to_numpy()  # mutation hook: leave-paper-out
+ 
+     def _features(self, stage):
+         return CONFIG[stage]['num'], CONFIG[stage]['cat']  # mutation hook: stage gating
+
+
+### mutant 99 (ok_suspicious)
+--- src/verifier.py
++++ src/verifier.py
+@@ -91,7 +91,7 @@
+         return (self.claims.paper_id != paper_id).to_numpy()  # mutation hook: leave-paper-out
+ 
+     def _features(self, stage):
+-        return CONFIG[stage]['num'], CONFIG[stage]['cat']  # mutation hook: stage gating
++        return CONFIG[stage]['num'], CONFIG[stage]['XXcatXX']  # mutation hook: stage gating
+ 
+     def _fit(self, X, y, groups, num, cat):
+         pre = ColumnTransformer([
+
+
+### mutant 100 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -95,7 +95,7 @@
+ 
+     def _fit(self, X, y, groups, num, cat):
+         pre = ColumnTransformer([
+-            ('num', make_pipeline(SimpleImputer(strategy='median', add_indicator=True), StandardScaler()), num),
++            ('XXnumXX', make_pipeline(SimpleImputer(strategy='median', add_indicator=True), StandardScaler()), num),
+             ('cat', OneHotEncoder(handle_unknown='ignore', min_frequency=5), cat)])
+         pipe = Pipeline([('pre', pre), ('lr', LogisticRegression(max_iter=5000))])
+         inner = list(GroupKFold(n_splits=3).split(X, y, groups))
+
+
+### mutant 102 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -95,7 +95,7 @@
+ 
+     def _fit(self, X, y, groups, num, cat):
+         pre = ColumnTransformer([
+-            ('num', make_pipeline(SimpleImputer(strategy='median', add_indicator=True), StandardScaler()), num),
++            ('num', make_pipeline(SimpleImputer(strategy='median', add_indicator=False), StandardScaler()), num),
+             ('cat', OneHotEncoder(handle_unknown='ignore', min_frequency=5), cat)])
+         pipe = Pipeline([('pre', pre), ('lr', LogisticRegression(max_iter=5000))])
+         inner = list(GroupKFold(n_splits=3).split(X, y, groups))
+
+
+### mutant 103 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -96,7 +96,7 @@
+     def _fit(self, X, y, groups, num, cat):
+         pre = ColumnTransformer([
+             ('num', make_pipeline(SimpleImputer(strategy='median', add_indicator=True), StandardScaler()), num),
+-            ('cat', OneHotEncoder(handle_unknown='ignore', min_frequency=5), cat)])
++            ('XXcatXX', OneHotEncoder(handle_unknown='ignore', min_frequency=5), cat)])
+         pipe = Pipeline([('pre', pre), ('lr', LogisticRegression(max_iter=5000))])
+         inner = list(GroupKFold(n_splits=3).split(X, y, groups))
+         return GridSearchCV(pipe, {'lr__C': CS}, scoring='neg_log_loss', cv=inner).fit(X, y).best_estimator_
+
+
+### mutant 105 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -96,7 +96,7 @@
+     def _fit(self, X, y, groups, num, cat):
+         pre = ColumnTransformer([
+             ('num', make_pipeline(SimpleImputer(strategy='median', add_indicator=True), StandardScaler()), num),
+-            ('cat', OneHotEncoder(handle_unknown='ignore', min_frequency=5), cat)])
++            ('cat', OneHotEncoder(handle_unknown='ignore', min_frequency=6), cat)])
+         pipe = Pipeline([('pre', pre), ('lr', LogisticRegression(max_iter=5000))])
+         inner = list(GroupKFold(n_splits=3).split(X, y, groups))
+         return GridSearchCV(pipe, {'lr__C': CS}, scoring='neg_log_loss', cv=inner).fit(X, y).best_estimator_
+
+
+### mutant 109 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -97,7 +97,7 @@
+         pre = ColumnTransformer([
+             ('num', make_pipeline(SimpleImputer(strategy='median', add_indicator=True), StandardScaler()), num),
+             ('cat', OneHotEncoder(handle_unknown='ignore', min_frequency=5), cat)])
+-        pipe = Pipeline([('pre', pre), ('lr', LogisticRegression(max_iter=5000))])
++        pipe = Pipeline([('pre', pre), ('lr', LogisticRegression(max_iter=5001))])
+         inner = list(GroupKFold(n_splits=3).split(X, y, groups))
+         return GridSearchCV(pipe, {'lr__C': CS}, scoring='neg_log_loss', cv=inner).fit(X, y).best_estimator_
+ 
+
+
+### mutant 111 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -98,7 +98,7 @@
+             ('num', make_pipeline(SimpleImputer(strategy='median', add_indicator=True), StandardScaler()), num),
+             ('cat', OneHotEncoder(handle_unknown='ignore', min_frequency=5), cat)])
+         pipe = Pipeline([('pre', pre), ('lr', LogisticRegression(max_iter=5000))])
+-        inner = list(GroupKFold(n_splits=3).split(X, y, groups))
++        inner = list(GroupKFold(n_splits=4).split(X, y, groups))
+         return GridSearchCV(pipe, {'lr__C': CS}, scoring='neg_log_loss', cv=inner).fit(X, y).best_estimator_
+ 
+     # ---------- public API ----------
+
+
+### mutant 112 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -98,7 +98,7 @@
+             ('num', make_pipeline(SimpleImputer(strategy='median', add_indicator=True), StandardScaler()), num),
+             ('cat', OneHotEncoder(handle_unknown='ignore', min_frequency=5), cat)])
+         pipe = Pipeline([('pre', pre), ('lr', LogisticRegression(max_iter=5000))])
+-        inner = list(GroupKFold(n_splits=3).split(X, y, groups))
++        inner = None
+         return GridSearchCV(pipe, {'lr__C': CS}, scoring='neg_log_loss', cv=inner).fit(X, y).best_estimator_
+ 
+     # ---------- public API ----------
+
+
+### mutant 117 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -104,7 +104,7 @@
+     # ---------- public API ----------
+     def verify_claim(self, claim_id, as_of, stage='publication'):
+         if stage not in CONFIG:
+-            raise ContractViolation(f'unknown stage {stage!r}; expected one of {sorted(CONFIG)}')
++            raise ContractViolation(f'XXunknown stage {stage!r}; expected one of {sorted(CONFIG)}XX')
+         try:
+             as_of = date.fromisoformat(str(as_of)).isoformat()
+         except ValueError as e:
+
+
+### mutant 119 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -108,7 +108,7 @@
+         try:
+             as_of = date.fromisoformat(str(as_of)).isoformat()
+         except ValueError as e:
+-            raise ContractViolation(f'as_of must be an ISO date: {e}')
++            raise ContractViolation(f'XXas_of must be an ISO date: {e}XX')
+         hit = self.claims.index[self.claims.claim_id == claim_id]
+         if len(hit) != 1:
+             raise ContractViolation(f'unknown claim_id {claim_id!r}')
+
+
+### mutant 124 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -111,7 +111,7 @@
+             raise ContractViolation(f'as_of must be an ISO date: {e}')
+         hit = self.claims.index[self.claims.claim_id == claim_id]
+         if len(hit) != 1:
+-            raise ContractViolation(f'unknown claim_id {claim_id!r}')
++            raise ContractViolation(f'XXunknown claim_id {claim_id!r}XX')
+         i = hit[0]; row = self.claims.loc[i]
+         launch = row.launch_date if isinstance(row.launch_date, str) else self.manifest['earliest_replication_start']
+         self._check_before_launch(as_of, launch)
+
+
+### mutant 128 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -113,7 +113,7 @@
+         if len(hit) != 1:
+             raise ContractViolation(f'unknown claim_id {claim_id!r}')
+         i = hit[0]; row = self.claims.loc[i]
+-        launch = row.launch_date if isinstance(row.launch_date, str) else self.manifest['earliest_replication_start']
++        launch = row.launch_date if isinstance(row.launch_date, str) else self.manifest['XXearliest_replication_startXX']
+         self._check_before_launch(as_of, launch)
+ 
+         num, cat = self._features(stage)
+
+
+### mutant 131 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -117,7 +117,7 @@
+         self._check_before_launch(as_of, launch)
+ 
+         num, cat = self._features(stage)
+-        G = self._cache.get(as_of)
++        G = None
+         if G is None:
+             G = self._cache[as_of] = self._graph_table(as_of)
+         X = pd.concat([self.claims, G], axis=1)
+
+
+### mutant 146 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -128,7 +128,7 @@
+ 
+         # drivers: per-feature contribution to the logit (coefficient x transformed value)
+         pre, lr = model.named_steps['pre'], model.named_steps['lr']
+-        z = pre.transform(X.loc[[i]]); z = z.toarray() if hasattr(z, 'toarray') else z
++        z = pre.transform(X.loc[[i]]); z = z.toarray() if hasattr(z, 'XXtoarrayXX') else z
+         contrib = z[0] * lr.coef_[0]; names = pre.get_feature_names_out()
+         top = np.argsort(-np.abs(contrib))[:3]
+         drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
+
+
+### mutant 149 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -129,7 +129,7 @@
+         # drivers: per-feature contribution to the logit (coefficient x transformed value)
+         pre, lr = model.named_steps['pre'], model.named_steps['lr']
+         z = pre.transform(X.loc[[i]]); z = z.toarray() if hasattr(z, 'toarray') else z
+-        contrib = z[0] * lr.coef_[0]; names = pre.get_feature_names_out()
++        contrib = z[0] / lr.coef_[0]; names = pre.get_feature_names_out()
+         top = np.argsort(-np.abs(contrib))[:3]
+         drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
+ 
+
+
+### mutant 153 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -130,7 +130,7 @@
+         pre, lr = model.named_steps['pre'], model.named_steps['lr']
+         z = pre.transform(X.loc[[i]]); z = z.toarray() if hasattr(z, 'toarray') else z
+         contrib = z[0] * lr.coef_[0]; names = pre.get_feature_names_out()
+-        top = np.argsort(-np.abs(contrib))[:3]
++        top = np.argsort(+np.abs(contrib))[:3]
+         drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+
+
+### mutant 154 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -130,7 +130,7 @@
+         pre, lr = model.named_steps['pre'], model.named_steps['lr']
+         z = pre.transform(X.loc[[i]]); z = z.toarray() if hasattr(z, 'toarray') else z
+         contrib = z[0] * lr.coef_[0]; names = pre.get_feature_names_out()
+-        top = np.argsort(-np.abs(contrib))[:3]
++        top = np.argsort(-np.abs(contrib))[:4]
+         drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+
+
+### mutant 156 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -131,7 +131,7 @@
+         z = pre.transform(X.loc[[i]]); z = z.toarray() if hasattr(z, 'toarray') else z
+         contrib = z[0] * lr.coef_[0]; names = pre.get_feature_names_out()
+         top = np.argsort(-np.abs(contrib))[:3]
+-        drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
++        drivers = [{'XXfeatureXX': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+         sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
+
+
+### mutant 157 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -131,7 +131,7 @@
+         z = pre.transform(X.loc[[i]]); z = z.toarray() if hasattr(z, 'toarray') else z
+         contrib = z[0] * lr.coef_[0]; names = pre.get_feature_names_out()
+         top = np.argsort(-np.abs(contrib))[:3]
+-        drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
++        drivers = [{'feature': names[k].split('XX__XX', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+         sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
+
+
+### mutant 158 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -131,7 +131,7 @@
+         z = pre.transform(X.loc[[i]]); z = z.toarray() if hasattr(z, 'toarray') else z
+         contrib = z[0] * lr.coef_[0]; names = pre.get_feature_names_out()
+         top = np.argsort(-np.abs(contrib))[:3]
+-        drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
++        drivers = [{'feature': names[k].split('__', 2)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+         sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
+
+
+### mutant 159 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -131,7 +131,7 @@
+         z = pre.transform(X.loc[[i]]); z = z.toarray() if hasattr(z, 'toarray') else z
+         contrib = z[0] * lr.coef_[0]; names = pre.get_feature_names_out()
+         top = np.argsort(-np.abs(contrib))[:3]
+-        drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
++        drivers = [{'feature': names[k].split('__', 1)[+1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+         sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
+
+
+### mutant 160 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -131,7 +131,7 @@
+         z = pre.transform(X.loc[[i]]); z = z.toarray() if hasattr(z, 'toarray') else z
+         contrib = z[0] * lr.coef_[0]; names = pre.get_feature_names_out()
+         top = np.argsort(-np.abs(contrib))[:3]
+-        drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
++        drivers = [{'feature': names[k].split('__', 1)[-2], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+         sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
+
+
+### mutant 161 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -131,7 +131,7 @@
+         z = pre.transform(X.loc[[i]]); z = z.toarray() if hasattr(z, 'toarray') else z
+         contrib = z[0] * lr.coef_[0]; names = pre.get_feature_names_out()
+         top = np.argsort(-np.abs(contrib))[:3]
+-        drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
++        drivers = [{'feature': names[k].split('__', 1)[-1], 'XXlogit_contributionXX': round(float(contrib[k]), 3)} for k in top]
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+         sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
+
+
+### mutant 162 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -131,7 +131,7 @@
+         z = pre.transform(X.loc[[i]]); z = z.toarray() if hasattr(z, 'toarray') else z
+         contrib = z[0] * lr.coef_[0]; names = pre.get_feature_names_out()
+         top = np.argsort(-np.abs(contrib))[:3]
+-        drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
++        drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 4)} for k in top]
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+         sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
+
+
+### mutant 163 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -131,7 +131,7 @@
+         z = pre.transform(X.loc[[i]]); z = z.toarray() if hasattr(z, 'toarray') else z
+         contrib = z[0] * lr.coef_[0]; names = pre.get_feature_names_out()
+         top = np.argsort(-np.abs(contrib))[:3]
+-        drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
++        drivers = None
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+         sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
+
+
+### mutant 169 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -134,7 +134,7 @@
+         drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+-        sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
++        sel = {s['coverage']: s for s in self.selective if s['model'] != cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
+         out = {
+             'claim_id': claim_id, 'stage': stage, 'as_of': as_of,
+             'p_replicate': round(p, 4), 'base_rate': round(float(y[tr].mean()), 4),
+
+
+### mutant 171 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -134,7 +134,7 @@
+         drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+-        sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
++        sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('XXconfidenceXX', 'abs05') == 'abs05'}
+         out = {
+             'claim_id': claim_id, 'stage': stage, 'as_of': as_of,
+             'p_replicate': round(p, 4), 'base_rate': round(float(y[tr].mean()), 4),
+
+
+### mutant 172 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -134,7 +134,7 @@
+         drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+-        sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
++        sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'XXabs05XX') == 'abs05'}
+         out = {
+             'claim_id': claim_id, 'stage': stage, 'as_of': as_of,
+             'p_replicate': round(p, 4), 'base_rate': round(float(y[tr].mean()), 4),
+
+
+### mutant 173 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -134,7 +134,7 @@
+         drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+-        sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
++        sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') != 'abs05'}
+         out = {
+             'claim_id': claim_id, 'stage': stage, 'as_of': as_of,
+             'p_replicate': round(p, 4), 'base_rate': round(float(y[tr].mean()), 4),
+
+
+### mutant 174 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -134,7 +134,7 @@
+         drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+-        sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
++        sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'XXabs05XX'}
+         out = {
+             'claim_id': claim_id, 'stage': stage, 'as_of': as_of,
+             'p_replicate': round(p, 4), 'base_rate': round(float(y[tr].mean()), 4),
+
+
+### mutant 175 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -134,7 +134,7 @@
+         drivers = [{'feature': names[k].split('__', 1)[-1], 'logit_contribution': round(float(contrib[k]), 3)} for k in top]
+ 
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+-        sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
++        sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] or s.get('confidence', 'abs05') == 'abs05'}
+         out = {
+             'claim_id': claim_id, 'stage': stage, 'as_of': as_of,
+             'p_replicate': round(p, 4), 'base_rate': round(float(y[tr].mean()), 4),
+
+
+### mutant 177 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -136,7 +136,7 @@
+         cfg = CONFIG[stage]; cv = self.summary[cfg['name']]
+         sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
+         out = {
+-            'claim_id': claim_id, 'stage': stage, 'as_of': as_of,
++            'XXclaim_idXX': claim_id, 'stage': stage, 'as_of': as_of,
+             'p_replicate': round(p, 4), 'base_rate': round(float(y[tr].mean()), 4),
+             'cv_auroc': round(cv['mean']['auroc'], 3),
+             'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
+
+
+### mutant 181 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -137,7 +137,7 @@
+         sel = {s['coverage']: s for s in self.selective if s['model'] == cfg['name'] and s.get('confidence', 'abs05') == 'abs05'}
+         out = {
+             'claim_id': claim_id, 'stage': stage, 'as_of': as_of,
+-            'p_replicate': round(p, 4), 'base_rate': round(float(y[tr].mean()), 4),
++            'p_replicate': round(p, 5), 'base_rate': round(float(y[tr].mean()), 4),
+             'cv_auroc': round(cv['mean']['auroc'], 3),
+             'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+
+
+### mutant 184 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -138,7 +138,7 @@
+         out = {
+             'claim_id': claim_id, 'stage': stage, 'as_of': as_of,
+             'p_replicate': round(p, 4), 'base_rate': round(float(y[tr].mean()), 4),
+-            'cv_auroc': round(cv['mean']['auroc'], 3),
++            'XXcv_aurocXX': round(cv['mean']['auroc'], 3),
+             'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+
+
+### mutant 187 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -138,7 +138,7 @@
+         out = {
+             'claim_id': claim_id, 'stage': stage, 'as_of': as_of,
+             'p_replicate': round(p, 4), 'base_rate': round(float(y[tr].mean()), 4),
+-            'cv_auroc': round(cv['mean']['auroc'], 3),
++            'cv_auroc': round(cv['mean']['auroc'], 4),
+             'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+
+
+### mutant 188 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -139,7 +139,7 @@
+             'claim_id': claim_id, 'stage': stage, 'as_of': as_of,
+             'p_replicate': round(p, 4), 'base_rate': round(float(y[tr].mean()), 4),
+             'cv_auroc': round(cv['mean']['auroc'], 3),
+-            'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
++            'XXcv_brier_skillXX': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+             'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
+
+
+### mutant 189 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -139,7 +139,7 @@
+             'claim_id': claim_id, 'stage': stage, 'as_of': as_of,
+             'p_replicate': round(p, 4), 'base_rate': round(float(y[tr].mean()), 4),
+             'cv_auroc': round(cv['mean']['auroc'], 3),
+-            'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
++            'cv_brier_skill': round(2 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+             'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
+
+
+### mutant 190 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -139,7 +139,7 @@
+             'claim_id': claim_id, 'stage': stage, 'as_of': as_of,
+             'p_replicate': round(p, 4), 'base_rate': round(float(y[tr].mean()), 4),
+             'cv_auroc': round(cv['mean']['auroc'], 3),
+-            'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
++            'cv_brier_skill': round(1 + cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+             'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
+
+
+### mutant 193 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -139,7 +139,7 @@
+             'claim_id': claim_id, 'stage': stage, 'as_of': as_of,
+             'p_replicate': round(p, 4), 'base_rate': round(float(y[tr].mean()), 4),
+             'cv_auroc': round(cv['mean']['auroc'], 3),
+-            'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
++            'cv_brier_skill': round(1 - cv['mean']['brier'] * self.summary['B0 Prevalence']['mean']['brier'], 4),
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+             'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
+
+
+### mutant 197 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -139,7 +139,7 @@
+             'claim_id': claim_id, 'stage': stage, 'as_of': as_of,
+             'p_replicate': round(p, 4), 'base_rate': round(float(y[tr].mean()), 4),
+             'cv_auroc': round(cv['mean']['auroc'], 3),
+-            'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
++            'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 5),
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+             'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
+
+
+### mutant 199 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -142,7 +142,7 @@
+             'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+-            'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
++            'selective_ok': bool(1.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
+             'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+             'n_train_claims': int(tr.sum()), 'drivers': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+
+
+### mutant 200 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -142,7 +142,7 @@
+             'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+-            'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
++            'selective_ok': bool(0.1 not in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
+             'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+             'n_train_claims': int(tr.sum()), 'drivers': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+
+
+### mutant 201 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -142,7 +142,7 @@
+             'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+-            'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
++            'selective_ok': bool(0.1 in sel and 2.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
+             'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+             'n_train_claims': int(tr.sum()), 'drivers': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+
+
+### mutant 202 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -142,7 +142,7 @@
+             'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+-            'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
++            'selective_ok': bool(0.1 in sel and 1.0 not in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
+             'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+             'n_train_claims': int(tr.sum()), 'drivers': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+
+
+### mutant 205 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -142,7 +142,7 @@
+             'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+-            'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
++            'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][1] > sel[1.0]['accuracy']),
+             'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+             'n_train_claims': int(tr.sum()), 'drivers': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+
+
+### mutant 206 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -142,7 +142,7 @@
+             'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+-            'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
++            'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] >= sel[1.0]['accuracy']),
+             'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+             'n_train_claims': int(tr.sum()), 'drivers': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+
+
+### mutant 209 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -142,7 +142,7 @@
+             'cv_brier_skill': round(1 - cv['mean']['brier'] / self.summary['B0 Prevalence']['mean']['brier'], 4),
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+-            'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
++            'selective_ok': bool(0.1 in sel or 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
+             'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+             'n_train_claims': int(tr.sum()), 'drivers': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+
+
+### mutant 212 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -143,7 +143,7 @@
+             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+             'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
+-            'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
++            'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'XXtiers_usedXX': cfg['tiers'],
+             'n_train_claims': int(tr.sum()), 'drivers': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+                            'model_config': _sha({'stage': stage, 'num': num, 'cat': cat, 'C_grid': CS}),
+
+
+### mutant 214 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -144,7 +144,7 @@
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+             'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
+             'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+-            'n_train_claims': int(tr.sum()), 'drivers': drivers,
++            'XXn_train_claimsXX': int(tr.sum()), 'drivers': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+                            'model_config': _sha({'stage': stage, 'num': num, 'cat': cat, 'C_grid': CS}),
+                            'chosen_C': float(lr.C)},
+
+
+### mutant 215 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -144,7 +144,7 @@
+             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
+             'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
+             'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+-            'n_train_claims': int(tr.sum()), 'drivers': drivers,
++            'n_train_claims': int(tr.sum()), 'XXdriversXX': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+                            'model_config': _sha({'stage': stage, 'num': num, 'cat': cat, 'C_grid': CS}),
+                            'chosen_C': float(lr.C)},
+
+
+### mutant 219 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -145,7 +145,7 @@
+             'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
+             'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+             'n_train_claims': int(tr.sum()), 'drivers': drivers,
+-            'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
++            'provenance': {'archive_sha256': self.manifest['source_sha256'], 'XXopenalex_accessXX': self.manifest['openalex_access'],
+                            'model_config': _sha({'stage': stage, 'num': num, 'cat': cat, 'C_grid': CS}),
+                            'chosen_C': float(lr.C)},
+         }
+
+
+### mutant 221 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -146,7 +146,7 @@
+             'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+             'n_train_claims': int(tr.sum()), 'drivers': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+-                           'model_config': _sha({'stage': stage, 'num': num, 'cat': cat, 'C_grid': CS}),
++                           'XXmodel_configXX': _sha({'stage': stage, 'num': num, 'cat': cat, 'C_grid': CS}),
+                            'chosen_C': float(lr.C)},
+         }
+         out['advice'] = ('weak signal: do not gate actions on this score' if not out['selective_ok']
+
+
+### mutant 222 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -146,7 +146,7 @@
+             'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+             'n_train_claims': int(tr.sum()), 'drivers': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+-                           'model_config': _sha({'stage': stage, 'num': num, 'cat': cat, 'C_grid': CS}),
++                           'model_config': _sha({'XXstageXX': stage, 'num': num, 'cat': cat, 'C_grid': CS}),
+                            'chosen_C': float(lr.C)},
+         }
+         out['advice'] = ('weak signal: do not gate actions on this score' if not out['selective_ok']
+
+
+### mutant 223 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -146,7 +146,7 @@
+             'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+             'n_train_claims': int(tr.sum()), 'drivers': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+-                           'model_config': _sha({'stage': stage, 'num': num, 'cat': cat, 'C_grid': CS}),
++                           'model_config': _sha({'stage': stage, 'XXnumXX': num, 'cat': cat, 'C_grid': CS}),
+                            'chosen_C': float(lr.C)},
+         }
+         out['advice'] = ('weak signal: do not gate actions on this score' if not out['selective_ok']
+
+
+### mutant 224 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -146,7 +146,7 @@
+             'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+             'n_train_claims': int(tr.sum()), 'drivers': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+-                           'model_config': _sha({'stage': stage, 'num': num, 'cat': cat, 'C_grid': CS}),
++                           'model_config': _sha({'stage': stage, 'num': num, 'XXcatXX': cat, 'C_grid': CS}),
+                            'chosen_C': float(lr.C)},
+         }
+         out['advice'] = ('weak signal: do not gate actions on this score' if not out['selective_ok']
+
+
+### mutant 225 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -146,7 +146,7 @@
+             'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+             'n_train_claims': int(tr.sum()), 'drivers': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+-                           'model_config': _sha({'stage': stage, 'num': num, 'cat': cat, 'C_grid': CS}),
++                           'model_config': _sha({'stage': stage, 'num': num, 'cat': cat, 'XXC_gridXX': CS}),
+                            'chosen_C': float(lr.C)},
+         }
+         out['advice'] = ('weak signal: do not gate actions on this score' if not out['selective_ok']
+
+
+### mutant 226 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -147,7 +147,7 @@
+             'n_train_claims': int(tr.sum()), 'drivers': drivers,
+             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
+                            'model_config': _sha({'stage': stage, 'num': num, 'cat': cat, 'C_grid': CS}),
+-                           'chosen_C': float(lr.C)},
++                           'XXchosen_CXX': float(lr.C)},
+         }
+         out['advice'] = ('weak signal: do not gate actions on this score' if not out['selective_ok']
+                          else 'score may be used with abstention')
+
+
+### mutant 229 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -149,7 +149,7 @@
+                            'model_config': _sha({'stage': stage, 'num': num, 'cat': cat, 'C_grid': CS}),
+                            'chosen_C': float(lr.C)},
+         }
+-        out['advice'] = ('weak signal: do not gate actions on this score' if not out['selective_ok']
++        out['advice'] = ('XXweak signal: do not gate actions on this scoreXX' if not out['selective_ok']
+                          else 'score may be used with abstention')
+         self._audit(out)
+         return out
+
+
+### mutant 232 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -150,7 +150,7 @@
+                            'chosen_C': float(lr.C)},
+         }
+         out['advice'] = ('weak signal: do not gate actions on this score' if not out['selective_ok']
+-                         else 'score may be used with abstention')
++                         else 'XXscore may be used with abstentionXX')
+         self._audit(out)
+         return out
+ 
+
+
+### mutant 235 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -155,7 +155,7 @@
+         return out
+ 
+     def _audit(self, out):
+-        rec = {'ts': time.strftime('%Y-%m-%dT%H:%M:%S%z'), **out, 'record_sha': _sha(out)}
++        rec = {'ts': time.strftime('XX%Y-%m-%dT%H:%M:%S%zXX'), **out, 'record_sha': _sha(out)}
+         with open(self.audit_log, 'a') as f:
+             f.write(json.dumps(rec) + '\n')
+ 
+
+
+### mutant 236 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -155,7 +155,7 @@
+         return out
+ 
+     def _audit(self, out):
+-        rec = {'ts': time.strftime('%Y-%m-%dT%H:%M:%S%z'), **out, 'record_sha': _sha(out)}
++        rec = {'ts': time.strftime('%Y-%m-%dT%H:%M:%S%z'), *out, 'record_sha': _sha(out)}
+         with open(self.audit_log, 'a') as f:
+             f.write(json.dumps(rec) + '\n')
+ 
+
+
+### mutant 242 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -160,7 +160,7 @@
+             f.write(json.dumps(rec) + '\n')
+ 
+ 
+-if __name__ == '__main__':
++if __name__ != '__main__':
+     v = ReliabilityVerifier()
+     print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else 'publication'), indent=2))
+ 
+
+
+### mutant 243 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -160,7 +160,7 @@
+             f.write(json.dumps(rec) + '\n')
+ 
+ 
+-if __name__ == '__main__':
++if __name__ == 'XX__main__XX':
+     v = ReliabilityVerifier()
+     print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else 'publication'), indent=2))
+ 
+
+
+### mutant 244 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -161,6 +161,6 @@
+ 
+ 
+ if __name__ == '__main__':
+-    v = ReliabilityVerifier()
++    v = None
+     print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else 'publication'), indent=2))
+ 
+
+
+### mutant 245 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -162,5 +162,5 @@
+ 
+ if __name__ == '__main__':
+     v = ReliabilityVerifier()
+-    print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else 'publication'), indent=2))
++    print(json.dumps(v.verify_claim(sys.argv[2], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else 'publication'), indent=2))
+ 
+
+
+### mutant 246 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -162,5 +162,5 @@
+ 
+ if __name__ == '__main__':
+     v = ReliabilityVerifier()
+-    print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else 'publication'), indent=2))
++    print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[3], sys.argv[3] if len(sys.argv) > 3 else 'publication'), indent=2))
+ 
+
+
+### mutant 247 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -162,5 +162,5 @@
+ 
+ if __name__ == '__main__':
+     v = ReliabilityVerifier()
+-    print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else 'publication'), indent=2))
++    print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[2], sys.argv[4] if len(sys.argv) > 3 else 'publication'), indent=2))
+ 
+
+
+### mutant 248 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -162,5 +162,5 @@
+ 
+ if __name__ == '__main__':
+     v = ReliabilityVerifier()
+-    print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else 'publication'), indent=2))
++    print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) >= 3 else 'publication'), indent=2))
+ 
+
+
+### mutant 249 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -162,5 +162,5 @@
+ 
+ if __name__ == '__main__':
+     v = ReliabilityVerifier()
+-    print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else 'publication'), indent=2))
++    print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 4 else 'publication'), indent=2))
+ 
+
+
+### mutant 250 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -162,5 +162,5 @@
+ 
+ if __name__ == '__main__':
+     v = ReliabilityVerifier()
+-    print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else 'publication'), indent=2))
++    print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else 'XXpublicationXX'), indent=2))
+ 
+
+
+### mutant 251 (bad_survived)
+--- src/verifier.py
++++ src/verifier.py
+@@ -162,5 +162,5 @@
+ 
+ if __name__ == '__main__':
+     v = ReliabilityVerifier()
+-    print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else 'publication'), indent=2))
++    print(json.dumps(v.verify_claim(sys.argv[1], sys.argv[2], sys.argv[3] if len(sys.argv) > 3 else 'publication'), indent=3))
+ 
+

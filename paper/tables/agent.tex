@@ -1,0 +1,15 @@
+\begin{table}[t]\centering\caption{Agent-in-the-loop triage on identical claims (scenario A: 274 valid queries; B: 259 post-launch queries, where the unprotected tool silently returns a no-cutoff prediction and the contract-aware tool refuses). U: agent sees only \texttt{p\_replicate}; C: full contract output. Wrong auto = accepted non-replicating plus rejected replicating claims, as a share of all claims; $\Delta$ = C$-$U with paper-clustered 95\% CI. $^{\dagger}$Exploratory revised wording (\S\ref{sec:agent}).}\label{tab:agent}
+\scriptsize\setlength{\tabcolsep}{2pt}\begin{tabular}{@{}llccccc@{}}\toprule
+& Agent & Esc.\ U & Esc.\ C & Wrong U & Wrong C & $\Delta$ wrong (pp) \\\midrule
+A & GPT-5.4 mini & 66\% & 93\% & 14.6\% & 3.6\% & -10.9 [-16.4, -6.3] \\
+ & GPT-6.1 sol & 81\% & 100\% & 9.1\% & 0.0\% & -9.1 [-13.5, -5.1] \\
+ & Claude Haiku 4.5 & 59\% & 1\% & 17.9\% & 54.0\% & +36.1 [+27.3, +44.4] \\
+ & Claude Haiku 4.5, C$^{\dagger}$ & & 100\% & & 0.0\% & \\
+ & Claude Opus 5.5 & 94\% & 100\% & 2.9\% & 0.0\% & -2.9 [-5.2, -1.1] \\
+\midrule
+B & GPT-5.4 mini & 54\% & 100\% & 20.1\% & 0.0\% & -20.1 [-29.0, -12.5] \\
+ & GPT-6.1 sol & 75\% & 100\% & 12.0\% & 0.0\% & -12.0 [-19.8, -5.6] \\
+ & Claude Haiku 4.5 & 49\% & 85\% & 21.6\% & 6.9\% & -14.7 [-22.3, -7.5] \\
+ & Claude Haiku 4.5, C$^{\dagger}$ & & 100\% & & 0.0\% & \\
+ & Claude Opus 5.5 & 91\% & 100\% & 3.9\% & 0.0\% & -3.9 [-7.5, -0.8] \\
+\bottomrule\end{tabular}\end{table}
