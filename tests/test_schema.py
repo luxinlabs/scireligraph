@@ -5,7 +5,7 @@ import verifier as V
 
 CLAIM, AS_OF = 'Ej3y_single-trace', '2017-12-31'
 KEYS = {'claim_id', 'stage', 'as_of', 'p_replicate', 'base_rate', 'cv_auroc', 'cv_brier_skill', 'selective_ok',
-        'evidence_cutoff', 'n_evidence', 'tiers_used', 'n_train_claims', 'drivers', 'provenance', 'advice'}
+        'evidence_cutoff', 'labels_as_of', 'n_evidence', 'tiers_used', 'n_train_claims', 'drivers', 'provenance', 'advice'}
 
 
 @pytest.fixture(scope='module')

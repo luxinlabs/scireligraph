@@ -28,7 +28,7 @@ for m, name, tag in MODELS:
     r6cells_esc.append(esc); r6cells_wrong.append(wrong)
     orig = AG[m]['A']['contract_aware']['auto_error']
     rows.append(f"{name.replace('Claude ', '')} & {pct(orig, 1)} & {pct(esc)}/{pct(wrong, 1)} & "
-                f"{pct(S['bare']['auto'])}/{pct(S['bare']['wrong'], 1)} & {pct(S['v3']['auto'])}/{pct(S['v3']['wrong'], 1)} & {pct(S['v3']['agrees_with_license'])} \\\\")
+                f"{pct(S['bare']['auto_outside_licensed'])} & {pct(S['v3']['auto_outside_licensed'])} & {pct(S['v3']['agrees_with_license'])} \\\\")
     put(f'rs{tag}BareWrong', pct(S['bare']['wrong'], 1)); put(f'rs{tag}VWrong', pct(S['v3']['wrong'], 1))
     put(f'rs{tag}BareOut', pct(S['bare']['auto_outside_licensed'])); put(f'rs{tag}VOut', pct(S['v3']['auto_outside_licensed']))
     put(f'rs{tag}VIn', pct(S['v3']['auto_in_licensed'])); put(f'rs{tag}Agree', pct(S['v3']['agrees_with_license']))
@@ -38,10 +38,10 @@ for m, name, tag in MODELS:
 L = [r"\begin{table}[t]\centering\caption{Pre-specified R6 validation (scenario A, 274 claims; wrong = wrong automatic decisions). "
      r"\emph{R6}: wordings v2--v4 under two system prompts (Opus: one), worst cell shown. "
      r"\emph{Decision-ready}: a synthetic verifier (AUROC " + f"{BU['synthetic_tool']['auroc']:.2f}" + r") whose v3 output licenses accept/reject for confident scores; "
-     r"\emph{agree}: decisions consistent with the licensed actions.}\label{tab:r6}",
+     r"\emph{out}: share of unlicensed claims decided automatically; \emph{agree}: decisions consistent with the licence. Under the R6 contract all agents err on 4.7\% of claims, the error rate of the licensed claims, fixed by the tool.}\label{tab:r6}",
      r"\footnotesize\setlength{\tabcolsep}{2.5pt}\begin{tabular}{@{}lccccc@{}}\toprule",
      r" & Orig. & R6 & \multicolumn{3}{c}{Decision-ready tool} \\ \cmidrule(l){4-6}",
-     r"Agent & wrong & esc./wrong & bare: auto/wrong & R6: auto/wrong & agree \\ \midrule", *rows, r"\bottomrule\end{tabular}\end{table}"]
+     r"Agent & wrong & esc./wrong & bare: out & R6: out & R6: agree \\ \midrule", *rows, r"\bottomrule\end{tabular}\end{table}"]
 (T / 'r6.tex').write_text('\n'.join(L) + '\n')
 
 # global macros

@@ -6,7 +6,7 @@ and `tests/test_contract_schema.py` checks the tool against it.
 
 | Requirement | What the response must make checkable | Test relation (tool-agnostic) |
 |---|---|---|
-| R1 temporal validity | `as_of`, `evidence_cutoff`; refusal after the outcome may be public | Metamorphic: evidence dated after `as_of` must not change the output; evidence dated exactly `as_of` must count; refusal at/after the launch date |
+| R1 temporal validity | `as_of`, `evidence_cutoff` (evidence scope); `labels_as_of` (training labels are known only as of this date — `as_of` does not filter them); refusal after the outcome may be public | Metamorphic: evidence dated after `as_of` must not change the output; evidence dated exactly `as_of` must count; refusal at/after the launch date |
 | R2 label validity | (build time) labels reconcile to published counts | Assertion against published totals before any model is fitted |
 | R3 honest generalisation | `n_train_claims` excludes the queried paper | Isolation: flipping every label of the queried paper must not change its prediction |
 | R4 decision-relevant output | `base_rate`, `cv_auroc`, `cv_brier_skill`, `selective_ok`, `advice` | The gating verdict equals the documented rule; advice is consistent with it |

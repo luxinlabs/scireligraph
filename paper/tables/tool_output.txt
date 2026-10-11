@@ -1,6 +1,7 @@
 // verify_claim("Ej3y_single-trace", as_of="2018-12-31")
-{"claim_id": "Ej3y_single-trace", "stage": "publication",
-  "as_of": "2018-12-31", "p_replicate": 0.4673,
+{"claim_id": "Ej3y_single-trace",
+  "stage": "publication", "as_of": "2018-12-31",
+  "labels_as_of": "2025-12-15", "p_replicate": 0.4673,
   "base_rate": 0.5531, "cv_auroc": 0.62,
   "cv_brier_skill": 0.0277, "selective_ok": false,
   "n_evidence": 8, "tiers_used": ["A", "G"],

@@ -2,20 +2,21 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.org/epistemic-contract/verify_claim.schema.json",
   "title": "Epistemic-contract response of a claim-verifier tool",
-  "description": "A response either answers within the contract (R1-R5) or refuses with a contract violation. Field names map to requirements: evidence_cutoff/as_of (R1), n_train_claims (R3), base_rate, cv_auroc, cv_brier_skill, selective_ok, advice (R4), provenance (R5).",
+  "description": "A response either answers within the contract (R1-R5) or refuses with a contract violation. Field names map to requirements: evidence_cutoff/as_of and labels_as_of (R1), n_train_claims (R3), base_rate, cv_auroc, cv_brier_skill, selective_ok, advice (R4), provenance (R5).",
   "oneOf": [
     {
       "title": "answer",
       "type": "object",
       "additionalProperties": false,
       "required": ["claim_id", "stage", "as_of", "p_replicate", "base_rate", "cv_auroc", "cv_brier_skill",
-                   "selective_ok", "evidence_cutoff", "n_evidence", "tiers_used", "n_train_claims", "drivers",
+                   "selective_ok", "evidence_cutoff", "labels_as_of", "n_evidence", "tiers_used", "n_train_claims", "drivers",
                    "provenance", "advice"],
       "properties": {
         "claim_id": {"type": "string", "minLength": 1},
         "stage": {"enum": ["publication", "launch"], "description": "Decides which feature tiers are admissible (R1)."},
         "as_of": {"type": "string", "format": "date"},
         "evidence_cutoff": {"type": "string", "format": "date", "description": "R1: no evidence dated after this is used; must equal as_of."},
+        "labels_as_of": {"type": "string", "format": "date", "description": "R1 scope: training labels (other claims' outcomes) are known only as of this date; as_of filters evidence, not training labels."},
         "p_replicate": {"type": "number", "minimum": 0, "maximum": 1},
         "base_rate": {"type": "number", "minimum": 0, "maximum": 1, "description": "R4: exposes the base rate the score must beat."},
         "cv_auroc": {"type": "number", "minimum": 0, "maximum": 1},

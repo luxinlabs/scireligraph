@@ -20,21 +20,19 @@ ROWS = [('B0 Prevalence', 'B0', 'Training-fold prevalence', 'strict'),
         ('B4 Metadata + flat citation evidence', 'B4', 'B1 + flat citation counts', 'strict'),
         ('M1 Metadata + evidence graph', 'M1', 'B4 + graph structure', 'strict'),
         ('M2 Metadata + graph + dependency correction', 'M2', 'M1 + dependency correction', 'strict'),
-        ('G-only Graph + dependency (no metadata)', 'G', 'Graph + dependency only', 'strict'),
-        ('S-M2 Graph at replication-launch cutoff', r'M2$_\ell$', 'M2', 'launch'),
         ('D Metadata + replication design (launch-time)', 'D', 'B1 + planned replication design', 'launch'),
         ('Dx Metadata + achieved replication size (post-launch)', r'D$^{*}$', 'D + achieved size/power', 'post'),
         ('L-M2 Graph + dependency, NO cutoff (leaky)', r'M2$_\infty$', 'M2', 'none')]  # B1g, B2, NC, G-inf: artifact table
-SHORT = {k: i for k, i, _, _ in ROWS} | {'B1g Original-study metadata (GBT)': 'B1g', 'B2 Title/abstract TF-IDF (LR)': 'B2',
+SHORT = {k: i for k, i, _, _ in ROWS} | {'G-only Graph + dependency (no metadata)': 'G', 'S-M2 Graph at replication-launch cutoff': r'M2$_\ell$', 'B1g Original-study metadata (GBT)': 'B1g', 'B2 Title/abstract TF-IDF (LR)': 'B2',
                                         'NC M2 with permuted graph (negative control)': 'NC',
                                         'LG-only Graph, NO cutoff (leaky)': r'G$_\infty$'}
 b0 = M['B0 Prevalence']['mean']['brier']
-L = [r"\begin{table*}[t]\centering\caption{Out-of-fold forecasting performance on 274 SCORE claims (164 papers). AUROC: mean$\pm$SD over 20 repetitions of paper-grouped 5-fold CV, with paper-clustered bootstrap 95\% CI of the seed-averaged predictions. Brier: mean over repetitions (lower is better). BSS: Brier skill score vs.\ B0. Cutoff ``post'': uses information available only after replication data collection (leakage illustration). Selected configurations; GBT, text-only and permuted-graph variants are in the artifact.}\label{tab:main}",
+L = [r"\begin{table*}[t]\centering\caption{Out-of-fold forecasting performance on 274 SCORE claims (164 papers). AUROC: mean$\pm$SD over 20 repetitions of paper-grouped 5-fold CV, with paper-clustered bootstrap 95\% CI of the seed-averaged predictions. Brier: mean over repetitions (lower is better). BSS: Brier skill score vs.\ B0. Cutoff ``post'': uses information available only after replication data collection (leakage illustration). Selected configurations; all others (GBT, text-only, graph-only, permuted, launch-cutoff M2) are in the artifact.}\label{tab:main}",
      r'\footnotesize\setlength{\tabcolsep}{6pt}\begin{tabular}{@{}llccccc@{}}\toprule',
      r'ID & Features & Cutoff & AUROC & 95\% CI & Brier & BSS ' + BS + r'\midrule']
 for k, i, d, c in ROWS:
     m = M[k]; lo, hi = m['ci95']['auroc']
-    if k.startswith(('S-', 'L-M2')): L.append(r'\midrule')
+    if k.startswith(('D ', 'L-M2')): L.append(r'\midrule')
     L.append(f"{i} & {d} & {c} & {m['mean']['auroc']:.3f}$\\pm${m['sd']['auroc']:.3f} & [{lo:.2f}, {hi:.2f}] & "
              f"{m['mean']['brier']:.4f} & {100 * (1 - m['mean']['brier'] / b0):+.1f}\\% {BS}")
 L += [r'\bottomrule\end{tabular}\end{table*}']
@@ -194,9 +192,9 @@ if AGS.exists():
 if AGS.exists():
     ag = json.loads(AGS.read_text())
     if all('no_tool' in ag[m]['A'] and 'placebo' in ag[m]['A'] for m in ORDER if m in ag):
-        L = [r"\begin{table}[t]\centering\caption{Control arms for scenario~A (274 claims): share escalated / share of wrong automatic decisions. \emph{No tool}: the agent sees only the claim. \emph{Placebo}: \textnormal{\texttt{p\_replicate}} plus a generic ``this estimate is uncertain'' note. \emph{Contract}: full \textnormal{\texttt{verify\_claim}} output. \emph{Always escalate} needs no model.}\label{tab:controls}",
+        L = [r"\begin{table}[t]\centering\caption{Control arms for scenario~A (274 claims): share escalated / share of wrong automatic decisions. \emph{Unavailable}: the agent sees the claim and a note that the tool output is unavailable (a cue in itself). \emph{Placebo}: \textnormal{\texttt{p\_replicate}} plus a generic ``this estimate is uncertain'' note. \emph{Contract}: full \textnormal{\texttt{verify\_claim}} output. \emph{Always escalate} needs no model.}\label{tab:controls}",
              r'\scriptsize\setlength{\tabcolsep}{3pt}\begin{tabular}{@{}lcccc@{}}\toprule',
-             r'Agent & No tool & Placebo & Unprotected & Contract ' + BS + r'\midrule']
+             r'Agent & Unavailable & Placebo & Unprotected & Contract ' + BS + r'\midrule']
         f = lambda x: f"{100 * x['escalate']:.0f}\\% / {100 * x['auto_error']:.1f}\\%"
         for m in ORDER:
             if m not in ag: continue

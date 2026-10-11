@@ -209,13 +209,13 @@ if AS.exists():
 # real tool output for the listing (no illustrative values)
 smoke = json.loads((R / 'mcp_smoke.json').read_text())
 pub = smoke['publication@2018-12-31']
-show = {k: pub[k] for k in ['claim_id', 'stage', 'as_of', 'p_replicate', 'base_rate', 'cv_auroc', 'cv_brier_skill', 'selective_ok',
-                            'n_evidence', 'tiers_used', 'n_train_claims']}
+show = {k: pub[k] for k in ['claim_id', 'stage', 'as_of', 'labels_as_of', 'p_replicate', 'base_rate', 'cv_auroc', 'cv_brier_skill',
+                            'selective_ok', 'n_evidence', 'tiers_used', 'n_train_claims']}
 show['drivers'] = pub['drivers'][:1]
 show['provenance'] = {'archive_sha256': pub['provenance']['archive_sha256'][:12] + '...', 'model_config': pub['provenance']['model_config']}
 show['advice'] = pub['advice']
 refused = smoke['publication@2023-01-01']
-def compact(o, width=59):
+def compact(o, width=57):
     """Wrap the real JSON response to the column width, breaking after commas (or at spaces inside long strings)."""
     text, lines = json.dumps(o), []
     while len(text) > width:

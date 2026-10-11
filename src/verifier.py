@@ -46,6 +46,11 @@ def _sha(obj):
     return hashlib.sha256(json.dumps(obj, sort_keys=True, default=str).encode()).hexdigest()[:16]
 
 
+# R1 scope: as_of filters EVIDENCE. Training labels are other claims' replication outcomes, known only as of the frozen
+# SCORE archive release (OSF g5sny package, 15 Dec 2025); the response states this instead of implying it.
+LABELS_AS_OF = '2025-12-15'
+
+
 class ReliabilityVerifier:
     def __init__(self, root=ROOT, audit_log=None, evidence=None, claims=None):
         self.root = Path(root)
@@ -143,7 +148,7 @@ class ReliabilityVerifier:
             # gating is supported only if the most confident decile is reliably MORE accurate than the full output:
             # lower 95% bound of top-decile accuracy above overall accuracy (paper-clustered bootstrap)
             'selective_ok': bool(0.1 in sel and 1.0 in sel and sel[0.1]['ci'][0] > sel[1.0]['accuracy']),
-            'evidence_cutoff': as_of, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
+            'evidence_cutoff': as_of, 'labels_as_of': LABELS_AS_OF, 'n_evidence': self._n_evidence(row.paper_id, as_of), 'tiers_used': cfg['tiers'],
             'n_train_claims': int(tr.sum()), 'drivers': drivers,
             'provenance': {'archive_sha256': self.manifest['source_sha256'], 'openalex_access': self.manifest['openalex_access'],
                            'model_config': _sha({'stage': stage, 'num': num, 'cat': cat, 'C_grid': CS}),

@@ -9,6 +9,7 @@
     "cv_brier_skill": 0.0277,
     "selective_ok": false,
     "evidence_cutoff": "2018-12-31",
+    "labels_as_of": "2025-12-15",
     "n_evidence": 8,
     "tiers_used": [
       "A",
@@ -47,6 +48,7 @@
     "cv_brier_skill": 0.0183,
     "selective_ok": false,
     "evidence_cutoff": "2018-12-31",
+    "labels_as_of": "2025-12-15",
     "n_evidence": 8,
     "tiers_used": [
       "A",

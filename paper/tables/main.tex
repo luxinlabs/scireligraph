@@ -1,4 +1,4 @@
-\begin{table*}[t]\centering\caption{Out-of-fold forecasting performance on 274 SCORE claims (164 papers). AUROC: mean$\pm$SD over 20 repetitions of paper-grouped 5-fold CV, with paper-clustered bootstrap 95\% CI of the seed-averaged predictions. Brier: mean over repetitions (lower is better). BSS: Brier skill score vs.\ B0. Cutoff ``post'': uses information available only after replication data collection (leakage illustration). Selected configurations; GBT, text-only and permuted-graph variants are in the artifact.}\label{tab:main}
+\begin{table*}[t]\centering\caption{Out-of-fold forecasting performance on 274 SCORE claims (164 papers). AUROC: mean$\pm$SD over 20 repetitions of paper-grouped 5-fold CV, with paper-clustered bootstrap 95\% CI of the seed-averaged predictions. Brier: mean over repetitions (lower is better). BSS: Brier skill score vs.\ B0. Cutoff ``post'': uses information available only after replication data collection (leakage illustration). Selected configurations; all others (GBT, text-only, graph-only, permuted, launch-cutoff M2) are in the artifact.}\label{tab:main}
 \footnotesize\setlength{\tabcolsep}{6pt}\begin{tabular}{@{}llccccc@{}}\toprule
 ID & Features & Cutoff & AUROC & 95\% CI & Brier & BSS \\\midrule
 B0 & Training-fold prevalence & strict & 0.492$\pm$0.001 & [0.37, 0.56] & 0.2474 & +0.0\% \\
@@ -6,9 +6,7 @@ B1 & Original-study metadata, LR & strict & 0.627$\pm$0.017 & [0.55, 0.71] & 0.2
 B4 & B1 + flat citation counts & strict & 0.613$\pm$0.019 & [0.54, 0.69] & 0.2432 & +1.7\% \\
 M1 & B4 + graph structure & strict & 0.624$\pm$0.018 & [0.55, 0.70] & 0.2406 & +2.8\% \\
 M2 & M1 + dependency correction & strict & 0.620$\pm$0.020 & [0.55, 0.70] & 0.2406 & +2.8\% \\
-G & Graph + dependency only & strict & 0.591$\pm$0.027 & [0.53, 0.69] & 0.2485 & -0.4\% \\
 \midrule
-M2$_\ell$ & M2 & launch & 0.620$\pm$0.020 & [0.55, 0.70] & 0.2405 & +2.8\% \\
 D & B1 + planned replication design & launch & 0.625$\pm$0.019 & [0.54, 0.71] & 0.2429 & +1.8\% \\
 D$^{*}$ & D + achieved size/power & post & 0.638$\pm$0.024 & [0.58, 0.72] & 0.2403 & +2.9\% \\
 \midrule
