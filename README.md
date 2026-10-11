@@ -24,9 +24,14 @@ Not included (re-downloadable by the scripts): the raw SCORE analyst package (OS
 ## Quick start
 ```bash
 python -m venv .venv && .venv/bin/pip install -r requirements.txt
-OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q tests        # contract tests (uses the OpenAlex cache: run fetch first)
+# (run the two download steps below before the tests: they need the SCORE package and the OpenAlex cache)
+OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q tests        # 26 contract, schema and boundary tests
+.venv/bin/python src/get_score_data.py                        # SCORE package from OSF, SHA-256 checked
 .venv/bin/python src/fetch_openalex.py && ./run_all.sh       # full offline pipeline
 ```
+The pre-specified R6 consumability experiment (`src/r6_experiment.py`) was committed before any call was made
+(commit `8990cf7`); its cached responses are in `results/r6/` and its analysis in `results/r6_summary.json`.
+
 LLM experiments read `OPENAI_API_KEY` / `ANTHROPIC_API_KEY` from the environment. The cached responses in `results/llm/`
 and `results/agent/` let every LLM analysis re-run without API access (`src/llm_analysis.py`, `src/llm_recalibration.py`,
 `src/agent_experiment.py analyse`).

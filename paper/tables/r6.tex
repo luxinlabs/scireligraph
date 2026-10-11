@@ -1,0 +1,9 @@
+\begin{table}[t]\centering\caption{Pre-specified R6 validation (scenario A, 274 claims; wrong = wrong automatic decisions). \emph{R6}: wordings v2--v4 under two system prompts (Opus: one), worst cell shown. \emph{Decision-ready}: a synthetic verifier (AUROC 0.88) whose v3 output licenses accept/reject for confident scores; \emph{agree}: decisions consistent with the licensed actions.}\label{tab:r6}
+\footnotesize\setlength{\tabcolsep}{2.5pt}\begin{tabular}{@{}lccccc@{}}\toprule
+ & Orig. & R6 & \multicolumn{3}{c}{Decision-ready tool} \\ \cmidrule(l){4-6}
+Agent & wrong & esc./wrong & bare: auto/wrong & R6: auto/wrong & agree \\ \midrule
+GPT-5.4 mini & 3.6\% & 100\%/0.0\% & 89\%/15.0\% & 54\%/4.7\% & 98\% \\
+GPT-6.1 sol & 0.0\% & 100\%/0.0\% & 84\%/13.9\% & 53\%/4.7\% & 100\% \\
+Haiku 4.5 & 54.0\% & 100\%/0.0\% & 87\%/15.3\% & 54\%/4.7\% & 98\% \\
+Opus 5.5 & 0.0\% & 100\%/0.0\% & 83\%/12.0\% & 53\%/4.7\% & 100\% \\
+\bottomrule\end{tabular}\end{table}

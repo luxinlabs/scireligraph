@@ -17,26 +17,24 @@ def write(name, lines):
 # ---------------- Table: main results ----------------
 ROWS = [('B0 Prevalence', 'B0', 'Training-fold prevalence', 'strict'),
         ('B1 Original-study metadata (LR)', 'B1', 'Original-study metadata, LR', 'strict'),
-        ('B1g Original-study metadata (GBT)', 'B1g', 'Original-study metadata, GBT', 'strict'),
-        ('B2 Title/abstract TF-IDF (LR)', 'B2', 'Title/abstract TF-IDF, LR', 'strict'),
         ('B4 Metadata + flat citation evidence', 'B4', 'B1 + flat citation counts', 'strict'),
         ('M1 Metadata + evidence graph', 'M1', 'B4 + graph structure', 'strict'),
         ('M2 Metadata + graph + dependency correction', 'M2', 'M1 + dependency correction', 'strict'),
         ('G-only Graph + dependency (no metadata)', 'G', 'Graph + dependency only', 'strict'),
-        ('NC M2 with permuted graph (negative control)', 'NC', 'M2, graph permuted (1 draw)', 'strict'),
         ('S-M2 Graph at replication-launch cutoff', r'M2$_\ell$', 'M2', 'launch'),
         ('D Metadata + replication design (launch-time)', 'D', 'B1 + planned replication design', 'launch'),
         ('Dx Metadata + achieved replication size (post-launch)', r'D$^{*}$', 'D + achieved size/power', 'post'),
-        ('L-M2 Graph + dependency, NO cutoff (leaky)', r'M2$_\infty$', 'M2', 'none'),
-        ('LG-only Graph, NO cutoff (leaky)', r'G$_\infty$', 'Graph + dependency only', 'none')]
-SHORT = {k: i for k, i, _, _ in ROWS}
+        ('L-M2 Graph + dependency, NO cutoff (leaky)', r'M2$_\infty$', 'M2', 'none')]  # B1g, B2, NC, G-inf: artifact table
+SHORT = {k: i for k, i, _, _ in ROWS} | {'B1g Original-study metadata (GBT)': 'B1g', 'B2 Title/abstract TF-IDF (LR)': 'B2',
+                                        'NC M2 with permuted graph (negative control)': 'NC',
+                                        'LG-only Graph, NO cutoff (leaky)': r'G$_\infty$'}
 b0 = M['B0 Prevalence']['mean']['brier']
-L = [r"\begin{table*}[t]\centering\caption{Out-of-fold forecasting performance on 274 SCORE claims (164 papers). AUROC: mean$\pm$SD over 20 repetitions of paper-grouped 5-fold CV, with paper-clustered bootstrap 95\% CI of the seed-averaged predictions. Brier: mean over repetitions (lower is better). BSS: Brier skill score vs.\ B0. Cutoff ``post'': uses information available only after replication data collection (leakage illustration).}\label{tab:main}",
+L = [r"\begin{table*}[t]\centering\caption{Out-of-fold forecasting performance on 274 SCORE claims (164 papers). AUROC: mean$\pm$SD over 20 repetitions of paper-grouped 5-fold CV, with paper-clustered bootstrap 95\% CI of the seed-averaged predictions. Brier: mean over repetitions (lower is better). BSS: Brier skill score vs.\ B0. Cutoff ``post'': uses information available only after replication data collection (leakage illustration). Selected configurations; GBT, text-only and permuted-graph variants are in the artifact.}\label{tab:main}",
      r'\footnotesize\setlength{\tabcolsep}{6pt}\begin{tabular}{@{}llccccc@{}}\toprule',
      r'ID & Features & Cutoff & AUROC & 95\% CI & Brier & BSS ' + BS + r'\midrule']
 for k, i, d, c in ROWS:
     m = M[k]; lo, hi = m['ci95']['auroc']
-    if k.startswith(('NC', 'S-', 'L-M2')): L.append(r'\midrule')
+    if k.startswith(('S-', 'L-M2')): L.append(r'\midrule')
     L.append(f"{i} & {d} & {c} & {m['mean']['auroc']:.3f}$\\pm${m['sd']['auroc']:.3f} & [{lo:.2f}, {hi:.2f}] & "
              f"{m['mean']['brier']:.4f} & {100 * (1 - m['mean']['brier'] / b0):+.1f}\\% {BS}")
 L += [r'\bottomrule\end{tabular}\end{table*}']
@@ -173,7 +171,7 @@ if AGS.exists():
     ag = json.loads(AGS.read_text())
     ORDER = ['gpt-5.4-mini-2026-03-17', 'gpt-6.1-sol', 'claude-haiku-4-5-20251001', 'claude-opus-5-5']
     LAB = {'gpt-5.4-mini-2026-03-17': 'GPT-5.4 mini', 'gpt-6.1-sol': 'GPT-6.1 sol', 'claude-haiku-4-5-20251001': 'Claude Haiku 4.5', 'claude-opus-5-5': 'Claude Opus 5.5'}
-    L = [r"\begin{table}[t]\centering\caption{Agent-in-the-loop triage on identical claims (scenario A: 274 valid queries; B: 259 post-launch queries, where the unprotected tool silently returns a no-cutoff prediction and the contract-aware tool refuses). U: agent sees only \textnormal{\texttt{p\_replicate}}; C: full contract output. Wrong auto = accepted non-replicating plus rejected replicating claims, as a share of all claims; $\Delta$ = C$-$U with paper-clustered 95\% CI. $^{\dagger}$Exploratory revised wording (\S\ref{sec:agent}).}\label{tab:agent}",
+    L = [r"\begin{table}[t]\centering\caption{Agent-in-the-loop triage on identical claims (scenario A: 274 valid queries; B: 259 post-launch queries, where the unprotected tool silently returns a no-cutoff prediction and the contract-aware tool refuses). U: agent sees only \textnormal{\texttt{p\_replicate}}; C: full contract output. Wrong auto = accepted non-replicating plus rejected replicating claims, as a share of all claims; $\Delta$ = C$-$U with paper-clustered 95\% CI. Revised wordings: Table~\ref{tab:r6}.}\label{tab:agent}",
          r'\scriptsize\setlength{\tabcolsep}{2pt}\begin{tabular}{@{}llccccc@{}}\toprule',
          r'& Agent & Esc.\ U & Esc.\ C & Wrong U & Wrong C & $\Delta$ wrong (pp) ' + BS + r'\midrule']
     for sc in 'AB':
@@ -184,7 +182,7 @@ if AGS.exists():
             L.append(f"{sc if first else ''} & {LAB[m]} & {100 * u['escalate']:.0f}\\% & {100 * c['escalate']:.0f}\\% & {100 * u['auto_error']:.1f}\\% & "
                      f"{100 * c['auto_error']:.1f}\\% & {100 * dd['point']:+.1f} [{100 * dd['ci'][0]:+.1f}, {100 * dd['ci'][1]:+.1f}] {BS}")
             first = False
-            if 'contract_aware_v2' in S:
+            if False and 'contract_aware_v2' in S:  # revised wordings now in Table r6
                 v = S['contract_aware_v2']
                 L.append(f" & {LAB[m]}, C$^{{\\dagger}}$ & & {100 * v['escalate']:.0f}\\% & & {100 * v['auto_error']:.1f}\\% & {BS}")
         if sc == 'A': L.append(r'\midrule')

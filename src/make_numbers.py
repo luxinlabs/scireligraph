@@ -37,7 +37,7 @@ def pct(x): return f'{100 * x:.0f}\\%'
 B0b = m('B0 Prevalence')['mean']['brier']
 for tag, key in [('Bone', 'B1 Original-study metadata (LR)'), ('Mtwo', 'M2 Metadata + graph + dependency correction'),
                  ('Dplan', 'D Metadata + replication design (launch-time)'), ('Dach', 'Dx Metadata + achieved replication size (post-launch)'),
-                 ('Gonly', 'G-only Graph + dependency (no metadata)'), ('Btwo', 'B2 Title/abstract TF-IDF (LR)'),
+                 ('Gonly', 'G-only Graph + dependency (no metadata)'), ('Btwo', 'B2 Title/abstract TF-IDF (LR)'), ('Bgbt', 'B1g Original-study metadata (GBT)'),
                  ('Mtwolaunch', 'S-M2 Graph at replication-launch cutoff'), ('Bzero', 'B0 Prevalence')]:
     x = m(key)
     put(f'auc{tag}', f3(x['mean']['auroc'])); put(f'sd{tag}', f3(x['sd']['auroc']))

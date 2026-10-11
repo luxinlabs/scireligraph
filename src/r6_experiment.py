@@ -293,6 +293,14 @@ def analyse():
                 c = d[d.condition == f'{kind}_{v}']
                 if len(c):
                     Cq[f'{kind}_{v}'] = {q: float(np.mean([o[q] == a for o in c.parsed])) for q, a in key.items()} | {'n': int(len(c))}
+        # DEVIATION from the frozen plan (disclosed): the pre-specified key scored q2='a' (score can justify a decision)
+        # for every decision-ready output, but for scores in (T_LO, T_HI) the contract licenses only escalation, so the
+        # correct answer there is 'b'. Both keys are reported.
+        c = d[d.condition == 'CS_v3']
+        if len(c):
+            lic = c.claim_id.map(lambda k: p_strong[k] >= T_HI or p_strong[k] <= T_LO)
+            Cq['CS_v3']['q2_per_claim_key'] = float(np.mean([o['q2'] == ('a' if l else 'b') for o, l in zip(c.parsed, lic)]))
+            Cq['CS_v3']['n_licensed'] = int(lic.sum())
         R['comprehension'] = Cq
         res[m] = R
     (ROOT / 'results/r6_summary.json').write_text(json.dumps(res, indent=2, default=float))

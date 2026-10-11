@@ -1,0 +1,27 @@
+{
+  "n_boot": 200,
+  "B1_auroc_ci": [
+    0.4629614865763688,
+    0.7167157532832257
+  ],
+  "M2_auroc_ci": [
+    0.4353887365692914,
+    0.7078728138184003
+  ],
+  "M2_minus_B1_auroc_ci": [
+    -0.09209404712306067,
+    0.04700956612666526
+  ],
+  "B1_brier_skill_ci": [
+    -0.06567450057482917,
+    0.11622922546051295
+  ],
+  "B1_minus_B0_brier_ci": [
+    -0.02802478441563284,
+    0.016080421383904968
+  ],
+  "B1_auroc_gt_05_share": 0.93,
+  "B1_auroc_median": 0.5996906823403132,
+  "M2_auroc_median": 0.5825104216067796,
+  "note": "each resample holds ~63% distinct papers, so refitted AUROCs are biased low and the interval is conservative"
+}
