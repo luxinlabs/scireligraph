@@ -58,6 +58,7 @@ comp = [R6[m]['comprehension'] for m, _, _ in MODELS]
 put('cqVoneActMin', pct(min(min(c['CA_v1']['q2'], c['CA_v1']['q4']) for c in comp)))
 put('cqVoneRefMin', pct(min(c['CB_v1']['r1'] for c in comp)))
 put('cqReadyQtwo', pct(np.mean([c['CS_v3']['q2_per_claim_key'] for c in comp])))
+put('cqReadyQtwoFrozen', pct(np.mean([c['CS_v3']['q2'] for c in comp]))); put('cqReadyNlic', str(comp[0]['CS_v3']['n_licensed'])); put('cqReadyN', str(comp[0]['CS_v3']['n']))
 for e in ('0.25', '0.5', '0.75'):
     k = {'0.25': 'TwentyFive', '0.5': 'Fifty', '0.75': 'SeventyFive'}[e]
     put(f'buWeak{k}', pct(BU['tools']['weak']['budgets'][e]['wrong_share_of_all'], 1))
