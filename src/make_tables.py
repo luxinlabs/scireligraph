@@ -20,14 +20,14 @@ ROWS = [('B0 Prevalence', 'B0', 'Training-fold prevalence', 'strict'),
         ('B4 Metadata + flat citation evidence', 'B4', 'B1 + flat citation counts', 'strict'),
         ('M1 Metadata + evidence graph', 'M1', 'B4 + graph structure', 'strict'),
         ('M2 Metadata + graph + dependency correction', 'M2', 'M1 + dependency correction', 'strict'),
-        ('D Metadata + replication design (launch-time)', 'D', 'B1 + planned replication design', 'launch'),
+        ('D Metadata + replication design (launch-time)', 'D', 'B1 + planned replication design', 'regist.'),
         ('Dx Metadata + achieved replication size (post-launch)', r'D$^{*}$', 'D + achieved size/power', 'post'),
         ('L-M2 Graph + dependency, NO cutoff (leaky)', r'M2$_\infty$', 'M2', 'none')]  # B1g, B2, NC, G-inf: artifact table
 SHORT = {k: i for k, i, _, _ in ROWS} | {'G-only Graph + dependency (no metadata)': 'G', 'S-M2 Graph at replication-launch cutoff': r'M2$_\ell$', 'B1g Original-study metadata (GBT)': 'B1g', 'B2 Title/abstract TF-IDF (LR)': 'B2',
                                         'NC M2 with permuted graph (negative control)': 'NC',
                                         'LG-only Graph, NO cutoff (leaky)': r'G$_\infty$'}
 b0 = M['B0 Prevalence']['mean']['brier']
-L = [r"\begin{table*}[t]\centering\caption{Out-of-fold forecasting performance on 274 SCORE claims (164 papers). AUROC: mean$\pm$SD over 20 repetitions of paper-grouped 5-fold CV, with paper-clustered bootstrap 95\% CI of the seed-averaged predictions. Brier: mean over repetitions (lower is better). BSS: Brier skill score vs.\ B0. Cutoff ``post'': uses information available only after replication data collection (leakage illustration). Selected configurations; all others (GBT, text-only, graph-only, permuted, launch-cutoff M2) are in the artifact.}\label{tab:main}",
+L = [r"\begin{table*}[t]\centering\caption{Out-of-fold forecasting performance on 274 SCORE claims (164 papers). AUROC: mean$\pm$SD over 20 repetitions of paper-grouped 5-fold CV, with paper-clustered bootstrap 95\% CI of the seed-averaged predictions. Brier: mean over repetitions (lower is better). BSS: Brier skill score vs.\ B0. Cutoff ``regist.'': uses the design registered after the replication started; ``post'': information available only after data collection (leakage illustration). Selected configurations; all others (GBT, text-only, graph-only, permuted, launch-cutoff M2) are in the artifact.}\label{tab:main}",
      r'\footnotesize\setlength{\tabcolsep}{6pt}\begin{tabular}{@{}llccccc@{}}\toprule',
      r'ID & Features & Cutoff & AUROC & 95\% CI & Brier & BSS ' + BS + r'\midrule']
 for k, i, d, c in ROWS:

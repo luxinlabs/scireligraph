@@ -75,3 +75,12 @@ def test_r5_every_call_is_audited(make, tmp_path):
     assert len(recs) == 1 and recs[0]['p_replicate'] == out['p_replicate']
     assert recs[0]['provenance']['archive_sha256'] == v.manifest['source_sha256']
     assert {'ts', 'as_of', 'stage', 'evidence_cutoff', 'record_sha'} <= set(recs[0])
+
+
+def test_r1_launch_stage_refused_before_design_registered(make, base):
+    """Tier D exists only once the replication design is registered (SCORE registers after the project starts)."""
+    with pytest.raises(V.ContractViolation, match='registered'):
+        make().verify_claim(CLAIM, '2018-12-31', 'launch')                       # real registration date: later
+    with pytest.raises(V.ContractViolation, match='registered'):
+        make(design_dates={CLAIM: '2019-01-01'}).verify_claim(CLAIM, '2018-12-31', 'launch')
+    make(design_dates={CLAIM: '2018-12-31'}).verify_claim(CLAIM, '2018-12-31', 'launch')   # on the date: admitted

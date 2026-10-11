@@ -11,7 +11,7 @@ evaluates it on the 274 SCORE replication outcomes and with LLM judges and LLM a
 | Path | What |
 |---|---|
 | `src/` | Data acquisition, dataset build with label gate, experiments, verifier library (`verifier.py`), MCP server (`mcp_server.py`), LLM-judge and agent experiments, mutation tooling, table/number/figure generators, citation checker |
-| `tests/` | 26 contract, schema and boundary tests |
+| `tests/` | 27 contract, schema and boundary tests |
 | `contract/` | Reusable JSON-Schema specification of an epistemic-contract response, with tool-agnostic test relations |
 | `data/processed/` | Claim table, graph features, provenance manifest (source archive SHA-256, access dates) |
 | `results/` | All metrics, out-of-fold predictions, cached LLM-judge and agent responses, mutation analysis, `citation_check.md` |
@@ -25,7 +25,7 @@ Not included (re-downloadable by the scripts): the raw SCORE analyst package (OS
 ```bash
 python -m venv .venv && .venv/bin/pip install -r requirements.txt
 # (run the two download steps below before the tests: they need the SCORE package and the OpenAlex cache)
-OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q tests        # 26 contract, schema and boundary tests
+OMP_NUM_THREADS=1 .venv/bin/python -m pytest -q tests        # 27 contract, schema and boundary tests
 .venv/bin/python src/get_score_data.py                        # SCORE package from OSF, SHA-256 checked
 .venv/bin/python src/fetch_openalex.py && ./run_all.sh       # full offline pipeline
 ```

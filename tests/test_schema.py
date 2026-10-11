@@ -10,7 +10,9 @@ KEYS = {'claim_id', 'stage', 'as_of', 'p_replicate', 'base_rate', 'cv_auroc', 'c
 
 @pytest.fixture(scope='module')
 def out_pub(base, tmp_path_factory):
-    v = V.ReliabilityVerifier(audit_log=tmp_path_factory.mktemp('a') / 'log.jsonl', claims=base['claims'].copy(), evidence=base['evidence'])
+    # a synthetic early registration date makes the launch stage answerable, so its output can be checked
+    v = V.ReliabilityVerifier(audit_log=tmp_path_factory.mktemp('a') / 'log.jsonl', claims=base['claims'].copy(),
+                              evidence=base['evidence'], design_dates={CLAIM: '2000-01-01'})
     return v, v.verify_claim(CLAIM, AS_OF, 'publication'), v.verify_claim(CLAIM, AS_OF, 'launch')
 
 

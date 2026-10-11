@@ -6,7 +6,8 @@
 
 Contract enforced on every call:
   R1  evidence for every claim is recomputed from the raw OpenAlex cache, filtered to `as_of`;
-      calls whose `as_of` is on/after the claim's replication launch are refused (outcome may be public).
+      calls whose `as_of` is on/after the claim's replication launch are refused (outcome may be public), and
+      launch-stage calls are refused before the replication design (Tier D) was registered.
   R2  labels are the SCORE primary criterion validated at build time (manifest).
   R3  the model is refit without ANY claim from the queried claim's paper (leave-paper-out).
   R4  the output carries the base rate, cross-validated skill and the selective-accuracy verdict.
@@ -52,7 +53,7 @@ LABELS_AS_OF = '2025-12-15'
 
 
 class ReliabilityVerifier:
-    def __init__(self, root=ROOT, audit_log=None, evidence=None, claims=None):
+    def __init__(self, root=ROOT, audit_log=None, evidence=None, claims=None, design_dates=None):
         self.root = Path(root)
         self.claims = (claims if claims is not None else pd.read_csv(self.root / 'data/processed/claims.csv')).reset_index(drop=True)
         self.manifest = json.loads((self.root / 'data/processed/manifest.json').read_text())
@@ -60,6 +61,11 @@ class ReliabilityVerifier:
         self.selective = json.loads((self.root / 'results/selective.json').read_text())
         self.evidence = evidence if evidence is not None else self._load_evidence()
         self.audit_log = Path(audit_log) if audit_log else self.root / 'results/audit_log.jsonl'
+        # R1 for stage 'launch': Tier D (planned design) exists only once the replication is registered
+        if design_dates is None:
+            f = self.root / 'data/processed/registration_dates.csv'
+            design_dates = dict(pd.read_csv(f).values) if f.exists() else {}
+        self.design_dates = design_dates
         self._cache = {}
 
     # ---------- evidence ----------
@@ -91,6 +97,14 @@ class ReliabilityVerifier:
         if as_of >= launch:  # mutation hook: refusal guard
             raise ContractViolation(f'as_of {as_of} is on/after replication launch {launch}: evidence may reflect the outcome')
 
+    def _check_design_available(self, claim_id, as_of, stage):
+        if stage != 'launch':
+            return
+        reg = self.design_dates.get(claim_id)
+        if reg is None or as_of < reg:
+            raise ContractViolation(f"stage 'launch' uses the registered replication design (Tier D), registered "
+                                    f"{reg or 'on an unknown date'}; as_of {as_of} precedes it")
+
     # ---------- model ----------
     def _training_mask(self, paper_id):
         return (self.claims.paper_id != paper_id).to_numpy()  # mutation hook: leave-paper-out
@@ -120,6 +134,7 @@ class ReliabilityVerifier:
         i = hit[0]; row = self.claims.loc[i]
         launch = row.launch_date if isinstance(row.launch_date, str) else self.manifest['earliest_replication_start']
         self._check_before_launch(as_of, launch)
+        self._check_design_available(claim_id, as_of, stage)
 
         num, cat = self._features(stage)
         G = self._cache.get(as_of)

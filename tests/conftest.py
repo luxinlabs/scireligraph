@@ -31,10 +31,11 @@ def base():
 
 @pytest.fixture
 def make(base, tmp_path):
-    def _make(claims=None, evidence=None):
+    def _make(claims=None, evidence=None, design_dates=None):
         return V.ReliabilityVerifier(audit_log=tmp_path / 'audit.jsonl',
                                      claims=(claims if claims is not None else base['claims']).copy(),
-                                     evidence=evidence if evidence is not None else base['evidence'])
+                                     evidence=evidence if evidence is not None else base['evidence'],
+                                     design_dates=design_dates)
     return _make
 
 

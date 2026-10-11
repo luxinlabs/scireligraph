@@ -39,43 +39,8 @@
     "advice": "weak signal: do not gate actions on this score"
   },
   "launch@2018-12-31": {
-    "claim_id": "Ej3y_single-trace",
-    "stage": "launch",
-    "as_of": "2018-12-31",
-    "p_replicate": 0.4284,
-    "base_rate": 0.5531,
-    "cv_auroc": 0.625,
-    "cv_brier_skill": 0.0183,
-    "selective_ok": false,
-    "evidence_cutoff": "2018-12-31",
-    "labels_as_of": "2025-12-15",
-    "n_evidence": 8,
-    "tiers_used": [
-      "A",
-      "D"
-    ],
-    "n_train_claims": 273,
-    "drivers": [
-      {
-        "feature": "a_interaction",
-        "logit_contribution": -0.133
-      },
-      {
-        "feature": "missingindicator_a_interaction",
-        "logit_contribution": -0.107
-      },
-      {
-        "feature": "a_p_exact",
-        "logit_contribution": -0.099
-      }
-    ],
-    "provenance": {
-      "archive_sha256": "80a221f0deb78f49668c23e08b23b5f089f47d56f68feec0ecb405a55a437af2",
-      "openalex_access": "2026-10-08T23:29:35-0700",
-      "model_config": "3e907e3b39578b1c",
-      "chosen_C": 0.01
-    },
-    "advice": "weak signal: do not gate actions on this score"
+    "error": "contract_violation",
+    "detail": "stage 'launch' uses the registered replication design (Tier D), registered 2021-08-11; as_of 2018-12-31 precedes it"
   },
   "publication@2023-01-01": {
     "error": "contract_violation",

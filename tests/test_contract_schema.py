@@ -10,7 +10,7 @@ CLAIM, AS_OF = 'Ej3y_single-trace', '2017-12-31'
 
 @pytest.mark.parametrize('stage', ['publication', 'launch'])
 def test_answer_conforms(make, stage):
-    out = make().verify_claim(CLAIM, AS_OF, stage)
+    out = make(design_dates={CLAIM: '2000-01-01'}).verify_claim(CLAIM, AS_OF, stage)
     jsonschema.validate(out, SCHEMA, format_checker=jsonschema.FormatChecker())
     assert out['evidence_cutoff'] == out['as_of']
 

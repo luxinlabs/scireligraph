@@ -66,6 +66,10 @@ for e in ('0.25', '0.5', '0.75'):
     put(f'buWeakRisk{k}', pct(BU['tools']['weak']['budgets'][e]['risk']))
 put('rfBoneCi', f"[{RF['B1_auroc_ci'][0]:.2f}, {RF['B1_auroc_ci'][1]:.2f}]"); put('rfBoneGt', pct(RF['B1_auroc_gt_05_share']))
 put('rfMtwoBoneCi', f"[{RF['M2_minus_B1_auroc_ci'][0]:+.3f}, {RF['M2_minus_B1_auroc_ci'][1]:+.3f}]".replace('-', '$-$'))
+import pandas as _pd
+_c = _pd.read_csv(ROOT / 'data/processed/claims.csv').set_index('claim_id'); _r = _pd.read_csv(ROOT / 'data/processed/registration_dates.csv').set_index('claim_id')
+_s = _pd.to_datetime(_c.launch_date.reindex(_r.index)); _g = _pd.to_datetime(_r.reg_date); _ok = _s.notna()
+put('regAfterStart', pct((_g[_ok] > _s[_ok]).mean(), 1)); put('regLagDays', f"{(_g[_ok] - _s[_ok]).dt.days.median():.0f}")
 (T / 'r6_numbers.tex').write_text(''.join(f'\\newcommand{{\\{k}}}{{{v}}}\n' for k, v in N.items()))
 
 # figure: risk-coverage with agent operating points
