@@ -215,10 +215,19 @@ show['drivers'] = pub['drivers'][:1]
 show['provenance'] = {'archive_sha256': pub['provenance']['archive_sha256'][:12] + '...', 'model_config': pub['provenance']['model_config']}
 show['advice'] = pub['advice']
 refused = smoke['publication@2023-01-01']
-def compact(o, per=3):
-    items = [f'"{k}": {json.dumps(v)}' for k, v in o.items()]
-    rows = [', '.join(items[i:i + per]) for i in range(0, len(items), per)]
-    return '{' + ',\n '.join(rows) + '}'
+def compact(o, width=59):
+    """Wrap the real JSON response to the column width, breaking after commas (or at spaces inside long strings)."""
+    text, lines = json.dumps(o), []
+    while len(text) > width:
+        cut = text.rfind(', ', 0, width)
+        cut = cut + 1 if cut > 0 else text.rfind(' ', 0, width)
+        lines.append(text[:cut].rstrip()); text = '  ' + text[cut:].lstrip()
+    lines.append(text)
+    for i in range(1, len(lines)):  # avoid orphaned words: pull the previous line's last two words down
+        if len(lines[i].strip()) < 12 and not lines[i - 1].rstrip().endswith(','):
+            head, tail = lines[i - 1].rsplit(' ', 2)[0], ' '.join(lines[i - 1].rsplit(' ', 2)[1:])
+            lines[i - 1], lines[i] = head, '  ' + tail + ' ' + lines[i].strip()
+    return '\n'.join(lines)
 (OUT / 'tool_output.txt').write_text('// verify_claim("Ej3y_single-trace", as_of="2018-12-31")\n' + compact(show)
                                      + '\n// same claim, as_of="2023-01-01"\n' + compact(refused) + '\n')
 print(len(N), 'macros written')
