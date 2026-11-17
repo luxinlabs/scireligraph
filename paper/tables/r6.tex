@@ -1,9 +1,0 @@
-\begin{table}[t]\centering\caption{Pre-specified R6 validation (scenario A, 274 claims; wrong = wrong automatic decisions). \emph{R6}: wordings v2--v4 under two system prompts (Opus: one), worst cell shown. \emph{Decision-ready}: a synthetic verifier (AUROC 0.88) whose v3 output licenses accept/reject for confident scores; \emph{out}: share of unlicensed claims decided automatically; \emph{agree}: decisions consistent with the licence. Under the R6 contract all agents err on 4.7\% of claims, the error rate of the licensed claims, fixed by the tool.}\label{tab:r6}
-\footnotesize\setlength{\tabcolsep}{2.5pt}\begin{tabular}{@{}lccccc@{}}\toprule
- & Orig. & R6 & \multicolumn{3}{c}{Decision-ready tool} \\ \cmidrule(l){4-6}
-Agent & wrong & esc./wrong & bare: out & R6: out & R6: agree \\ \midrule
-GPT-5.4 mini & 3.6\% & 100\%/0.0\% & 78\% & 4\% & 98\% \\
-GPT-6.1 sol & 0.0\% & 100\%/0.0\% & 67\% & 0\% & 100\% \\
-Haiku 4.5 & 54.0\% & 100\%/0.0\% & 76\% & 4\% & 98\% \\
-Opus 5.5 & 0.0\% & 100\%/0.0\% & 64\% & 0\% & 100\% \\
-\bottomrule\end{tabular}\end{table}

@@ -19,4 +19,4 @@ each record carries the prompt hash, model, request parameters, raw response, pa
 - **Incomplete for the Claude models:** 3 pilot claims each, plus 240 Haiku 4.5 calls that failed on an API credit
   limit. These files are not used for any reported result.
 
-Reproduce the summaries with `python src/r1_followup.py analyse`.
+Validation and the results reported in the paper: `python src/followup.py` (see `ANALYSIS.md`).

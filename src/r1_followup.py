@@ -175,6 +175,7 @@ def analyse():
     agent_cost = sum(r.get('cost_usd', 0) for m in MODELS for r in load(AGENT_OUT / f'{m}.jsonl', 'A_'))
     N['rrCost'] = f'{agent_cost:.2f}'; N['sjCost'] = f"{sum(j['cost_usd'] for j in out['judges'].values()):.2f}"
     (ROOT / 'results/r1_followup.json').write_text(json.dumps(out, indent=1))
+    (ROOT / 'paper/tables').mkdir(parents=True, exist_ok=True)
     (ROOT / 'paper/tables/r1_numbers.tex').write_text(''.join(f'\\newcommand{{\\{k}}}{{{v}}}\n' for k, v in N.items()))
     print(json.dumps(out, indent=1)[:4000])
 

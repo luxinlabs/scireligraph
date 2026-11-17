@@ -1,4 +1,4 @@
-# Reviewer follow-up incorporated into the camera-ready paper
+# Reviewer follow-up analysis (`src/followup.py`)
 
 The camera-ready paper now reports the cached follow-ups for Reviewer 1 W3
 (repeated agent decisions) and W5 (stronger judge settings), also relevant to
@@ -10,17 +10,15 @@ pre-specified R6 wording study. No new API calls were made during this revision.
 From the submission-package directory, run:
 
 ```sh
-python3 paper/camera-ready/analysis/followup.py
+python src/followup.py
 ```
 
 The script requires NumPy and scikit-learn. It reads the original caches in
 `results/agent/` and `results/llm/`, the repeats in `results/repeats/`, and
-`data/processed/claims.csv`. It writes only this folder's `followup_summary.json`
-and the three `tables/followup_*.tex` files in the camera-ready directory.
+`data/processed/claims.csv`. It writes `results/followup_summary.json`
+and the three LaTeX tables `paper/tables/followup_*.tex` (not tracked).
 The JSON records SHA-256 hashes of every input, individual-run results, claim
-subsets, coverage, costs, and paper-clustered bootstrap intervals. Compile
-`camera-ready/main.tex` from its directory using the existing IEEE class and
-bibliography. The original result tables and caches are unchanged.
+subsets, coverage, costs, and paper-clustered bootstrap intervals. The original result tables and caches are unchanged.
 
 The validation checks successful-cache uniqueness, distinct response IDs,
 returned model names, paper/claim alignment, raw JSON versus cached parses,
@@ -86,7 +84,7 @@ remains incomplete. No aggregate inference is drawn from the three-claim pilots.
 | R2 M3 / R3 C4: additional tool/domain | Claims scoped; no second tool evaluated. |
 
 This analysis is the evidence source for the camera-ready follow-up tables.
-`tables/r1_numbers.tex` (from `src/r1_followup.py analyse`) is not included by
-the manuscript; it reports judge results only for models with complete runs.
-Use `tables/followup_numbers.tex` instead. The additional caches are public in
+`src/r1_followup.py analyse` gives a simpler summary (`results/r1_followup.json`)
+that reports judge results only for models with complete runs; the paper uses
+`src/followup.py`. The additional caches are public in
 `results/repeats/` (see its README).

@@ -7,8 +7,5 @@ __pycache__/
 data/raw/
 data/openalex/
 results/llm_pilot/
-paper/*.aux
-paper/*.log
-paper/*.out
-paper/*.blg
+paper/
 .DS_Store

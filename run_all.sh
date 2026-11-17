@@ -17,4 +17,5 @@ step mcp_smoke;          rm -f results/audit_log.jsonl; $PY src/mcp_smoke.py
 step refit_bootstrap;    $PY src/refit_bootstrap.py
 step budget_analysis;    $PY src/budget_analysis.py   # uses cached agent/R6 responses
 step tables_numbers_figs; $PY src/make_figures.py && $PY src/make_tables.py && $PY src/make_numbers.py && $PY src/make_r6.py
+step reviewer_followup; $PY src/followup.py && $PY src/r1_followup.py analyse   # cached repeat runs, no API calls
 step DONE
