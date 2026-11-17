@@ -139,8 +139,7 @@ def analyse():
         rj = [r['reject'] for r in res['contract_aware']['runs']]; N[f'rr{t}CRejMin'], N[f'rr{t}CRejMax'] = pct(min(rj)), pct(max(rj))
     N['rrRuns'] = str(REPS + 1)
     # ---------- W5: stronger judges ----------
-    from llm_prompts import records
-    order = [r['claim_id'] for r in records()]
+    order = list(claims.index)  # claim order from the processed dataset; no raw SCORE download needed
     for m in MODELS:
         base = {r['claim_id']: r['parsed']['p_replicate'] for r in load(ROOT / 'results/llm' / f'{m}.jsonl', 'forecast_id')
                 if r['condition'] == 'forecast_id'}
@@ -150,6 +149,9 @@ def analyse():
         S = pd.DataFrame([(r['claim_id'], r['condition'], r['parsed']['p_replicate']) for r in st], columns=['c', 'k', 'p'])
         P = S.pivot_table(index='c', columns='k', values='p').reindex(order).dropna()
         ids = list(P.index.intersection(list(base)))
+        if len(ids) < len(claims):  # incomplete runs (e.g. the three-claim Claude pilots) are not reported
+            out['judges_incomplete'] = {**out.get('judges_incomplete', {}), m: len(ids)}
+            continue
         yy, gg = y.loc[ids].values, grp.loc[ids].values
         p_low, p_s1, p_avg = np.array([base[c] for c in ids]), P.loc[ids].iloc[:, 0].values, P.loc[ids].mean(1).values
         auc = lambda p, s=None: roc_auc_score(yy[s], p[s]) if s is not None else roc_auc_score(yy, p)

@@ -142,7 +142,7 @@ if LS.exists():
     Lj = json.loads(LS.read_text())
     RC = json.loads((R / 'llm_recalibration.json').read_text()) if (R / 'llm_recalibration.json').exists() else {}
     MODEL_LAB = {'gpt-5.4-mini-2026-03-17': r'GPT-5.4 mini (2025-08)', 'gpt-6.1-sol': r'GPT-6.1 sol (2026-04)', 'claude-haiku-4-5-20251001': r'Claude Haiku 4.5 (2025-07)', 'claude-opus-5-5': r'Claude Opus 5.5 (2026-06)'}
-    L = [r'\begin{table*}[t]\centering\caption{LLM judges on the same claims (dates: vendor-stated training-data cutoffs). $\Delta$ vs.\ B1 on identical resamples. Brier (Platt): after in-fold Platt scaling. Probe: share claiming the paper was replicated in SCORE, for real papers vs.\ never-replicated decoys, and accuracy of named outcomes vs.\ the majority outcome.}\label{tab:llm}',
+    L = [r'\begin{table*}[t]\centering\caption{LLM judges on the same claims (dates: vendor-stated training-data cutoffs). B1 uses seed-averaged predictions; Table~\ref{tab:main} averages metrics over runs. $\Delta$ vs.\ B1 on identical resamples. Brier (Platt): after in-fold Platt scaling. Probe: share claiming the paper was replicated in SCORE, for real papers vs.\ never-replicated decoys, and accuracy of named outcomes vs.\ the majority outcome.}\label{tab:llm}',
          r'\footnotesize\setlength{\tabcolsep}{4pt}\begin{tabular}{@{}llccccccc@{}}\toprule',
          r'Model & Input & AUROC & 95\% CI & $\Delta$AUROC vs.\ B1 & 95\% CI & Brier & Brier (Platt) & Top-10\% acc. ' + BS + r'\midrule']
     for m, res in Lj.items():
@@ -195,7 +195,7 @@ if AGS.exists():
 if AGS.exists():
     ag = json.loads(AGS.read_text())
     if all('no_tool' in ag[m]['A'] and 'placebo' in ag[m]['A'] for m in ORDER if m in ag):
-        L = [r"\begin{table}[t]\centering\caption{Control arms, scenario~A: escalated / wrong. \emph{Unavailable}: a note that the tool output is unavailable; \emph{placebo}: \textnormal{\texttt{p\_replicate}} plus ``this estimate is uncertain''.}\label{tab:controls}",
+        L = [r"\begin{table}[t]\centering\caption{Control arms, scenario~A: escalated / wrong. \textnormal{\textit{Unavailable}}: a note that the tool output is unavailable; \textnormal{\textit{placebo}}: \textnormal{\texttt{p\_replicate}} plus ``this estimate is uncertain''.}\label{tab:controls}",
              r'\scriptsize\setlength{\tabcolsep}{3pt}\begin{tabular}{@{}lcccc@{}}\toprule',
              r'Agent & Unavailable & Placebo & Unprotected & Contract ' + BS + r'\midrule']
         f = lambda x: f"{100 * x['escalate']:.0f}\\% / {100 * x['auto_error']:.1f}\\%"

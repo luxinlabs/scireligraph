@@ -35,9 +35,9 @@ for m, name, tag in MODELS:
     C = R6[m]['comprehension']
     put(f'cq{tag}SelRep', pct(1 - C['CA_v1']['q3'])); put(f'cq{tag}SelRepVfour', pct(1 - C['CA_v4']['q3']))
 
-L = [r"\begin{table}[t]\centering\caption{Pre-specified R6 validation (scenario A). \emph{R6}: wordings v2--v4 under two prompts (Opus: one), worst cell. "
-     r"\emph{Decision-ready}: synthetic verifier (AUROC " + f"{BU['synthetic_tool']['auroc']:.2f}" + r"); \emph{out}: share of unlicensed claims decided automatically; "
-     r"\emph{agree}: decisions consistent with the licence.}\label{tab:r6}",
+L = [r"\begin{table}[t]\centering\caption{Pre-specified R6 validation (scenario A). \textnormal{\textit{R6}}: wordings v2--v4 under two prompts (Opus: one), worst cell. "
+     r"\textnormal{\textit{Decision-ready}}: synthetic verifier (AUROC " + f"{BU['synthetic_tool']['auroc']:.2f}" + r"); \textnormal{\textit{out}}: share of unlicensed claims decided automatically; "
+     r"\textnormal{\textit{agree}}: decisions consistent with the licence.}\label{tab:r6}",
      r"\footnotesize\setlength{\tabcolsep}{2.5pt}\begin{tabular}{@{}lccccc@{}}\toprule",
      r" & Orig. & R6 & \multicolumn{3}{c}{Decision-ready tool} \\ \cmidrule(l){4-6}",
      r"Agent & wrong & esc./wrong & bare: out & R6: out & R6: agree \\ \midrule", *rows, r"\bottomrule\end{tabular}\end{table}"]
