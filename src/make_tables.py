@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Emit LaTeX tables for the paper directly from results/ (no hand-copied numbers)."""
 import json
+import re
 from pathlib import Path
 import pandas as pd
 
@@ -11,7 +12,9 @@ BS = r'\\'
 
 
 def write(name, lines):
-    (O / f'{name}.tex').write_text('\n'.join(lines) + '\n')
+    # typeset negative numbers with a true minus sign (not a hyphen), matching the running text
+    text = re.sub(r'(?<=[\s\[(])-(?=\d)', '$-$', '\n'.join(lines))
+    (O / f'{name}.tex').write_text(text + '\n')
 
 
 # ---------------- Table: main results ----------------
@@ -27,7 +30,7 @@ SHORT = {k: i for k, i, _, _ in ROWS} | {'G-only Graph + dependency (no metadata
                                         'NC M2 with permuted graph (negative control)': 'NC',
                                         'LG-only Graph, NO cutoff (leaky)': r'G$_\infty$'}
 b0 = M['B0 Prevalence']['mean']['brier']
-L = [r"\begin{table*}[t]\centering\caption{Out-of-fold forecasting performance on 274 SCORE claims (164 papers). AUROC: mean$\pm$SD over 20 repetitions of paper-grouped 5-fold CV, with paper-clustered bootstrap 95\% CI of the seed-averaged predictions. Brier: mean over repetitions (lower is better). BSS: Brier skill score vs.\ B0. Cutoff ``regist.'': uses the design registered after the replication started; ``post'': information available only after data collection (leakage illustration). Selected configurations; all others (GBT, text-only, graph-only, permuted, launch-cutoff M2) are in the artifact.}\label{tab:main}",
+L = [r"\begin{table*}[t]\centering\caption{Out-of-fold forecasting on 274 SCORE claims (IDs: Table~\ref{tab:gloss}). AUROC: mean$\pm$SD over 20 repetitions of paper-grouped 5-fold CV; paper-clustered bootstrap 95\% CI. Brier: lower is better; BSS: Brier skill vs.\ B0. Other configurations are in the artifact.}\label{tab:main}",
      r'\footnotesize\setlength{\tabcolsep}{6pt}\begin{tabular}{@{}llccccc@{}}\toprule',
      r'ID & Features & Cutoff & AUROC & 95\% CI & Brier & BSS ' + BS + r'\midrule']
 for k, i, d, c in ROWS:
@@ -123,7 +126,7 @@ TESTS = [('test_r1_future_evidence_is_invisible', 'R1', 'Metamorphic: citing wor
          ('test_r4_output_is_decision_relevant', 'R4', 'Base rate equals training prevalence; weak-signal advice when selective test fails'),
          ('test_r5_every_call_is_audited', 'R5', 'Each call appends an audit record with provenance hashes')]
 MUT = [('leaky_cutoff', 'leaky'), ('no_leave_paper_out', 'no-LPO'), ('no_stage_gating', 'no-gate'), ('no_refusal', 'no-refuse'), ('no_audit', 'no-audit')]
-L = [r'\begin{table*}[t]\centering\caption{Contract tests for the verifier tool and mutation analysis. Each mutant removes one guarantee from the implementation; $\times$ marks the tests that fail (kill the mutant). The unmodified verifier passes all %s.}\label{tab:contract}' % MU['original']['summary'].split(' in ')[0].replace('passed', 'tests'),
+L = [r'\begin{table*}[t]\centering\caption{Contract tests and hand-written mutants. Each mutant removes one guarantee; $\times$: the test fails (kills the mutant). The unmodified verifier passes all %s.}\label{tab:contract}' % MU['original']['summary'].split(' in ')[0].replace('passed', 'tests'),
      r'\footnotesize\setlength{\tabcolsep}{4pt}\begin{tabular}{@{}lp{0.52\textwidth}' + 'c' * len(MUT) + r'@{}}\toprule',
      'Req. & Contract test & ' + ' & '.join(l for _, l in MUT) + ' ' + BS + r'\midrule']
 for t, req, desc in TESTS:
@@ -139,7 +142,7 @@ if LS.exists():
     Lj = json.loads(LS.read_text())
     RC = json.loads((R / 'llm_recalibration.json').read_text()) if (R / 'llm_recalibration.json').exists() else {}
     MODEL_LAB = {'gpt-5.4-mini-2026-03-17': r'GPT-5.4 mini (2025-08)', 'gpt-6.1-sol': r'GPT-6.1 sol (2026-04)', 'claude-haiku-4-5-20251001': r'Claude Haiku 4.5 (2025-07)', 'claude-opus-5-5': r'Claude Opus 5.5 (2026-06)'}
-    L = [r'\begin{table*}[t]\centering\caption{LLM-as-judge verifiers on the same claims. \emph{Identified}: title, citation, abstract and original statistics; \emph{de-identified}: field and original statistics only. AUROC with paper-clustered 95\% CI; $\Delta$ vs.\ B1 on identical claims and resamples. Probe: share answering that the paper was replicated in SCORE (\emph{aware}) for real SCORE papers vs.\ journal-matched decoys that were never replicated, and accuracy of named outcomes (counted whenever an outcome is named, regardless of stated awareness) vs.\ the majority-outcome baseline on the same claims. Brier (Platt): after Platt scaling fitted on training folds only (paper-grouped CV, 20 repetitions). B1 here is scored on its seed-averaged predictions, so its Brier differs slightly from the per-seed mean in Table~\ref{tab:main}.}\label{tab:llm}',
+    L = [r'\begin{table*}[t]\centering\caption{LLM judges on the same claims (dates: vendor-stated training-data cutoffs). $\Delta$ vs.\ B1 on identical resamples. Brier (Platt): after in-fold Platt scaling. Probe: share claiming the paper was replicated in SCORE, for real papers vs.\ never-replicated decoys, and accuracy of named outcomes vs.\ the majority outcome.}\label{tab:llm}',
          r'\footnotesize\setlength{\tabcolsep}{4pt}\begin{tabular}{@{}llccccccc@{}}\toprule',
          r'Model & Input & AUROC & 95\% CI & $\Delta$AUROC vs.\ B1 & 95\% CI & Brier & Brier (Platt) & Top-10\% acc. ' + BS + r'\midrule']
     for m, res in Lj.items():
@@ -169,7 +172,7 @@ if AGS.exists():
     ag = json.loads(AGS.read_text())
     ORDER = ['gpt-5.4-mini-2026-03-17', 'gpt-6.1-sol', 'claude-haiku-4-5-20251001', 'claude-opus-5-5']
     LAB = {'gpt-5.4-mini-2026-03-17': 'GPT-5.4 mini', 'gpt-6.1-sol': 'GPT-6.1 sol', 'claude-haiku-4-5-20251001': 'Claude Haiku 4.5', 'claude-opus-5-5': 'Claude Opus 5.5'}
-    L = [r"\begin{table}[t]\centering\caption{Agent-in-the-loop triage on identical claims (scenario A: 274 valid queries; B: 259 post-launch queries, where the unprotected tool silently returns a no-cutoff prediction and the contract-aware tool refuses). U: agent sees only \textnormal{\texttt{p\_replicate}}; C: full contract output. Wrong auto = accepted non-replicating plus rejected replicating claims, as a share of all claims; $\Delta$ = C$-$U with paper-clustered 95\% CI. Revised wordings: Table~\ref{tab:r6}.}\label{tab:agent}",
+    L = [r"\begin{table}[t]\centering\caption{Agent triage with the bare number (U) and the original contract output (C). Esc.: share escalated; wrong: wrong automatic decisions as a share of all claims; $\Delta$ = C$-$U with paper-clustered 95\% CI.}\label{tab:agent}",
          r'\scriptsize\setlength{\tabcolsep}{2pt}\begin{tabular}{@{}llccccc@{}}\toprule',
          r'& Agent & Esc.\ U & Esc.\ C & Wrong U & Wrong C & $\Delta$ wrong (pp) ' + BS + r'\midrule']
     for sc in 'AB':
@@ -192,7 +195,7 @@ if AGS.exists():
 if AGS.exists():
     ag = json.loads(AGS.read_text())
     if all('no_tool' in ag[m]['A'] and 'placebo' in ag[m]['A'] for m in ORDER if m in ag):
-        L = [r"\begin{table}[t]\centering\caption{Control arms for scenario~A (274 claims): share escalated / share of wrong automatic decisions. \emph{Unavailable}: the agent sees the claim and a note that the tool output is unavailable (a cue in itself). \emph{Placebo}: \textnormal{\texttt{p\_replicate}} plus a generic ``this estimate is uncertain'' note. \emph{Contract}: full \textnormal{\texttt{verify\_claim}} output. \emph{Always escalate} needs no model.}\label{tab:controls}",
+        L = [r"\begin{table}[t]\centering\caption{Control arms, scenario~A: escalated / wrong. \emph{Unavailable}: a note that the tool output is unavailable; \emph{placebo}: \textnormal{\texttt{p\_replicate}} plus ``this estimate is uncertain''.}\label{tab:controls}",
              r'\scriptsize\setlength{\tabcolsep}{3pt}\begin{tabular}{@{}lcccc@{}}\toprule',
              r'Agent & Unavailable & Placebo & Unprotected & Contract ' + BS + r'\midrule']
         f = lambda x: f"{100 * x['escalate']:.0f}\\% / {100 * x['auto_error']:.1f}\\%"

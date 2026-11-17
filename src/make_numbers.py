@@ -185,6 +185,10 @@ if AS.exists():
             dE, dS = S['diff_contract_minus_unprotected']['auto_error']['point'], S['diff_contract_minus_unprotected']['escalate']['point']
             if dS > 0 and dE < 0:
                 put(f'ag{tag}{sc}Breakeven', f2(-dE / dS))
+                # asymmetric-cost sensitivity: a false acceptance costs w wrong rejections (w = 5)
+                U_, C_ = S['unprotected'], S['contract_aware']
+                gain5 = 5 * (U_['unsafe_accept'] - C_['unsafe_accept']) + (U_['wrong_reject'] - C_['wrong_reject'])
+                put(f'ag{tag}{sc}BreakevenWfive', f2(gain5 / dS))
             if 'contract_aware_v2' in S:
                 put(f'ag{tag}{sc}Vtwo' + 'Esc', pct(S['contract_aware_v2']['escalate'])); put(f'ag{tag}{sc}Vtwo' + 'Err', pct(S['contract_aware_v2']['auto_error']))
             put(f'ag{tag}{sc}CRej', pct(S['contract_aware']['reject']))

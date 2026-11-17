@@ -35,10 +35,9 @@ for m, name, tag in MODELS:
     C = R6[m]['comprehension']
     put(f'cq{tag}SelRep', pct(1 - C['CA_v1']['q3'])); put(f'cq{tag}SelRepVfour', pct(1 - C['CA_v4']['q3']))
 
-L = [r"\begin{table}[t]\centering\caption{Pre-specified R6 validation (scenario A, 274 claims; wrong = wrong automatic decisions). "
-     r"\emph{R6}: wordings v2--v4 under two system prompts (Opus: one), worst cell shown. "
-     r"\emph{Decision-ready}: a synthetic verifier (AUROC " + f"{BU['synthetic_tool']['auroc']:.2f}" + r") whose v3 output licenses accept/reject for confident scores; "
-     r"\emph{out}: share of unlicensed claims decided automatically; \emph{agree}: decisions consistent with the licence. Under the R6 contract all agents err on 4.7\% of claims, the error rate of the licensed claims, fixed by the tool.}\label{tab:r6}",
+L = [r"\begin{table}[t]\centering\caption{Pre-specified R6 validation (scenario A). \emph{R6}: wordings v2--v4 under two prompts (Opus: one), worst cell. "
+     r"\emph{Decision-ready}: synthetic verifier (AUROC " + f"{BU['synthetic_tool']['auroc']:.2f}" + r"); \emph{out}: share of unlicensed claims decided automatically; "
+     r"\emph{agree}: decisions consistent with the licence.}\label{tab:r6}",
      r"\footnotesize\setlength{\tabcolsep}{2.5pt}\begin{tabular}{@{}lccccc@{}}\toprule",
      r" & Orig. & R6 & \multicolumn{3}{c}{Decision-ready tool} \\ \cmidrule(l){4-6}",
      r"Agent & wrong & esc./wrong & bare: out & R6: out & R6: agree \\ \midrule", *rows, r"\bottomrule\end{tabular}\end{table}"]
@@ -69,17 +68,18 @@ put('rfMtwoBoneCi', f"[{RF['M2_minus_B1_auroc_ci'][0]:+.3f}, {RF['M2_minus_B1_au
 import pandas as _pd
 _c = _pd.read_csv(ROOT / 'data/processed/claims.csv').set_index('claim_id'); _r = _pd.read_csv(ROOT / 'data/processed/registration_dates.csv').set_index('claim_id')
 _s = _pd.to_datetime(_c.launch_date.reindex(_r.index)); _g = _pd.to_datetime(_r.reg_date); _ok = _s.notna()
-put('regAfterStart', pct((_g[_ok] > _s[_ok]).mean(), 1)); put('regLagDays', f"{(_g[_ok] - _s[_ok]).dt.days.median():.0f}")
+put('regAfterStart', pct((_g[_ok] > _s[_ok]).mean(), 1)); put('regLagDays', f"{(_g[_ok] - _s[_ok]).dt.days.median():.0f}"); put('regN', str(int(_ok.sum()))); _d = (_g[_ok] - _s[_ok]).dt.days; put('regNAfter', str(int((_d > 0).sum()))); put('regNSame', str(int((_d == 0).sum()))); put('regNBefore', str(int((_d < 0).sum()))); put('regNUnknown', str(len(_c) - len(_r)))
 (T / 'r6_numbers.tex').write_text(''.join(f'\\newcommand{{\\{k}}}{{{v}}}\n' for k, v in N.items()))
 
 # figure: risk-coverage with agent operating points
 import matplotlib; matplotlib.use('Agg'); import matplotlib.pyplot as plt
-plt.rcParams.update({'font.size': 7, 'font.family': 'serif', 'pdf.fonttype': 42, 'ps.fonttype': 42})
+plt.rcParams.update({'font.size': 7, 'font.family': 'serif', 'font.serif': ['Times New Roman', 'Times'], 'mathtext.fontset': 'stix',
+                     'pdf.fonttype': 42, 'ps.fonttype': 42})
 fig, ax = plt.subplots(figsize=(3.4, 2.15))
 g = np.array(BU['grid'])
-for name, col, lab in (('weak', '#b2182b', 'real verifier (tool output)'), ('strong', '#2166ac', 'decision-ready (synthetic)')):
-    t = BU['tools'][name]
-    ax.plot(g, t['risk'], color=col, lw=1.2, label=lab); ax.fill_between(g, t['lo'], t['hi'], color=col, alpha=0.15, lw=0)
+for name, col, ls_, lab in (('weak', '#b2182b', '--', 'real verifier (tool output)'), ('strong', '#2166ac', '-', 'decision-ready (synthetic)')):
+    t = BU['tools'][name]  # dashed vs solid keeps the two tools distinguishable in grayscale
+    ax.plot(g, t['risk'], color=col, ls=ls_, lw=1.2, label=lab); ax.fill_between(g, t['lo'], t['hi'], color=col, alpha=0.15, lw=0)
 ax.axhline(BU['base_error'], color='grey', ls=':', lw=0.8); ax.text(0.50, BU['base_error'] + 0.012, 'majority-class error', color='grey', fontsize=6)
 mk = {'unprotected': ('o', 'bare number'), 'placebo': ('s', 'placebo'), 'contract_aware': ('^', 'contract (orig.)'),
       'bare': ('o', None), 'v3': ('D', 'R6 contract (v3)')}
